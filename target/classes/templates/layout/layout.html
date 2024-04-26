@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fraget="head">
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<link rel="shortcut icon" href="/img/IconoPestaña.jpg" />
+<title>TELEMARKETING</title>
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script	src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/user-form.css" th:href="@{/css/user-form.css}">
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="static/css/layout.css" th:href="@{/css/layout.css}">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script th:src="@{/js/combos.js}" type="text/javascript"></script>
+<script type="text/javascript">
+	    $(document).ready(function() {
+	        $('#userList').DataTable();
+	    } );
+</script>
+
+<script type="text/javascript">
+	    $(document).ready(function() {
+	    var table = $('#userList1').removeAttr('width').DataTable( {
+        scrollY:        "500px",
+        scrollX:        true,      
+        scrollCollapse: true,
+        paging:         false,
+        columnDefs: [
+            { width: 50, targets: 0 }
+        ],
+        fixedColumns: true
+    } );       
+	    } );
+</script>
+
+<script type="text/javascript">
+	    $(document).ready(function() {
+	        $('#userList').DataTable();
+	    } );
+</script>
+
+</head>
+	<body>
+		<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <a class="navbar-brand" th:href="@{/home/}" id="titulocss2">TELEMARKETING</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+			  <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+			    <ul class="navbar-nav">
+			    
+			   
+			      	   
+			    
+			      
+			      
+			      
+	
+			     	   
+			      
+			        
+			      
+			     
+			      
+			      
+			      
+			      <!-- GESTIÓN DE PARTIDAS -->
+			      
+			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          CERTIFICACION
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">			 
+			          <a class="dropdown-item" th:href="@{/certificacionaveria/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">CERTIFICACIONES AVERIAS</a>
+			          <a class="dropdown-item" th:href="@{/certificacionaveria/nuevoCertificacionaveria/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">REGISTRAR CERTIFICACION AVERIAS</a>
+			        </div>
+			      </li>	 
+			      
+			      	<li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_JEFEOBRA'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          CERTIFICACION DE TRABAJO
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" th:href="@{/certificacion/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">CERTIFICACIONES ALTAS</a>
+			          <a class="dropdown-item" th:href="@{/certificacion/nuevoCertificacion/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">REGISTRAR CERTIFICACION ALTAS</a>
+			          <a class="dropdown-item" th:href="@{/certificacionequipo/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">CERTIFICACIONES EQUIPOS</a>
+			          <a class="dropdown-item" th:href="@{/certificacionequipo/nuevoCertificacion/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">REGISTRAR CERTIFICACION EQUIPOS</a>
+			      <!--    
+			          <a class="dropdown-item" th:href="@{/certificacionaveria/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">CERTIFICACIONES AVERIAS</a>			       		        
+			          <a class="dropdown-item" th:href="@{/certificacionaveria/nuevoCertificacionaveria/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">REGISTRAR CERTIFICACION AVERIAS</a>
+			      -->
+			       </div>
+			      </li>	 
+			      
+			     
+			      
+			      
+			      	   
+			       <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_SOPORTE'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          CERTIFICACION
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			           <a class="dropdown-item" th:href="@{/busqueda/}" th:disabled="${disableFields}">BUSQUEDA DE CERTIFICACIONES AVERIAS</a>
+			          <a class="dropdown-item" th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partida/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE CATEGORIAS DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/tipobaremo/}" th:disabled="${disableFields}">TIPOS DE BAREMO</a>
+			          <a class="dropdown-item" th:href="@{/tipobaremo/nuevoTipobaremo}" th:disabled="${disableFields}">REGISTRO DE TIPOS DE BAREMO</a>
+			          <a class="dropdown-item" th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a>
+			        </div>
+			      </li>	   
+			      
+			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_JEFEOBRA'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          CERTIFICACION REPORTE
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			    <!--      <a class="dropdown-item" th:href="@{/busqueda/}" th:disabled="${disableFields}">BUSQUEDA DE CERTIFICACIONES AVERIAS</a>
+			          <a class="dropdown-item" th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partida/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE CATEGORIAS DE PARTIDAS</a>			          
+			          <a class="dropdown-item" th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a>-->
+					  <a class="dropdown-item" th:href="@{/trabajo/reporte/partidas}" th:disabled="${disableFields}">CERTIFICACION DE TRABAJO - REPORTE</a>
+			       	  <a class="dropdown-item" th:href="@{/certificacionequipo/reporte/partidas}" th:disabled="${disableFields}">CERTIFICACION DE EQUIPO - REPORTE</a>		       
+			        </div>
+			      </li>	   	
+			        
+			      	   
+			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          CERTIFICACION
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			         
+			          <a class="dropdown-item" th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partida/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE CATEGORIAS DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/tipobaremo/}" th:disabled="${disableFields}">TIPOS DE BAREMO</a>
+			          <a class="dropdown-item" th:href="@{/tipobaremo/nuevoTipobaremo}" th:disabled="${disableFields}">REGISTRO DE TIPOS DE BAREMO</a>
+			          <a class="dropdown-item" th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a>
+ 					  
+			       			       		
+			        </div>
+			      </li>	   
+			    
+			      
+			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          AVERIAS
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" th:href="@{/averiasportecnico/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">LISTA DE AVERIAS</a>			            
+			        </div>
+			      </li>	
+			      
+			      
+			      
+			      		
+			      			       	   
+			      
+			       <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          AVERIAS
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" th:href="@{/averias/}" th:disabled="${disableFields}">LISTA DE AVERIAS</a>
+			          <a class="dropdown-item" th:href="@{/averias1/}">LISTAR HISTORIAL</a>        
+			          <a class="dropdown-item" th:href="@{/averias/reporte}">REPORTE DE AVERIAS</a>        
+			        </div>
+			      </li>	
+			      
+			      
+			      
+			      
+			        
+			      	   
+			    
+			    
+			    
+			      
+			      
+			      
+			      
+			      
+			    
+			    
+			      
+			    <!-- GESTIÓN DE USUARIOS -->
+			    
+			    <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_SOPORTE'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+			          GESTION DE USUARIOS
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="nav-link" th:href="@{/userForm}">USUARIOS</a>
+			        </div>
+			      </li>
+			    
+			    <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+			          GESTION DE USUARIOS
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="nav-link" th:href="@{/userForm}">USUARIOS</a>
+			        </div>
+			      </li>
+			           
+				<!-- NOMBRE DE USUARIO CONECTADO -->
+			      
+			      <li class="nav-item">
+					<a th:text="${#authentication.getPrincipal().getUsername()}" class="nav-link disabled" id="username2"></a>
+				  </li>
+				  
+				<!-- CERRAR SESIÓN -->
+				  
+			      <li class="nav-item">
+			        <a class="nav-link" href="#" th:href="@{/logout}"><span>  CERRAR SESIÓN &nbsp </span> <span class="float-right"><i class="fas fa-sign-out-alt"> </i></span></a>
+			      </li>  
+			    </ul>  
+			  </div>
+			</nav>
+			
+			<div class="alert alert-success alert-dismissable" th:if="${success !=
+			null}">
+				<label th:text="${success}"></label>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+			</div>
+			<div class="alert alert-danger alert-dismissable" th:if="${error != null}">
+				<label th:text="${error}"></label>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+			</div>
+			
+			</header>
+			
+			
+			
+			<footer th:fragment="footer" class="bg-light text-right text-black fixed-bottom">
+				<div class="footer-copyright text-center py-3">© 2020 Copyright:
+					<a onclick="accion()">  Developers</a>
+					<!--<input type="date" id="fechaActual" value="" readonly="readonly">-->
+				</div>
+			</footer>		
+		
+	</body>
+	
+</html>

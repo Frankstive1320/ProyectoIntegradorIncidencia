@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+<header th:replace="layout/layout :: header"></header><br><br><br>
+		
+<form th:action="@{/materialliquidar/exportar}" th:object=${averias} method="get" id="formVenta">
+			
+			<main class="container">
+			<section class="card">
+				<br>
+				<div class="card-header">
+				<h3>REPORTE DE MATERIAL LIQUIDAR</h3>
+				</div>
+				<div class="card-body">
+					<label>DESDE</label><input th:field="*{fechaparafinalizar}" id="fechaingreso" type="date" class="form-control" required="required"/><br>
+					<label>HASTA</label><input th:field="*{fechafinalizacion}" id="fechaingreso2" type="date" class="form-control" required="required"><br>
+					<label>CONTRATAS</label><select th:field="*{contrata}" id="cboContrata" class="form-control">
+						<option value="">SELECCIONE...</option>
+						<option th:each="users:${users}"
+						th:value="${users.username}"
+						th:text="${users.username}"
+						/>
+					</select>
+				</div>
+				<br>
+				<div class="card-footer">
+					<input type="submit" value="IMPRIMIR REPORTE" class="btn btn-primary">		
+					
+					<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+				</div>			
+				</section>
+				</main>
+		</form>
+		
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/combos.js}"></script>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

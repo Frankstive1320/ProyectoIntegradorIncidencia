@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<body> 
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<div class="container">
+		<h1>TRABAJO :</h1>
+			<main class="container">
+			
+			
+			<form  th:object=${equipo} id="formCategoria">
+			<section >
+			<div  class="input-group-append">
+									
+						<label style="margin-top: 5px">GRAFO:</label>&nbsp;
+						<input th:field="*{grafo}"  type="text" class="form-control text-center" readonly="readonly" >
+	
+						
+						<label style="margin-left: 20px; margin-top: 5px">SISEGO :</label>&nbsp;
+						<input th:field="*{sisego}"  type="text" class="form-control text-center" readonly="readonly"  >
+						
+						<label  style="margin-left: 20px; margin-top: 5px">CLIENTE :</label>&nbsp;
+						<input th:field="*{cliente}"  type="text" class="form-control text-center" readonly="readonly"  >
+						
+						<label  style="margin-left: 20px; margin-top: 5px">DEPARTAMENTO :</label>&nbsp;
+						<input th:field="*{departamento}"  type="text" class="form-control text-center" readonly="readonly"  >
+			</div>		
+					</section>
+			</form><br>
+			<form th:action="@{/certificacion/equipovisita/grabar}"  th:object=${visiteca}  method="post" id="formCategoria">
+				<section class="card">
+						
+						<div class="card-body">
+						
+						<h2>EDITAR VISITA</h2>
+						
+					<div class="form-group">
+						
+						<input th:field="*{visitaequipoid}"  id="vendedor11" hidden="hidden" class="form-control">
+					</div>	
+						
+					<div class="form-group" >																						
+					<select th:field="*{certificacion}" id="cboCategoria" class="form-control" required="required" hidden="hidden">
+					<option th:each="certificacion:${certificaciones}"
+					th:value="${certificacion.certificacionequipoid}"
+					th:text="${certificacion.certificacionequipofecha}"/>
+					</select>
+					</div>
+					
+					<div class="form-group">
+						<label>CONTRATA</label>
+						<select th:field="*{contrata}" id="cboCategoria" class="form-control">
+						<option value="">SELECCIONE...</option>
+						<option th:each="users:${users}"
+						th:value="${users.username}"
+						th:text="${users.username}"
+						/>
+					</select>
+					</div>	
+					
+					<div class="form-group">
+						<label>ESTADO</label>
+						<input th:field=*{estado} id="fechaActual" type="text" class="form-control" required="required">
+					</div>
+								
+					<div class="form-group">
+						<label>ACCION</label>
+						<input  th:field=*{accion}  id="fechaActual"  type="text" class="form-control">
+					</div>	
+												
+					<div class="form-group">
+						<label>FECHA</label>
+						<input  th:field="*{fecha}"  id="vendedor11" type="date" class="form-control">
+					</div>		
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="REGISTRAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			   </form><br>
+		</main>
+
+			<br><br><br>
+		</div>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

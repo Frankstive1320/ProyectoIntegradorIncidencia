@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<body> 
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<div class="container">
+		<h1>LISTADO DE CATEGORIAS</h1>
+			<a th:href="@{/subcategoria/nuevoSubcategoria}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
+			<br><br>
+			<div class="table-responsive">
+			<table id="userList" class="table table-light table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>NOMBRE</th>
+						<th>DESCRIPCION</th>
+						<th>CENTRO DE COSTO</th>
+						<th></th>
+					</tr>
+				</thead> 
+				<tbody>
+					<tr th:each="subcategoria:${subcategorias}">
+						<td th:text="${subcategoria.subcategorianombre}"></td>
+						<td th:text="${subcategoria.subcategoriadescripcion}"></td>
+						<td th:text="${subcategoria.categoria.categorianombre}"></td>
+						<td>
+							<a th:href="@{/subcategoria/editar/}+${subcategoria.subcategoriaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminarSub([[${subcategoria.subcategoriaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<br><br><br>
+		</div>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

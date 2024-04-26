@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+    <body>
+    <header th:replace="layout/layout :: header"></header>
+        <main class="container">
+            
+            <br>
+            
+            <div class="container">
+
+ 
+
+            <div class="row">
+              <div class="col-md-8 mb-5">
+              <h1>BIENVENIDO A TELEMARKETING</h1>
+              <br></br>
+                <h3>Quienes Somos</h3>
+                <hr>
+                <p style="font-family:arial">Nos definimos como una empresa ágil e innovadora, con un equipo que cuenta con años de experiencia en el sector de telecomunicaciones, </p>
+                <p style="font-family:arial"> lo que nos lleva a conocer mejor las necesidades de nuestros clientes, ofreciendo las mejores soluciones.</p>
+                <p style="font-family:arial">Esta cualidad es nuestro motor en la búsqueda de nuevos productos y servicios tecnológicos.</p>
+                <p style="font-family:arial">Somos responsables y cumplimos nuestro compromiso con todos los grupos de interés: socios, clientes, empleados, sociedad en general.</p>
+                <p style="font-family:arial"></p>
+              </div>
+              <div class="col-md-4 mb-5">
+                <h2>Contactanos</h2>
+                <hr>
+                <address>
+                  <strong>  </strong>
+                  <br>Calle Cerro Colorado 165 Urb. San Ignacio de Monterrico
+                  <br>Santiago de Surco - Lima - Perú
+                </address>
+                <address>
+                  <!--<abbr title="Phone">Tel.</abbr>
+                  (01)  <br> -->
+                  <abbr title="Phone">Cel.</abbr>
+                  (+51) 993010489
+                  <br>
+                  <abbr title="Email">Email</abbr>
+                  <a href="mailto:#">operaciones@telemarketing.pe</a>
+                  <br>
+                  <abbr title="Web">Web</abbr>
+                  <a>https://telemarketing.pe</a>
+                  <br>
+                  <hr> 
+                </address>
+              </div>
+            </div>
+            <!-- /.row -->
+        
+            <div class="row">
+              <div class="col-md-4 mb-5">
+                  <div class="card h-100">
+                  <img class="card-img-top" src="/img/descarga5.jpg" alt="">
+                </div>
+                </div>
+              </div>
+              <!--  <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                  <img class="card-img-top" src="/img/descarga6.jpg" alt="">
+                </div>
+              </div>
+              <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                   <img class="card-img-top" src="/img/images.jpg" alt="">
+                </div>
+              </div>
+            </div>-->
+            <!-- /.row -->
+        
+        	<!--<div class="row">
+              <div class="col-md-6 mb-6">
+              <br></br>
+                <h3>MisiÃ³n</h3>
+                <hr>
+                <p style="font-family:arial">KP, es una empresa comercial que nace con el fin de crear oportunidades de trabajo y contribuir en la economÃ­a del paÃ­s. Nuestro negocio se basa en la comercializaciÃ³n de los productos de la marca Movistar. </p>
+                <p style="font-family:arial">Sabemos que Tdp,  es una empresa lÃ­der en las telecomunicaciones y todos los productos que  su marca provee. Esta es nuestra principal ventaja en el mercado respecto a nuestros competidores.</p>
+                <!-- <p style="font-family:arial">Para nosotros no hay nada mÃ¡s importante que tÃº. Nos gusta estar cerca de ti, entender tus necesidades y acompaÃ±arte en tu vida digital, creando, protegiendo e impulsando las conexiones de la vida para que puedas elegir lo que verdaderamente es importante para ti en cada momento.</p> 
+              </div>
+              <div class="col-md-6 mb-6">
+              <br></br>
+                <h3>VisiÃ³n</h3>
+                <hr>
+                <p style="font-family:arial">Nuestro objetivo es crecer como empresa, pero no hacerlo desorganizada y empÃ­ricamente; sino con el compromiso de  todos los participantes  y  con la consigna de que el posicionamiento de KP es nuestro crecimiento y en conjunto contribuir al crecimiento de la economÃ­a del paÃ­s,  y a eso debemos apostar. â€œSomos un solo Enteâ€�.</p>
+                <!--<p style="font-family:arial">Sabemos que Tdp,  es una empresa lÃ­der en las telecomunicaciones y todos los productos que  su marca provee. Esta es nuestra principal ventaja en el mercado respecto a nuestros competidores.</p>
+                <!-- <p style="font-family:arial">Para nosotros no hay nada mÃ¡s importante que tÃº. Nos gusta estar cerca de ti, entender tus necesidades y acompaÃ±arte en tu vida digital, creando, protegiendo e impulsando las conexiones de la vida para que puedas elegir lo que verdaderamente es importante para ti en cada momento.</p>
+              </div>-->
+              
+        
+        </main>
+        <footer th:replace="layout/layout :: footer">
+        </footer>
+    </body>
+    <script type="text/javascript" th:src="@{/js/combos.js}"></script>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+	<script>
+	window.onload = function(){
+		var fecha = new Date(); //Fecha actual
+		  var mes = fecha.getMonth()+1; //obteniendo mes
+		  var dia = fecha.getDate(); //obteniendo dia
+		  var ano = fecha.getFullYear(); //obteniendo aÃ±o
+		  if(dia<10)
+	 	   dia='0'+dia; //agrega cero si el menor de 10
+		  if(mes<10)
+		    mes='0'+mes //agrega cero si el menor de 10
+		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;
+		  
+	}
+	</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/usuariocuadrilla/grabar}" th:object=${usuariocuadrilla} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>EDITOR DE USUARIOS POR CUADRILLA</h3>
+				
+				</div>
+					<div class="card-body">
+						<input th:field="*{usuariocuadrillaid}" id="txtcodigo" type="hidden" class="form-control" >
+					<div class="form-group">
+						<label>USUARIO</label>
+							<select th:field="*{username}" id="cboProductopost" class="form-control" required="required" >
+								<option value="">SELECCIONE...</option>
+								<option th:each="user:${users}"
+								th:value="${user.username}"
+								th:text="${user.firstName}+' '+${user.lastName}"
+								/>
+							</select>
+					</div>
+										
+					<div class="form-group">
+						<label>CUADRILLA</label>
+					<select th:field="*{cuadrilla}" id="cboCategoria" class="form-control">
+						<option value="">SELECCIONE...</option>
+						<option th:each="cuadrilla:${cuadrillas}"
+						th:value="${cuadrilla.cuadrillaid}"
+						th:text="${cuadrilla.nombrecuadrilla}"
+						/>
+					</select>
+					</div>
+					
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="GUARDAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

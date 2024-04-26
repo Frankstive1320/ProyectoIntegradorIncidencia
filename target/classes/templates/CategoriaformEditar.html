@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/categoria/grabar}" th:object=${categoria} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>EDITOR DE CENTRO DE COSTO</h3>
+				</div>
+					<div class="card-body">
+					<input th:field="*{categoriaid}" id="txtcodigo" type="hidden" class="form-control">
+					<div class="form-group">
+						<label>NOMBRE</label>
+						<input th:field="*{categorianombre}" id="txtnombre" type="text" class="form-control" required="required">
+					</div>
+					<div class="form-group">
+						<label>DESCRIPCION</label>
+						<input th:field="*{categoriadescripcion}" id="txtdescripcion" type="text" class="form-control">
+					</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="GUARDAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

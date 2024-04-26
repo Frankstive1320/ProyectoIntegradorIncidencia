@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<body> 
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<div class="container">
+		<h1>LISTADO DE CERTIFICACIONES - AVERIAS</h1>
+			<!-- <a th:href="@{/certificacionaveria/nuevoCertificacionaveria}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a> -->
+			<br><br>
+			<div class="table-responsive">
+			<table id="userList" class="table table-light table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>INC</th>
+						<th>SISEGO</th>						
+						<th>CLIENTE</th>
+						<th>CONTRATA</th>
+						<th>FECHA</th>
+						<th>DEPARTAMENTO</th>
+						<th>AGREGAR PARTIDA</th>
+						<th>DETALLE</th>
+					</tr>
+				</thead> 
+				<tbody>
+					<tr th:each="certificacionaveria:${certificacionaverias}">
+						<td th:text="${certificacionaveria.averia.inc}"></td>
+						<td th:text="${certificacionaveria.averia.sisego}"></td>
+						<td th:text="${certificacionaveria.averia.observaciones}"></td>
+						<td th:text="${certificacionaveria.averia.contrata}"></td>
+						<td th:text="${certificacionaveria.averia.fechafinalizacion}"></td>
+						<td th:text="${certificacionaveria.averia.departamento}"></td>
+						<td><a th:href="@{/partidacertificacionaveria/nuevoPartidacertificacionaveria/}+${certificacionaveria.certificacionaveriaid}" class="btn btn-link"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></td>
+						<td><a th:href="@{/partidacertificacionaveria/}+${certificacionaveria.certificacionaveriaid}" class="btn btn-link"><i class="fas fa-info fa-2x" aria-hidden="true"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<br><br><br>
+		</div>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

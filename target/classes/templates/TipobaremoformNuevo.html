@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/tipobaremo/grabar}" th:object=${tipobaremo} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>REGISTRO DE TIPOS DE BAREMOS</h3>
+				
+				</div>
+					<div class="card-body">
+					<div class="form-group">
+						<label>NOMBRE</label>
+						<input th:field="*{tipobaremonombre}" id="txtnombre" type="text" class="form-control" required="required">
+					</div>
+					
+					<div class="form-group">
+						<label>PRECIO LIMA</label>
+						<input th:field="*{tipobaremopreciolima}" id="txtdescripcion" type="number" step="0.0000000000000001" class="form-control" required="required">
+					</div>
+					
+					<div class="form-group">
+						<label>PRECIO PROVINCIA</label>
+						<input th:field="*{tipobaremoprecioprovincia}" id="txtdescripcion" type="number" step="0.0000000000000001" class="form-control" required="required">
+					</div>
+					
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="REGISTRAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<body> 
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<div class="container">
+		<h1 class="text-center">EQUIPO</h1>
+			<main class="container">
+			
+			
+			<form  th:object=${equipoliquidacion} id="formCategoria">
+			<section >
+			<div  class="input-group-append" style="margin-top: 20px">
+									
+						<label style="margin-top: 5px">GRAFO:</label>&nbsp;
+						<input th:field="*{grafo}"  type="text" class="form-control text-center" readonly="readonly" >
+	
+						
+						<label style="margin-left: 20px; margin-top: 5px">SISEGO :</label>&nbsp;
+						<input th:field="*{sisego}"  type="text" class="form-control text-center" readonly="readonly"  >
+						
+						<label  style="margin-left: 20px; margin-top: 5px">CLIENTE :</label>&nbsp;
+						<input th:field="*{cliente}"  type="text" class="form-control text-center" readonly="readonly"  >
+						
+						<label  style="margin-left: 20px; margin-top: 5px">DEPARTAMENTO :</label>&nbsp;
+						<input th:field="*{departamento}"  type="text" class="form-control text-center" readonly="readonly"  >
+			</div>		
+					</section>
+			</form><br>
+			<form th:action="@{/certificacion/equipovisita/grabar}"  th:object=${nuevaVisita}  method="post" id="formCategoria">
+				<section class="card">
+						
+			   <div class="card-body">
+						
+						<h2>REGISTRAR VISITA</h2>
+					<div class="form-group" >																						
+					<select th:field="*{certificacion}" id="cboCategoria" class="form-control" hidden="hidden"  required="required">
+					<option th:each="certificacion:${certificaciones}"
+					th:value="${certificacion.certificacionequipoid}"
+					th:text="${certificacion.certificacionequipobservacion}"/>
+					</select>
+					</div>
+					
+					<div class="form-group">
+					 <label>CONTRATA</label>
+					 <select th:field="*{contrata}" id="cboCategorias" class="form-control" required="required" readonly="readonly" >
+					<option th:each="equipoliquidacion:${equipoliquidacion}"
+					th:value="${equipoliquidacion.contrata}"  th:text="${equipoliquidacion.contrata}"/>					
+					</select>
+					</div>
+					
+					<div class="form-group">
+						<label>ESTADO</label>
+						<input th:name="estado" th:value="${equipoliquidacion.estado}" id="fechaActual" type="text" class="form-control" required="required">
+					</div>
+								
+					<div class="form-group">
+						<label>ACCION</label>
+						<input  th:name="accion" th:value="${equipoliquidacion.accion}"  type="text" class="form-control">
+					</div>	
+					
+					<div class="form-group">
+						<label>FECHA VISITA</label>
+						<input th:field="*{fecha}" id="fechaActual" type="date" class="form-control" required="required">
+					</div>
+									
+				</div>
+					<div class="card-footer">
+						<input type="submit" value="REGISTRAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			   </form><br>
+		</main>
+		<main class="container" >
+			<section class="card">
+			<div class ="card-footer">
+			<div class="table-responsive">
+			<h1>VISITAS</h1>
+			<table id="userList" class="table table-light table-bordered table-hover table-striped">
+				<thead>
+					<tr>		
+						<th>EDITAR VISITA</th>			
+						<th>FECHA VISITA</th>						
+						<th>CONTRATA</th>
+						<th>ESTADO</th>
+						<th>ACCION</th>												
+						<th>AGREGAR PARTIDA</th>
+						<th>ELIMINAR VISITA</th>						
+					</tr>					
+				</thead> 
+				<tbody>
+					<tr th:each="visita:${visitas}">
+						<td><a th:href="@{/certificacion/equipovisita/editar/}+${visita.visitaequipoid}"class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a></td>					
+						<td th:text="${visita.fecha}"></td>
+						<td th:text="${visita.contrata}"></td>
+						<td th:text="${visita.estado}"></td>
+						<td th:text="${visita.accion}"></td>
+						
+						<td><a th:href="@{/partidacertificacion/nuevopartidaequipo/}+${visita.visitaequipoid}"  class="btn btn-link"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></td>						
+						<td><a href="#" th:onclick="eliminarVisitaEquipo([[${visita.visitaequipoid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</div>
+			</section>
+			</main>
+			<br><br><br>
+		</div>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/averias/grabar}" th:object=${averias} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>REGISTRO DE AVERIA</h3>
+						
+				<br><br>
+				
+				</div>
+					<div class="card-body">		
+					
+					<div class="form-group">
+						<label>INC</label>
+						<input th:field="*{inc}" id="txtnombre" type="text" class="form-control" required="required">
+					</div>
+					
+					<div class="form-group">
+					<label>SISEGO</label>
+						<input th:field="*{sisego}" id="txtestado" type="text" class="form-control" required="required">
+					</div>
+								
+					<div class="form-group">
+						<label>ZONAL</label>
+						<input th:field="*{zonal}" id="vendedor11" type="text" class="form-control">
+					</div>			
+												
+					<div class="form-group">
+						<label>ZONIFICACION</label>						
+						
+						<select th:field="*{zonificacion}" class="form-control" required="required">
+						<option value="">--SELECCIONE--</option>
+						<option value="urbano">URBANO</option>
+						<option value="interurbano">INTERURBANO</option>
+						<option value="rural">RURAL</option>					
+						</select>
+					</div>
+					<div class="form-group">
+						<label>TECNICO</label>
+						<select th:field="*{contrata}" id="cboCategoria" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="users:${users}"
+						th:value="${users.username}"
+						th:text="${users.firstName}+' '+${users.lastName}"
+						/>
+					</select>
+					</div>										
+					<div class="form-group">
+						<label>TECNICO ASIGNADO</label>
+						<input th:field="*{tecnicoAsignado}" id="vendedor11" type="text" class="form-control">
+					</div>																									
+					<div class="form-group">
+						<label>FECHA DE ATENCION</label>
+						<input th:field="*{fechaAtencion}" id="vendedor11" type="date" class="form-control">
+					</div>		
+					
+					<div class="form-group">
+						<label>FECHA FINALIZACION</label>
+						<input th:field="*{fechafinalizacion}" id="fechaActual2" type="date" class="form-control">
+					</div>	
+					
+					<div class="form-group">
+						<label>TIPO DE AVERIA</label>												
+						<select th:field="*{tipoAveria}" class="form-control" required="required">
+						<option value="">--SELECCIONE--</option>
+						<option value="modem">MODEM</option>
+						<option value="umg">UMG</option>
+						<option value="router">ROUTER</option>					
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label>DIAGNOSTICO</label>
+						<input th:field="*{diagnostico}" id="vendedor11" type="text" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>PARADA DE RELOJ</label>
+						<select th:field="*{paradaReloj}" class="form-control" required="required">
+						<option value="-">--SELECCIONE--</option>
+						<option value="si">SI</option>
+						<option value="no">NO</option>										
+						</select>
+					</div>
+					<div class="form-group">
+						<label>ACCIONES CORRECTIVAS</label>
+						<input th:field="*{accionesCorrectivas}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+					<div class="form-group">
+						<label>ESTADO</label>
+						<select th:field = "*{estado}" id = "estatus" class="form-control" required="required">
+							<option value="">--SELECCIONE--</option>
+							<option value="EJECUTADO">EJECUTADO</option>
+							<option value="PENDIENTE">PENDIENTE</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>OBSERVACIONES</label>
+						<input th:field="*{cliente}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+					<div class="form-group" hidden="hidden">
+						<label>FECHA PARA FINALIZACION</label>
+						<input th:field="*{fechaparafinalizar}" id="fechaActual" type="date" class="form-control">
+					</div>	
+					
+					<div class="form-group">
+						<label>CLIENTE</label>
+						<input th:field="*{observaciones}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+						<div class="form-group">
+						<label>DIRECCION</label>
+						<input th:field="*{direccion}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+					<div class="form-group">
+						<label>DEPARTAMENTO</label>
+						<input th:field="*{departamento}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+					<div class="form-group">
+						<label>DISTRITO</label>
+						<input th:field="*{distrito}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+					<div class="form-group">
+						<label>RESPONSABLE</label>
+						<input th:field="*{responsable}" id="vendedor11" type="text" class="form-control">
+					</div>
+					
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" th:field="*{materiales}" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="CON MATERIALES">
+					  <label class="form-check-label" for="inlineRadio1">CON MATERIALES</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" th:field="*{materiales}" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="SIN MATERIALES">
+					  <label class="form-check-label" for="inlineRadio2">SIN MATERIALES</label>
+					</div>
+					
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="REGISTRAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+	<script type="text/javascript">
+	
+	$( document ).ready(function() {
+		var username = document.getElementById("username2").innerHTML;
+		document.getElementById("vendedor").value = username;
+		document.getElementById("vendedor").innerHTML = username;
+	});
+	
+	window.onload = function(){
+		  var fecha = new Date(); //Fecha actual
+		  var mes = fecha.getMonth()+1; //obteniendo mes
+		  var dia = fecha.getDate(); //obteniendo dia
+		  var ano = fecha.getFullYear(); //obteniendo año
+		  if(dia<10)
+		    dia='0'+dia; //agrega cero si el menor de 10
+		  if(mes<10)
+		    mes='0'+mes //agrega cero si el menor de 10
+		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;	  
+	}
+	</script>
+	
+</html>

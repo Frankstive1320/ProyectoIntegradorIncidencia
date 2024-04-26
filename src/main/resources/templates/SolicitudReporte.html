@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+
+<body>
+<header th:replace="layout/layout :: header"></header><br><br><br>
+
+<form th:action="@{/solicitud/export/all}" th:object=${solicitud} method="get" id="formVenta">
+
+	<div class="container">
+	
+		<section class="card">
+			<div class="card-header">
+				<h3>REPORTE GENERAL DE SOLICITUDES</h3>
+			</div>	
+			<br>
+			<div class="card-header">
+				<label>Descargar Reporte General de solicitudes Registradas</label>
+			</div>		
+			<br>
+		<!--<input type="text" class="form-control" th:name="estadoventa" th:value="estadoventa"/> -->
+			<div class="form-group">	
+				&nbsp&nbsp<a href="/solicitud/export/all" type="button"  class="btn btn-primary">IMPRIMIR REPORTE</a>
+			</div>
+			<br>
+		</section>
+	</div>
+	<br><br><br>
+</form>
+</body>
+<footer th:replace="layout/layout :: footer">
+</footer>
+</html>

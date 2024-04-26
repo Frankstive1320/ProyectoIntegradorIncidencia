@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/partidacertificacionaveria/grabar}" th:object=${partidacertificacionaveria} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>AGREGAR PARTIDA</h3>
+						
+				<br>
+				
+				</div>		
+						<div class="card-body">
+					<div class="form-group">
+						<label>PARTIDA</label>						
+						<select th:field="*{partida}" id="cboCategoria" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="partida:${partidas}"
+						th:value="${partida.partidaid}"
+						th:text="${partida.partidadescripcion}"
+						/>
+					</select>
+					</div>
+					<div class="form-group" hidden="hidden">
+						<label>CERTIFICACION</label>						
+						<select th:field="*{certificacionaveria}" id="cboCategoria" class="form-control" required="required">
+					<option th:each="certificacionaveria:${certificaciones}"
+					th:value="${certificacionaveria.certificacionaveriaid}"
+					th:text="${certificacionaveria.certificacionaveriaid}"
+					/>
+					
+				</select>
+					</div>
+					
+					<div class="form-group">
+						<label>OBSERVACION</label>
+						<input th:field="*{observacionPartidacertificacionaveria}" id="txtnombre" type="text" class="form-control" required="required">
+					</div>
+					
+					
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="AGREGAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelarEspecial2()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+	<script>
+	window.onload = function(){
+		  var fecha = new Date(); 
+		  var mes = fecha.getMonth()+1;
+		  var dia = fecha.getDate(); 
+		  var ano = fecha.getFullYear(); 
+		  if(dia<10)
+		    dia='0'+dia; 
+		  if(mes<10)
+		    mes='0'+mes ;
+		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;	  
+	}
+	
+
+	function cancelarEspecial2(){
+		
+		var username = document.getElementById("username2").innerHTML;
+		
+		window.location.href = "/certificacionaveria/" + username;
+	}
+	
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+	<body> 
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<div class="container">
+		<h1>LISTADO DE CENTROS DE COSTO</h1>
+			<a th:href="@{/categoria/nuevoCategoria}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
+			<br><br>
+			<div class="table-responsive">
+			<table id="userList" class="table table-light table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th>NOMBRE</th>
+						<th>DESCRIPCION</th>
+						<th></th>
+					</tr>
+				</thead> 
+				<tbody>
+					<tr th:each="categoria:${categorias}">
+						<td th:text="${categoria.categorianombre}"></td>
+						<td th:text="${categoria.categoriadescripcion}"></td>
+						<td>
+							<a th:href="@{/categoria/editar/}+${categoria.categoriaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminarCat([[${categoria.categoriaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<br><br><br>
+		</div>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>

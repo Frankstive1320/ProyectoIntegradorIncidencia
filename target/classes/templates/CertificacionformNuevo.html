@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/certificacion/grabar}" th:object=${certificacion} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>REGISTRO DE CERTIFICACION ALTAS</h3>
+						
+				<br>
+				
+				</div>		
+						<div class="card-body">
+					
+					<div class="form-group">
+						<label>ALTA</label>						
+						<select th:field="*{trabajo}" id="cboCategoria" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="trabajo:${trabajos}"
+						th:value="${trabajo.idtrabajo}"
+						th:text="'SISEGO: '+${trabajo.sisego}+' GRAFO: '+${trabajo.grafo}+' CLIENTE: '+${trabajo.cliente}"
+						/>
+					</select>
+					</div>
+										
+					<div class="form-group">
+						<label>FECHA</label>
+						<input th:field="*{certificacionfecha}" id="fechaActual" type="text" class="form-control" readonly="readonly">
+					</div>
+								
+					<div class="form-group">
+						<label>OBSERVACION</label>
+						<input th:field="*{certificacionobservacion}" id="vendedor11" type="text" class="form-control">
+					</div>		
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="REGISTRAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+	<script>
+	window.onload = function(){
+		  var fecha = new Date(); 
+		  var mes = fecha.getMonth()+1;
+		  var dia = fecha.getDate(); 
+		  var ano = fecha.getFullYear(); 
+		  if(dia<10)
+		    dia='0'+dia; 
+		  if(mes<10)
+		    mes='0'+mes ;
+		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;	  
+	}
+	</script>
+</html>

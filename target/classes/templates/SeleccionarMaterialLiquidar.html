@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+	<body>
+	<header th:replace="layout/layout :: header"></header>
+	<br>
+		<main class="container">
+			<form th:action="@{/materialliquidar/seleccionaracto}" th:object=${kit} method="post" id="formCategoria">
+				<section class="card">
+				<div class="card-header">
+				<h3>Seleccion Material liquidar</h3>
+				
+				</div>
+					<div class="card-body">
+					
+					
+					<div class="form-group">
+					<label>TIPO</label>	
+					<select th:field="*{empresa}" id="cboCategoria" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option value="EQUIPOS">EQUIPOS</option>
+						<option value="AVERIAS">AVERIAS</option>
+						<option value="ALTAS">ALTAS</option>
+					</select>					
+					</div>
+					
+					<div class="form-group">
+						<label>CONTRATA</label>						
+						<select th:field="*{contrata}" id="cboCategoria" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="users:${users}"
+						th:value="${users.username}"
+						th:text="${users.username}"
+						/>
+					</select>
+					</div>
+												
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="BUSCAR" class="btn btn-primary">
+						
+						<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+					</div>
+				</section>
+			</form><br><br><br>
+		</main>
+		<footer th:replace="layout/layout :: footer">
+		</footer>
+	</body>
+	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+	var username = document.getElementById("username2").innerHTML;
+		document.getElementById("vendedor").value = username;
+		document.getElementById("vendedor").innerHTML = username;
+	});
+	
+	window.onload = function(){
+		  var fecha = new Date(); //Fecha actual
+		  var mes = fecha.getMonth()+1; //obteniendo mes
+		  var dia = fecha.getDate(); //obteniendo dia
+		  var ano = fecha.getFullYear(); //obteniendo año
+		  if(dia<10)
+		    dia='0'+dia; //agrega cero si el menor de 10
+		  if(mes<10)
+		    mes='0'+mes //agrega cero si el menor de 10
+		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;	  
+	}
+	</script>
+	
+</html>
