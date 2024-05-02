@@ -24,7 +24,7 @@ public interface IUser  extends CrudRepository<User, Integer>{
 			"SELECT * FROM user " 
 			+ "LEFT JOIN user_roles ON user_roles.user_id = user.id "
 			
-			+ "WHERE user_roles.role_id = 3  ", nativeQuery = true)
+			+ "WHERE user_roles.role_id = 2  ", nativeQuery = true)
 	public List<User> listarTecnico(); 
 		
 }
