@@ -8,7 +8,7 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>idat.edu.pe</groupId>
+	<groupId>utp.edu.pe</groupId>
 	<artifactId>ProyectoIntegral</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ProyectoIntegral</name>
