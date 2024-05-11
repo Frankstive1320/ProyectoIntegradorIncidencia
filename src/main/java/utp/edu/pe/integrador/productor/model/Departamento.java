@@ -19,15 +19,19 @@ public class Departamento {
 
     }
 
-    public Departamento(String nombreDepartamento, int idDepartamento, String estadoDepartamento) {
+    public Departamento(int idDepartamento, String codDepartamento, String nombreDepartamento, String estadoDepartamento) {
+        this.idDepartamento = idDepartamento;
         this.codDepartamento = codDepartamento;
         this.nombreDepartamento = nombreDepartamento;
-        this.idDepartamento = idDepartamento;
         this.estadoDepartamento = estadoDepartamento;
     }
 
     public int getIdDepartamento() {
         return idDepartamento;
+    }
+
+    public String getCodDepartamento() {
+        return codDepartamento;
     }
 
     public String getNombreDepartamento() {
@@ -42,19 +46,15 @@ public class Departamento {
         this.idDepartamento = idDepartamento;
     }
 
+    public void setCodDepartamento(String codDepartamento) {
+        this.codDepartamento = codDepartamento;
+    }
+
     public void setNombreDepartamento(String nombreDepartamento) {
         this.nombreDepartamento = nombreDepartamento;
     }
 
     public void setEstadoDepartamento(String estadoDepartamento) {
         this.estadoDepartamento = estadoDepartamento;
-    }
-
-    public String getCodDepartamento() {
-        return codDepartamento;
-    }
-
-    public void setCodDepartamento(String codDepartamento) {
-        this.codDepartamento = codDepartamento;
     }
 }
