@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface IDepartamento extends CrudRepository<Departamento, Integer> {
 
-    @Query(value ="select * from departamento", nativeQuery = true)
+    String query="select * from departamento";
+    @Query(value =query, nativeQuery = true)
     public List<Departamento> listarDepartamentos();
 
     @Query(value ="select * from departamento where estado_departamento = 'ACTIVO'", nativeQuery = true)
