@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br>
+<div class="container">
+    <h1 style="text-align:center;">LISTA DE PROVINCIAS</h1>
+    <a th:href="@{/provincia}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
+
+
+    <br><br>
+    <div class="table-responsive">
+        <table id="userList1" class="table table-light table-bordered table-hover table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>ESTADO</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="provincia:${provincia}">
+                <td th:text="${provincia.codProvincia}"></td>
+                <td th:text="${provincia.nombreProvincia}"></td>
+                <td th:text="${provincia.estadoProvinciao}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br><br>
+<footer th:replace="layout/layout :: footer">
+</footer>
+</body>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>
