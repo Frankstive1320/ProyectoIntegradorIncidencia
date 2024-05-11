@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -32,19 +33,28 @@ public class User implements Serializable {
 	
 	@Column
 	@NotBlank
-	@Size(min=3,max=12,message="TAMAÑO DEL NOMBRE NO ES CORRECTO")
+	@Size(min=3,max=12,message="El nombre debe tener como minimo 3 caracteres y como maximo 12")
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String firstName;
 	@Column
 	@NotBlank
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="Los apellidos no puede contener espacios en blanco")
 	private String lastName;
 	@Column
 	@NotBlank
 	private String email;
 	@Column
 	@NotBlank
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="Los apellidos no puede contener espacios en blanco")
 	private String username;
 	@Column
 	@NotBlank
+	// @Pattern(regexp="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\\\S+$).{8,}$", message="Los apellidos no puede contener espacios en blanco")
+	@Pattern(regexp="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8,}$", message="Validacion de Contraseña Segura:\r\n"
+			+ "-Al menos una letra minúscula.\r\n"
+			+ "-Al menos una letra mayúscula.\r\n"
+			+ "-No permite espacios en blanco.\r\n"
+			+ "-Longitud mínima de 8 caracteres.")
 	private String password;
 	
 	@Transient
