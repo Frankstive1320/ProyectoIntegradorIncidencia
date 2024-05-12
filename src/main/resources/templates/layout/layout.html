@@ -171,10 +171,11 @@
 			    
 			    <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-			          GESTION DE USUARIOS
+			          GESTION 
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 			          <a class="nav-link" th:href="@{/userForm}">USUARIOS</a>
+			          <a class="nav-link" th:href="@{/departamento}">DEPARTAMENTOS</a>
 			        </div>
 			      </li>
 			           

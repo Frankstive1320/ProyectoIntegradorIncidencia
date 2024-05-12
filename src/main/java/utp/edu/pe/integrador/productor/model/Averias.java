@@ -1,62 +1,76 @@
 package utp.edu.pe.integrador.productor.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="averia")
 public class Averias {
-	
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int averiaid;
-	
+
+	@NotBlank
 	private String inc;
-	
+
+	@NotBlank
 	private String sisego;
-	
+
+	@NotBlank
 	private String zonal;
-	
+
 	private String zonificacion;
-	
+
 	private String contrata;
-	
+
+	@NotBlank
 	private String tecnicoAsignado;
-	
+
+	@NotBlank
 	private String fechaAtencion;
-	
+
 	private String tipoAveria;
-	
+
+	@NotBlank
 	private String diagnostico;
-	
+
+	@NotBlank
 	private String paradaReloj;
-	
+
+	@NotBlank
 	private String accionesCorrectivas;
-	
+
 	private String estado;
-	
+
+	@NotBlank
 	private String cliente;
-	
+
+	@NotBlank
 	private String observaciones;
-	
+
+	@NotBlank
 	private String materiales;
-	
-	private String liquidadotrabajo; 
-	
+
+	private String liquidadotrabajo;
+
 	private String certificaciontrabajo;
 	
 	// PARA REPORTE
-	
+
+	@NotBlank
 	private String direccion;
 	private String tiposervicio;
+	@NotBlank
 	private String fechafinalizacion;
+	@NotBlank
 	private String departamento;
+	@NotBlank
 	private String distrito;
+	@NotBlank
 	private String responsable;
 	
 	private String fechaparafinalizar;
