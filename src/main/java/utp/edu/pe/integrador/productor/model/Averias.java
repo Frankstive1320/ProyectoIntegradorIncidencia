@@ -14,13 +14,17 @@ public class Averias {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int averiaid;
 
+	@Column
 	@NotBlank
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String inc;
 
 	@NotBlank
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String sisego;
 
 	@NotBlank
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String zonal;
 
 	private String zonificacion;
