@@ -19,12 +19,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import utp.edu.pe.integrador.productor.entity.User;
 import utp.edu.pe.integrador.productor.interfacesservice.IAveriasService;
+import utp.edu.pe.integrador.productor.interfacesservice.IDepartamentoService;
+import utp.edu.pe.integrador.productor.interfacesservice.IDistritoService;
+import utp.edu.pe.integrador.productor.interfacesservice.IProvinciaService;
 import utp.edu.pe.integrador.productor.interfacesservice.IUserService;
 import utp.edu.pe.integrador.productor.model.Averias;
+import utp.edu.pe.integrador.productor.model.Departamento;
+import utp.edu.pe.integrador.productor.model.Distrito;
+import utp.edu.pe.integrador.productor.model.Provincia;
 
 
 @Controller
@@ -33,10 +40,17 @@ public class AveriasController {
 	@Autowired
 	private IAveriasService avservices;
 	
-
-	
 	@Autowired
 	private IUserService userservicio;
+	
+	@Autowired
+	private IDepartamentoService departservicio;
+	
+	@Autowired
+	private IProvinciaService provservicio;
+	
+	@Autowired
+	private IDistritoService distriservicio;
 	
 	
 	@GetMapping("/averias/")
@@ -62,7 +76,9 @@ public class AveriasController {
 	@GetMapping("/averias/nuevaAveria")
 	public String nuevoProducto(Model model) {
 		List<User> users = userservicio.listarTecnicos();
+		List<Departamento> departamentos = departservicio.listarDepartamentosActivos();
 		model.addAttribute("users", users);
+		model.addAttribute("departamentos", departamentos);
 		model.addAttribute("averias", new Averias());
 		return "AveriaformNuevo2";
 	}
@@ -73,10 +89,13 @@ public class AveriasController {
 	{
 		if (result.hasErrors()) {
 			List<User> users = userservicio.listarUsers();
+			List<Departamento> departamentos = departservicio.listarDepartamentosActivos();
 			model.addAttribute("users", users);
+			model.addAttribute("departamentos", departamentos);
 			model.addAttribute("averias", pAveria);
-			return "AveriaformNuevo";
+			return "AveriaformNuevo2";
 		}
+		pAveria.setDepartamento(departservicio.BuscarDepartamentobyId(Integer.parseInt(pAveria.getDepartamento())).getNombreDepartamento());  
 		avservices.grabarAverias(pAveria);
 		
 		atributo.addFlashAttribute("success","AVERIA REGISTRADA CORRECTAMENTE");
@@ -113,7 +132,18 @@ public class AveriasController {
 		return "redirect:/caja/";
 		}
 		List<User> users = userservicio.listarTecnicos();
+		List<Departamento> departamentos = departservicio.listarDepartamentosActivos();
+		//List<Provincia> provincias = provservicio.listarProvinciasActivos();
 		model.addAttribute("users", users);
+		model.addAttribute("departamentos", departamentos);
+		
+		Distrito distrito = distriservicio.BuscarDistritobyNombre(p.getDistrito());
+		List<Provincia> provincias = provservicio.listarProvinciasActivosDepartamento(Integer.parseInt(distrito.getCodDepartamento()));
+		List<Distrito> distritos = distriservicio.listarDistritosActivosProvincia(Integer.parseInt(distrito.getCodProvincia()));
+		p.setDepartamento(distrito.getCodDepartamento());
+		model.addAttribute("provincia", distrito.getCodProvincia());
+		model.addAttribute("distritos", distritos);
+		model.addAttribute("provincias", provincias);
 		model.addAttribute("averias",p);
 		return "AveriasFormEditar";
 	}
@@ -179,6 +209,21 @@ public class AveriasController {
 	public String ReporteSolicitud(Model model) {
 		model.addAttribute("solicitud", new Averias());
 		return "AveriaReporte";		
+	}
+	
+	//@GetMapping(value="/listarDepartamentos")
+	//public @ResponseBody List<Departamento> listarDepartamentos(Model model) {
+	//return departamentoService.listarDepartamentos();
+	//}
+
+	@GetMapping(value="/listarProvincias/{departamento}")
+	public @ResponseBody List<Provincia> listarProvincias(Model model, @PathVariable("departamento") int departamento) {
+	return provservicio.listarProvinciasActivosDepartamento(departamento);
+	}
+
+	@GetMapping(value="/listarDistritos/{provincia}")
+	public @ResponseBody List<Distrito> listarDistritos(Model model, @PathVariable("provincia") int provincia) {
+	return distriservicio.listarDistritosActivosProvincia(provincia);
 	}
 	
 }

@@ -22,7 +22,7 @@ public interface IProvincia extends CrudRepository<Provincia, Integer> {
             "WHERE " +
             "T2.estado_departamento='ACTIVO' AND " +
             "T1.estado_provincia='ACTIVO' AND " +
-            "T2.id_departamento= ?1 ";
+            "T2.cod_departamento= ?1 ";
     @Query(value =query2, nativeQuery = true)
     public List<Provincia> listarProvinciasActivosDepartamento(int idDepartamento);
 }

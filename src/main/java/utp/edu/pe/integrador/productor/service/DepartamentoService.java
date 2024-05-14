@@ -34,4 +34,15 @@ public class DepartamentoService implements IDepartamentoService {
     public void DesactivarDepartamento(int idDepartamento) {
         departamento1.DesactivarDepartamento(idDepartamento);
     }
+    @Override
+    public Departamento BuscarDepartamentobyId(int idDepartamento) {
+    	return   departamento1.findById(idDepartamento).orElse(null);
+         
+    }
+    
+    @Override
+    public Departamento BuscarDepartamentobyNombre(String nombredepartamento) {
+    	return   departamento1.BuscarDepartamentobyNombre(nombredepartamento);
+         
+    }
 }

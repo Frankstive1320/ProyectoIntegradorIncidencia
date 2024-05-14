@@ -8,6 +8,7 @@ import utp.edu.pe.integrador.productor.interfacesservice.IDepartamentoService;
 import utp.edu.pe.integrador.productor.interfacesservice.IDistritoService;
 import utp.edu.pe.integrador.productor.model.Departamento;
 import utp.edu.pe.integrador.productor.model.Distrito;
+import utp.edu.pe.integrador.productor.model.Provincia;
 
 import java.util.List;
 
@@ -25,5 +26,16 @@ public class DistritoService implements IDistritoService {
     @Override
     public List<Distrito> listarDistritosActivos() {
         return (List<Distrito>) distrito1.findAll();
+    }
+    @Override
+    public List<Distrito> listarDistritosActivosProvincia(int idProvincia) {
+    List<Distrito> listprovincias = distrito1.listarDistritosActivosProvincia(idProvincia);
+    return listprovincias;
+    }
+    
+    @Override
+    public Distrito BuscarDistritobyNombre(String nombredistrito) {
+    	return   distrito1.BuscarDistritobyNombre(nombredistrito);
+         
     }
 }

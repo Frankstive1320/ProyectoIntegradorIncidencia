@@ -2,6 +2,8 @@ package utp.edu.pe.integrador.productor.interfaces;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
+import utp.edu.pe.integrador.productor.model.Departamento;
 import utp.edu.pe.integrador.productor.model.Distrito;
 
 import java.util.List;
@@ -25,7 +27,12 @@ public interface IDistrito extends CrudRepository<Distrito, Integer> {
                     "T3.estado_departamento='ACTIVO' AND\n" +
                     "T2.estado_provincia='ACTIVO' AND\n" +
                     "T1.estado_distrito='ACTIVO' AND\n" +
-                    "T2.id_provincia= ?1 ";
+                    "T2.cod_provincia= ?1 ";
     @Query(value =query2, nativeQuery = true)
     public List<Distrito> listarDistritosActivosProvincia(int idProvincia);
+    
+    @Query(value =
+            "select * from distrito where nombre_distrito = ?1"
+            ,  nativeQuery = true)
+    public Distrito BuscarDistritobyNombre(String nombredistrito);
 }

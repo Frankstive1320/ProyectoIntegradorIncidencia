@@ -119,15 +119,30 @@
 						<input th:field="*{direccion}" id="vendedor11" type="text" class="form-control">
 					</div>
 					
+
 					<div class="form-group">
 						<label>DEPARTAMENTO</label>
-						<input th:field="*{departamento}" id="vendedor11" type="text" class="form-control">
+						<select th:field="*{departamento}" id="cboDepartamento" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="departamentos:${departamentos}"
+						th:value="${departamentos.codDepartamento}"
+						th:text="${departamentos.nombreDepartamento}"
+						/>
+					</select>
 					</div>
-					
+					<div class="form-group">
+						<label>PROVINCIA</label>
+						<select  id="cboProvincia" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+					</select>
+					</div>	
 					<div class="form-group">
 						<label>DISTRITO</label>
-						<input th:field="*{distrito}" id="vendedor11" type="text" class="form-control">
-					</div>
+						<select th:field="*{distrito}" id="cboDistrito" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+					</select>
+					</div>		
+
 					
 					<div class="form-group">
 						<label>RESPONSABLE</label>
@@ -159,9 +174,50 @@
 	<script type="text/javascript">
 	
 	$( document ).ready(function() {
-		var username = document.getElementById("username2").innerHTML;
-		document.getElementById("vendedor").value = username;
-		document.getElementById("vendedor").innerHTML = username;
+
+		$("#cboDepartamento").change(function(){
+			listarProvincias($(this).val());
+			})
+
+			$("#cboProvincia").change(function(){
+			listarDistritos($(this).val());
+			})
+
+
+			function listarProvincias(codDepa){
+
+			$("#cboProvincia").children().remove();
+			$("#cboProvincia").append("<option value>SELECCIONE...</option>");
+			$("#cboDistrito").children().remove();
+			$("#cboDistrito").append("<option value>SELECCIONE...</option>");
+
+			$.ajax({
+			url: "/listarProvincias/" + codDepa,
+			dataType: "json",
+			}).done( 
+			function(result){
+			$.each(result, function(indice, valor){
+			$("#cboProvincia").append("<option value='" + valor.codProvincia + "'>" + valor.nombreProvincia + "</option>" )
+			})
+			}
+			)
+			    }
+
+			    function listarDistritos(codProv){
+			$("#cboDistrito").children().remove();
+			$("#cboDistrito").append("<option value>SELECCIONE...</option>");
+
+			$.ajax({
+			url: "/listarDistritos/" + codProv,
+			dataType: "json",
+			}).done( 
+			function(result){
+			$.each(result, function(indice, valor){
+			$("#cboDistrito").append("<option value='" + valor.nombreDistrito + "'>" + valor.nombreDistrito + "</option>" )
+			})
+			}
+			)
+			    }
 	});
 	
 	window.onload = function(){
@@ -175,6 +231,7 @@
 		    mes='0'+mes //agrega cero si el menor de 10
 		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;	  
 	}
+
 	</script>
 	
 </html>

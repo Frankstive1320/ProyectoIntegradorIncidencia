@@ -30,5 +30,12 @@ public interface IDepartamento extends CrudRepository<Departamento, Integer> {
             "UPDATE departamento SET estado_departamento = 'ANULADO' WHERE id_departamento = ?1 "
             ,  nativeQuery = true)
     void DesactivarDepartamento(int idDepartamento);
+    
+    
+
+    @Query(value =
+            "select * from departamento where nombre_departamento = ?1"
+            ,  nativeQuery = true)
+    public Departamento BuscarDepartamentobyNombre(String nombredepartamento);
 
 }
