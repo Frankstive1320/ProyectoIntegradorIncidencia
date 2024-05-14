@@ -7,7 +7,7 @@
 <br>
 <div class="container">
     <h1 style="text-align:center;">LISTA DE PROVINCIAS</h1>
-    <a th:href="@{/provincia}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
+    <a th:href="@{/provincia}" class="btn btn-dark"><i class="fa fa-arrow-left fa-1x" aria-hidden="true"></i>&nbsp RETROCEDER</a>
 
 
     <br><br>
@@ -25,9 +25,11 @@
             <tr th:each="provincia:${provincia}">
                 <td th:text="${provincia.codProvincia}"></td>
                 <td th:text="${provincia.nombreProvincia}"></td>
-                <td th:text="${provincia.estadoProvincia}"></td>
                 <td>
-                    <a th:href="@{/averias/editar/}+${averias.averiaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+                    <button class="btn btn-success" onclick="toggleEstado(this)" th:text="${provincia.estadoProvincia}"></button>
+                </td>
+                <td>
+                    <button class="btn btn-primary" onclick="toggleEstado(this)">Ver Distritos</button>
                 </td>
             </tr>
             </tbody>

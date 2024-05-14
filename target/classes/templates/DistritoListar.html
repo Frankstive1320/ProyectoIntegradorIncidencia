@@ -7,7 +7,7 @@
 <br>
 <div class="container">
     <h1 style="text-align:center;">LISTA DE DISTRITOS</h1>
-    <a th:href="@{/distrito}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
+    <a th:href="@{/distrito}" class="btn btn-dark"><i class="fa fa-arrow-left fa-1x" aria-hidden="true"></i>&nbsp RETROCEDER</a>
 
 
     <br><br>
@@ -24,7 +24,9 @@
             <tr th:each="distrito:${distrito}">
                 <td th:text="${distrito.codDistrito}"></td>
                 <td th:text="${distrito.nombreDistrito}"></td>
-                <td th:text="${distrito.estadoDistrito}"></td>
+                <td>
+                    <button class="btn btn-primary" onclick="toggleEstado(this)" th:text="${distrito.estadoDistrito}"></button>
+                </td>
             </tr>
             </tbody>
         </table>

@@ -7,7 +7,7 @@
 <br>
 <div class="container">
     <h1 style="text-align:center;">LISTA DE DEPARTAMENTOS</h1>
-    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
+<!--    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
 
 
     <br><br>
@@ -18,13 +18,19 @@
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>ESTADO</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="departamento:${departamento}">
                 <td th:text="${departamento.codDepartamento}"></td>
                 <td th:text="${departamento.nombreDepartamento}"></td>
-                <td th:text="${departamento.estadoDepartamento}"></td>
+                <td>
+                    <button class="btn btn-success" onclick="toggleEstado(this)" th:text="${departamento.estadoDepartamento}"></button>
+                </td>
+                <td>
+                    <button class="btn btn-primary" onclick="toggleEstado(this)">Ver Provincias</button>
+                </td>
             </tr>
             </tbody>
         </table>
