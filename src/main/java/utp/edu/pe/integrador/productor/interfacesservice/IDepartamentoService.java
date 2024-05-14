@@ -13,4 +13,7 @@ public interface IDepartamentoService {
     public void ActivarDepartamento(int idDepartamento);
 
     public void DesactivarDepartamento(int idDepartamento);
+    
+    public Departamento BuscarDepartamentobyId(int idDepartamento);
+    public Departamento BuscarDepartamentobyNombre(String nombredepartamento);
 }

@@ -125,13 +125,35 @@
 					
 					<div class="form-group">
 						<label>DEPARTAMENTO</label>
-						<input th:field="*{departamento}" id="vendedor11" type="text" class="form-control">
+						<select th:field="*{departamento}" id="cboDepartamento" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="departamentos:${departamentos}"
+						th:value="${departamentos.codDepartamento}"
+						th:text="${departamentos.nombreDepartamento}"
+						/>
+					</select>
 					</div>
-					
+					<div class="form-group">
+						<label>PROVINCIA</label>
+						<select th:field="${provincia}"  id="cboProvincia" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="provinc:${provincias}"
+						th:value="${provinc.codProvincia}"
+						th:text="${provinc.nombreProvincia}"
+						/>
+					</select>
+					</div>	
 					<div class="form-group">
 						<label>DISTRITO</label>
-						<input th:field="*{distrito}" id="vendedor11" type="text" class="form-control">
-					</div>
+						<select th:field="*{distrito}" id="cboDistrito" class="form-control" required="required">
+						<option value="">SELECCIONE...</option>
+						<option th:each="distrit:${distritos}"
+						th:value="${distrit.nombreDistrito}"
+						th:text="${distrit.nombreDistrito}"
+						/>
+					</select>
+					</div>		
+
 					
 					<div class="form-group">
 						<label>RESPONSABLE</label>
@@ -159,15 +181,73 @@
 		<footer th:replace="layout/layout :: footer">
 		</footer>
 	</body>
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+	  let codprovincia= /*[[${provincia}]]*/ "provincia";
+	  
+	  /*]]>*/</script>
 	<script type="text/javascript" th:src="@{/js/script.js}"></script>
 	<script type="text/javascript">
 	
+	
 	$( document ).ready(function() {
-		var username = document.getElementById("username2").innerHTML;
-		document.getElementById("vendedor").value = username;
-		document.getElementById("vendedor").innerHTML = username;
+		debugger;
+		//listarProvincias($("#cboDepartamento").val());
+		
+		
+		let num =0;
+		if(num == 0){
+			
+				$("#cboProvincia").val(codprovincia);		
+			num++;
+		}else{
+			$("#cboDepartamento").change(function(){
+				listarProvincias($(this).val());
+				})
+
+				$("#cboProvincia").change(function(){
+				listarDistritos($(this).val());
+				})
+			
+		}
+			  
 	});
 	
+	
+	function listarProvincias(codDepa){
+
+		$("#cboProvincia").children().remove();
+		$("#cboProvincia").append("<option value>SELECCIONE...</option>");
+		$("#cboDistrito").children().remove();
+		$("#cboDistrito").append("<option value>SELECCIONE...</option>");
+
+		$.ajax({
+		url: "/listarProvincias/" + codDepa,
+		dataType: "json",
+		}).done( 
+		function(result){
+		$.each(result, function(indice, valor){
+		$("#cboProvincia").append("<option value='" + valor.codProvincia + "'>" + valor.nombreProvincia + "</option>" )
+		})
+		}
+		)
+		    }
+
+		    function listarDistritos(codProv){
+		$("#cboDistrito").children().remove();
+		$("#cboDistrito").append("<option value>SELECCIONE...</option>");
+
+		$.ajax({
+		url: "/listarDistritos/" + codProv,
+		dataType: "json",
+		}).done( 
+		function(result){
+		$.each(result, function(indice, valor){
+		$("#cboDistrito").append("<option value='" + valor.nombreDistrito + "'>" + valor.nombreDistrito + "</option>" )
+		})
+		}
+		)
+		    }
 	window.onload = function(){
 		  var fecha = new Date(); //Fecha actual
 		  var mes = fecha.getMonth()+1; //obteniendo mes

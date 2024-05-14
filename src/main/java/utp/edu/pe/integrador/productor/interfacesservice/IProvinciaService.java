@@ -9,4 +9,7 @@ public interface IProvinciaService {
     public List<Provincia> listarProvincias();
 
     public List<Provincia> listarProvinciasActivos();
+    
+    public List<Provincia> listarProvinciasActivosDepartamento(int idDepartamento);
+    
 }

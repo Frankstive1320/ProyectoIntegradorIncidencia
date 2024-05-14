@@ -7,6 +7,7 @@ import utp.edu.pe.integrador.productor.interfacesservice.IDepartamentoService;
 import utp.edu.pe.integrador.productor.interfacesservice.IProvinciaService;
 import utp.edu.pe.integrador.productor.model.Provincia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,5 +24,11 @@ public class ProvinciaService implements IProvinciaService {
     @Override
     public List<Provincia> listarProvinciasActivos() {
         return (List<Provincia>) provincia1.findAll();
+    }
+    
+    @Override
+    public List<Provincia> listarProvinciasActivosDepartamento(int idDepartamento) {
+    List<Provincia> listprovincias = provincia1.listarProvinciasActivosDepartamento(idDepartamento);
+    return listprovincias;
     }
 }
