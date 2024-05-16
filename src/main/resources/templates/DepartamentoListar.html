@@ -29,7 +29,8 @@
                     <button class="btn btn-success" onclick="toggleEstado(this)" th:text="${departamento.estadoDepartamento}"></button>
                 </td>
                 <td>
-                    <button class="btn btn-primary" onclick="toggleEstado(this)">Ver Provincias</button>
+                    <!-- <button class="btn btn-primary" onclick="toggleEstado(this)">Ver Provincias</button>-->
+                    <a th:href="@{/provincia}" class="btn btn-primary">Ver Provincias</a>
                 </td>
             </tr>
             </tbody>
