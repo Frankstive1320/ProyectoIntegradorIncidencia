@@ -45,11 +45,11 @@ public class User implements Serializable {
 	private String email;
 	@Column
 	@NotBlank
-	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="Los apellidos no puede contener espacios en blanco")
+	@Pattern(regexp="^[a-zA-Z0-9]+(\\\\s[a-zA-Z0-9]+)*$", message="El usuario no puede contener espacios en blanco")
 	private String username;
 	@Column
 	@NotBlank
-	// @Pattern(regexp="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\\\S+$).{8,}$", message="Los apellidos no puede contener espacios en blanco")
+	//@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message="La contraseña debe tener al menos 8 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.")
 	//@Pattern(regexp="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\\\S+$).{8,}$", message="Validacion de Contraseña Segura:\r\n"
 	//		+ "-Al menos una letra minúscula.\r\n"
 	//		+ "-Al menos una letra mayúscula.\r\n"
