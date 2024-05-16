@@ -102,13 +102,10 @@
 			          CERTIFICACION
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			         
-			          <a class="dropdown-item" th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a>
-			          <a class="dropdown-item" th:href="@{/partida/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE PARTIDAS</a>
-			          <a class="dropdown-item" th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a>
-			          <a class="dropdown-item" th:href="@{/partidacategoria/nuevoCategoria}" th:disabled="${disableFields}">REGISTRO DE CATEGORIAS DE PARTIDAS</a>
 			          <a class="dropdown-item" th:href="@{/tipobaremo/}" th:disabled="${disableFields}">TIPOS DE BAREMO</a>
-			          <a class="dropdown-item" th:href="@{/tipobaremo/nuevoTipobaremo}" th:disabled="${disableFields}">REGISTRO DE TIPOS DE BAREMO</a>
+			          <a class="dropdown-item" th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a>
+			          <a class="dropdown-item" th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a>
+
 			        <!--   <a class="dropdown-item" th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a> -->
  					  
 			       			       		
@@ -188,7 +185,7 @@
 				<!-- CERRAR SESIÓN -->
 				  
 			      <li class="nav-item">
-			        <a class="nav-link" href="#" th:href="@{/logout}"><span>  CERRAR SESIÓN &nbsp </span> <span class="float-right"><i class="fas fa-sign-out-alt"> </i></span></a>
+			        <a class="nav-link" href="#" th:href="@{/logout}"><span>  CERRAR SESION &nbsp </span> <span class="float-right"><i class="fas fa-sign-out-alt"> </i></span></a>
 			      </li>  
 			    </ul>  
 			  </div>
