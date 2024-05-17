@@ -24,7 +24,6 @@ public class Averias {
 	private String sisego;
 
 	@NotBlank
-	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String zonal;
 
 	private String zonificacion;
@@ -39,13 +38,13 @@ public class Averias {
 
 	private String tipoAveria;
 
-	@NotBlank
+	//@NotBlank
 	private String diagnostico;
 
 	@NotBlank
 	private String paradaReloj;
 
-	@NotBlank
+	//@NotBlank
 	private String accionesCorrectivas;
 
 	private String estado;
@@ -56,7 +55,7 @@ public class Averias {
 	@NotBlank
 	private String observaciones;
 
-	@NotBlank
+	//@NotBlank
 	private String materiales;
 
 	private String liquidadotrabajo;
