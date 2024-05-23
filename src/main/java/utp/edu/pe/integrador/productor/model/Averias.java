@@ -14,26 +14,26 @@ public class Averias {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int averiaid;
 
-	@Column
-	@NotBlank
-	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
+	//@Column
+	//@NotBlank
+	//@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String inc;
 
-	@NotBlank
-	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
+	//@NotBlank
+	//@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String sisego;
 
-	@NotBlank
+	//@NotBlank
 	private String zonal;
 
 	private String zonificacion;
 
 	private String contrata;
 
-	@NotBlank
+	//@NotBlank
 	private String tecnicoAsignado;
 
-	@NotBlank
+	//@NotBlank
 	private String fechaAtencion;
 
 	private String tipoAveria;
@@ -41,7 +41,7 @@ public class Averias {
 	//@NotBlank
 	private String diagnostico;
 
-	@NotBlank
+	//@NotBlank
 	private String paradaReloj;
 
 	//@NotBlank
@@ -49,10 +49,10 @@ public class Averias {
 
 	private String estado;
 
-	@NotBlank
+	//@NotBlank
 	private String cliente;
 
-	@NotBlank
+	//@NotBlank
 	private String observaciones;
 
 	//@NotBlank
@@ -64,16 +64,16 @@ public class Averias {
 	
 	// PARA REPORTE
 
-	@NotBlank
+	//@NotBlank
 	private String direccion;
 	private String tiposervicio;
-	@NotBlank
+	//@NotBlank
 	private String fechafinalizacion;
-	@NotBlank
+	//@NotBlank
 	private String departamento;
-	@NotBlank
+	//@NotBlank
 	private String distrito;
-	@NotBlank
+	//@NotBlank
 	private String responsable;
 	
 	private String fechaparafinalizar;
