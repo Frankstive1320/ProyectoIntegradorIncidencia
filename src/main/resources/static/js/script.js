@@ -751,3 +751,60 @@ function eliminarVisitaEquipo(cod){
 	
 }
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    // Función para agregar un mensaje al chat box
+    function addMessage(role, content) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.classList.add(role);
+        messageElement.textContent = content;
+        chatBox.appendChild(messageElement);
+        // Desplazar el chat box hacia abajo para mostrar el último mensaje
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // Función para enviar el mensaje del usuario
+    function sendMessage() {
+        const userMessage = userInput.value.trim();
+        if (userMessage !== '') {
+            addMessage('user', userMessage);
+            // Aquí puedes enviar el mensaje del usuario al servidor
+            fetch('/chat/complete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'userMessage': userMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const assistantMessage = data.choices[0].message.content;
+                addMessage('assistant', assistantMessage);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                addMessage('assistant', 'Lo siento, hubo un error al procesar tu solicitud.');
+            });
+
+            // Limpiar el campo de entrada
+            userInput.value = '';
+        }
+    }
+
+    // Manejar el clic en el botón de enviar
+    sendButton.addEventListener('click', sendMessage);
+
+    // Manejar la pulsación de Enter en el campo de entrada
+    userInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
+});
