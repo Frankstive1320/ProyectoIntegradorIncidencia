@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head">
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br>
+<div class="container">
+    <h1 style="text-align:center;">ASISTENTE VITUAL</h1>
+<!--    <a th:href="@{/averias/nuevaAveria}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
+    <div class="container">
+        <h1>Chat con GPT-3.5-turbo</h1>
+        <div class="chat-container">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autofocus>
+            <button id="send-button">Enviar</button>
+            <div id="chat-box" class="chat-box"></div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<footer th:replace="layout/layout :: footer">
+</footer>
+</body>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</html>
