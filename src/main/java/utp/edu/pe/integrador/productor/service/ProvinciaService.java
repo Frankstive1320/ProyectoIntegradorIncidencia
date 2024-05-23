@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import utp.edu.pe.integrador.productor.interfaces.IProvincia;
 import utp.edu.pe.integrador.productor.interfacesservice.IDepartamentoService;
 import utp.edu.pe.integrador.productor.interfacesservice.IProvinciaService;
+import utp.edu.pe.integrador.productor.model.Partidacertificacionaveria;
 import utp.edu.pe.integrador.productor.model.Provincia;
 
 import java.util.ArrayList;
@@ -30,5 +31,10 @@ public class ProvinciaService implements IProvinciaService {
     public List<Provincia> listarProvinciasActivosDepartamento(int idDepartamento) {
     List<Provincia> listprovincias = provincia1.listarProvinciasActivosDepartamento(idDepartamento);
     return listprovincias;
+    }
+
+    @Override
+    public List<Provincia> listarProvincias(int codigo) {
+        return (List<Provincia>) provincia1.listarProvincias(codigo);
     }
 }

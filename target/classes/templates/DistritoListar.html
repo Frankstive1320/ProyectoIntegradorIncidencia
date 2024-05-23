@@ -8,30 +8,30 @@
 <div class="container" style="max-width: 80%; padding: 0;">
     <h1 style="text-align:center;">LISTA DE DISTRITOS</h1>
     <!-- <a th:href="@{/distrito}" class="btn btn-dark"><i class="fa fa-arrow-left fa-1x" aria-hidden="true"></i>&nbsp RETROCEDER</a>-->
-   <a th:href="@{/provincia}" class="btn btn-dark"><i class="fa fa-arrow-left fa-1x" aria-hidden="true"></i>&nbsp RETROCEDER</a>
+    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-arrow-left fa-1x" aria-hidden="true"></i>&nbsp RETROCEDER</a>
 
 
-   <br><br>
-   <div class="table-responsive" style="margin: 0;">
-       <table id="userList1" class="table table-light table-bordered table-hover table-striped" style="width: 100%; margin: 0;">
-           <thead class="thead-dark">
-           <tr>
-               <th>ID</th>
-               <th>NOMBRE</th>
-               <th>ESTADO</th>
-           </tr>
-           </thead>
-           <tbody>
-           <tr th:each="distrito:${distrito}">
-               <td th:text="${distrito.codDistrito}"></td>
-               <td th:text="${distrito.nombreDistrito}"></td>
-               <td>
-                   <button class="btn btn-primary" onclick="toggleEstado(this)" th:text="${distrito.estadoDistrito}"></button>
-               </td>
-           </tr>
-           </tbody>
-       </table>
-   </div>
+    <br><br>
+    <div class="table-responsive" style="margin: 0;">
+        <table id="userList1" class="table table-light table-bordered table-hover table-striped" style="width: 100%; margin: 0;">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>ESTADO</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="distrito:${distrito}">
+                <td th:text="${distrito.codDistrito}"></td>
+                <td th:text="${distrito.nombreDistrito}"></td>
+                <td>
+                    <button class="btn btn-primary" onclick="toggleEstado(this)" th:text="${distrito.estadoDistrito}"></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <br><br><br>
 <footer th:replace="layout/layout :: footer">

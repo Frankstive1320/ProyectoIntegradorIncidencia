@@ -38,4 +38,9 @@ public class DistritoService implements IDistritoService {
     	return   distrito1.BuscarDistritobyNombre(nombredistrito);
          
     }
+
+    @Override
+    public List<Distrito> listarDistritos(int codigo) {
+        return (List<Distrito>) distrito1.listarDistritos(codigo);
+    }
 }

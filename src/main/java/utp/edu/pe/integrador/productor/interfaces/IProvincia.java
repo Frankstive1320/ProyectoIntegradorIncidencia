@@ -2,6 +2,7 @@ package utp.edu.pe.integrador.productor.interfaces;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import utp.edu.pe.integrador.productor.model.Partidacertificacionaveria;
 import utp.edu.pe.integrador.productor.model.Provincia;
 
 import java.util.List;
@@ -25,4 +26,7 @@ public interface IProvincia extends CrudRepository<Provincia, Integer> {
             "T2.cod_departamento= ?1 ";
     @Query(value =query2, nativeQuery = true)
     public List<Provincia> listarProvinciasActivosDepartamento(int idDepartamento);
+
+    @Query(value = "select * from provincia where cod_departamento = ?1", nativeQuery = true)
+    public List<Provincia> listarProvincias(int codigo);
 }

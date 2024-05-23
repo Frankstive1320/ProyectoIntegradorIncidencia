@@ -11,5 +11,6 @@ public interface IProvinciaService {
     public List<Provincia> listarProvinciasActivos();
     
     public List<Provincia> listarProvinciasActivosDepartamento(int idDepartamento);
-    
+
+    public List<Provincia> listarProvincias(int codigo);
 }

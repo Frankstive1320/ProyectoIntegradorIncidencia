@@ -30,7 +30,8 @@
                 </td>
                 <td>
                     <!-- <button class="btn btn-primary" onclick="toggleEstado(this)">Ver Provincias</button>-->
-                    <a th:href="@{/provincia}" class="btn btn-primary">Ver Provincias</a>
+                    <!--<a th:href="@{/provincia}" class="btn btn-primary">Ver Provincias</a>-->
+                    <a th:href="@{/provincia/}+${departamento.codDepartamento}" class="btn btn-primary">Ver Provincias</a>
                 </td>
             </tr>
             </tbody>

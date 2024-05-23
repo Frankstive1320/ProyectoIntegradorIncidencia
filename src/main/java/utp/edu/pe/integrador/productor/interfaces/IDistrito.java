@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import utp.edu.pe.integrador.productor.model.Departamento;
 import utp.edu.pe.integrador.productor.model.Distrito;
+import utp.edu.pe.integrador.productor.model.Provincia;
 
 import java.util.List;
 
@@ -35,4 +36,7 @@ public interface IDistrito extends CrudRepository<Distrito, Integer> {
             "select * from distrito where nombre_distrito = ?1"
             ,  nativeQuery = true)
     public Distrito BuscarDistritobyNombre(String nombredistrito);
+
+    @Query(value = "select * from distrito where cod_provincia = ?1", nativeQuery = true)
+    public List<Distrito> listarDistritos(int codigo);
 }

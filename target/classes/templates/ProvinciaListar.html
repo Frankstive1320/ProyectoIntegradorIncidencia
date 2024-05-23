@@ -31,7 +31,8 @@
                 </td>
                 <td>
                     <!--  <button class="btn btn-primary" onclick="toggleEstado(this)">Ver Distritos</button>-->
-                    <a th:href="@{/distrito}" class="btn btn-primary">Ver Distritos</a>
+                    <!--<a th:href="@{/distrito}" class="btn btn-primary">Ver Distritos</a>-->
+                    <a th:href="@{/distrito/}+${provincia.codProvincia}" class="btn btn-primary">Ver Distritos</a>
                 </td>
             </tr>
             </tbody>

@@ -13,5 +13,6 @@ public interface IDistritoService {
     public List<Distrito> listarDistritosActivosProvincia(int idProvincia );
     
     public Distrito BuscarDistritobyNombre(String nombredistrito);
-    
+
+    public List<Distrito> listarDistritos(int codigo);
 }
