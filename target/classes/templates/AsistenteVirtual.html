@@ -2,26 +2,104 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="layout/layout :: head">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        .chat-container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            text-align: right;
+        }
+
+        .assistant-message {
+            background-color: #e3e3e3;
+            align-self: flex-start;
+            text-align: left;
+        }
+    </style>
+</head>
+
 <body>
 <header th:replace="layout/layout :: header"></header>
-<br>
-<div class="container">
-    <h1 style="text-align:center;">ASISTENTE VITUAL</h1>
-<!--    <a th:href="@{/averias/nuevaAveria}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
-    <div class="container">
-        <h1>Chat con GPT-3.5-turbo</h1>
-        <div class="chat-container">
-            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autofocus>
-            <button id="send-button">Enviar</button>
-            <div id="chat-box" class="chat-box"></div>
-        </div>
-    </div>
-</div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center mb-4">ASISTENTE VIRTUAL</h1>
+            <div class="card" style="background: black;">
+                <h3 class="text-center mb-4">Chat con GPT-3.5-turbo</h3>
+                <div class="card-body chat-container">
+                    <div id="chat-box" class="chat-box message-container">
 
-<br><br><br>
+                        <!-- Ejemplo de mensajes -->
+                        <!-- <div class="message user-message">Tu: Hola, ¿cómo estás?</div>
+                         <div class="message assistant-message">Asistente: ¡Hola! Estoy aquí para ayudarte.</div>-->
+                     </div>
+                     <div class="input-group mt-3">
+                         <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje aquí..." autofocus>
+                         <div class="input-group-append">
+                             <button id="send-button" class="btn btn-primary">Enviar</button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <footer th:replace="layout/layout :: footer"></footer>
+ <script type="text/javascript" th:src="@{/js/script.js}"></script>
+ <script>
+     document.addEventListener('DOMContentLoaded', function () {
+         const chatBox = document.getElementById('chat-box');
+         const userInput = document.getElementById('user-input');
+         const sendButton = document.getElementById('send-button');
 
-<footer th:replace="layout/layout :: footer">
-</footer>
-</body>
-<script type="text/javascript" th:src="@{/js/script.js}"></script>
-</html>
+         userInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Evita que se envíe el formulario al presionar Enter
+        }
+    });
+
+         sendButton.addEventListener('click', function () {
+             const userMessage = userInput.value;
+             appendMessage('[Enviado]' + userMessage, 'user-message');
+
+             // Aquí debería ir la lógica para enviar el mensaje del usuario al servidor y recibir la respuesta del asistente.
+             // Por ahora, simplemente responderemos algo fijo.
+             const assistantMessage = ':';
+             appendMessage('Asistente' + assistantMessage, 'assistant-message');
+             userInput.value = ''; // Limpiar el campo de entrada después de enviar el mensaje
+         });
+
+         function appendMessage(message, messageClass) {
+             const messageElement = document.createElement('div');
+             messageElement.textContent = message;
+             messageElement.classList.add('message', messageClass);
+             chatBox.appendChild(messageElement);
+         }
+     });
+ </script>
+ </body>
+
+ </html>
