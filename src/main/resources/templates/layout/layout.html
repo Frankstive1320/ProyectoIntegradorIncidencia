@@ -175,6 +175,15 @@
 			          <a class="nav-link" th:href="@{/departamento}">DEPARTAMENTOS</a>
 			        </div>
 			      </li>
+			      
+			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          SOPORTE
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" th:href="@{/asistente/}" th:disabled="${disableFields}">ASISTENTE VIRTUAL</a>      
+			        </div>
+			      </li>	
 			           
 				<!-- NOMBRE DE USUARIO CONECTADO -->
 			      
