@@ -106,7 +106,7 @@
 			          <a class="dropdown-item" th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a>
 			          <a class="dropdown-item" th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a>
 
-			        <!--   <a class="dropdown-item" th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a> -->
+			         <a class="dropdown-item" th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a> 
  					  
 			       			       		
 			        </div>
@@ -177,6 +177,14 @@
 			      </li>
 			      
 			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          SOPORTE
+			        </a>
+			        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" th:href="@{/asistente/}" th:disabled="${disableFields}">ASISTENTE VIRTUAL</a>      
+			        </div>
+			      </li>	
+			      <li class="nav-item dropdown" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          SOPORTE
 			        </a>
