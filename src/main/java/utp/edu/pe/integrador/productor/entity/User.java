@@ -34,18 +34,18 @@ public class User implements Serializable {
 	@Column
 	@NotBlank
 	@Size(min=3,max=12,message="El nombre debe tener como minimo 3 caracteres y como maximo 12")
-	@Pattern(regexp="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message="El nombre no puede contener espacios en blanco ")
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="El nombre no puede contener espacios en blanco ")
 	private String firstName;
 	@Column
 	@NotBlank
-	@Pattern(regexp="^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message="Los apellidos no puede contener espacios en blanco")
+	@Pattern(regexp="^[a-zA-Z]+(\\s[a-zA-Z]+)*$", message="Los apellidos no puede contener espacios en blanco")
 	private String lastName;
 	@Column
 	@NotBlank
 	private String email;
 	@Column
 	@NotBlank
-	@Pattern(regexp="^[a-zA-Z0-9]+$", message="El usuario no puede contener espacios en blanco")
+	@Pattern(regexp="^[a-zA-Z0-9]+(\\\\s[a-zA-Z0-9]+)*$", message="El usuario no puede contener espacios en blanco")
 	private String username;
 	@Column
 	@NotBlank

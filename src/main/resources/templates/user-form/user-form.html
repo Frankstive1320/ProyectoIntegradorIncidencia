@@ -11,7 +11,7 @@
 	<div class="form-group row">
 		<label class="col-lg-3 col-form-label form-control-label">NOMBRE</label>
 		<div class="col-lg-9">
-			<input class="form-control" type="text" th:field="${userForm.firstName}" th:disabled="${disableFields}" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ]/g, '')" required="required">
+			<input class="form-control" type="text" th:field="${userForm.firstName}" th:disabled="${disableFields}" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" required="required">
 					<div class="alert-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</div>
 	
 		</div>
@@ -19,7 +19,7 @@
 	<div class="form-group row">
 		<label class="col-lg-3 col-form-label form-control-label">APELLIDOS</label>
 		<div class="col-lg-9">
-			<input class="form-control" type="text" th:field="${userForm.lastName}" th:disabled="${disableFields}" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ]/g, '')" required="required">
+			<input class="form-control" type="text" th:field="${userForm.lastName}" th:disabled="${disableFields}" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" required="required">
 			<div class="alert-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</div>
 	
 		</div>
