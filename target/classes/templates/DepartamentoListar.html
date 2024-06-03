@@ -2,13 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="layout/layout :: head">
+</head>
+
 <body>
 <header th:replace="layout/layout :: header"></header>
 <br>
+
+<button class="floating-button" onclick="toggleIframe()" style="position: fixed !important; bottom: 20px !important; right: 20px !important; background-color: #fff !important; color: #007bff !important; border: none !important; border-radius: 50% !important; width: 50px !important; height: 50px !important; font-size: 24px !important; text-align: center !important; line-height: 50px !important; cursor: pointer !important; z-index: 9999 !important;">
+    <img src="/img/iconchatgpt.png" alt="Icono" style="width: 100%;">
+</button>
+
+<div id="iframeContainer" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999;">
+    <!-- iframe flotante -->
+    <iframe src="/chatbot" style="width: 300px; height: 400px; border: none;"></iframe>
+</div>
+
 <div class="container" style="max-width: 80%; padding: 0;">
     <h1 style="text-align:center;">LISTA DE DEPARTAMENTOS</h1>
-<!--    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
-
+    <!--    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
 
     <br><br>
     <div class="table-responsive" style="margin: 0;">
@@ -39,8 +50,17 @@
     </div>
 </div>
 <br><br><br>
-<footer th:replace="layout/layout :: footer">
-</footer>
-</body>
+<script>
+    function toggleIframe() {
+        var iframeContainer = document.getElementById('iframeContainer');
+        if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
+            iframeContainer.style.display = 'block';
+        } else {
+            iframeContainer.style.display = 'none';
+        }
+    }
+</script>
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
+
 </html>

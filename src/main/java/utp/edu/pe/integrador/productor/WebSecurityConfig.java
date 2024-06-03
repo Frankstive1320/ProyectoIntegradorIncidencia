@@ -23,7 +23,7 @@ public class WebSecurityConfig   extends  WebSecurityConfigurerAdapter{
     	http
         .authorizeRequests()
         .antMatchers(resources).permitAll()  
-        .antMatchers("/","/index","/signup", "/chat/complete").permitAll()
+        .antMatchers("/","/index","/signup", "/chat/complete", "/chatbot").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
@@ -35,6 +35,9 @@ public class WebSecurityConfig   extends  WebSecurityConfigurerAdapter{
             .passwordParameter("password")
             .and()
             .csrf().disable()
+                .headers()
+                .frameOptions().disable()  // Permitir carga en iframe
+                .and()
         .logout()
             .permitAll()
             .logoutSuccessUrl("/login?logout");

@@ -9,13 +9,8 @@ import utp.edu.pe.integrador.productor.interfacesservice.IDepartamentoService;
 @Controller
 public class AsistenteVirtualController {
 
-    @Autowired
-    private IDepartamentoService depservices;
-
     @GetMapping("/asistente")
     public String listar(Model model) {
-//        List<Departamento> departamento = depservices.listarDepartamentos();
-//        model.addAttribute("departamento",departamento);
         return "asistentevirtual";
     }
 }
