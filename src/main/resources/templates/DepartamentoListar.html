@@ -8,19 +8,37 @@
 <header th:replace="layout/layout :: header"></header>
 <br>
 
-/* CHAT FLOTANTE */
+<!--/* CHAT FLOTANTE */-->
 <button class="floating-button" onclick="toggleIframe()" style="position: fixed !important; bottom: 20px !important; right: 20px !important; background-color: #fff !important; color: #007bff !important; border: none !important; border-radius: 50% !important; width: 50px !important; height: 50px !important; font-size: 24px !important; text-align: center !important; line-height: 50px !important; cursor: pointer !important; z-index: 9999 !important;">
     <img src="/img/iconchatgpt.png" alt="Icono" style="width: 100%;">
 </button>
-<div id="iframeContainer" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999;">
+
+<div id="iframeContainer" class="card shadow-lg rounded" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999; width: 350px; height: 500px;">
+    <div class="card-header bg-primary text-white">
+        ASISTENTE
+        <button type="button" class="close text-white" aria-label="Close" onclick="toggleIframe()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <!-- iframe flotante -->
-    <iframe src="/chatbot" style="width: 300px; height: 400px; border: none;"></iframe>
+    <div class="card-body p-0 border-0 rounded" style="width: 350px; height: 450px;">
+        <iframe src="/chatbot" class="w-100 h-100 border-0 rounded" style="background-color: #fff;"></iframe>
+    </div>
 </div>
-/* CHAT FLOTANTE */
+
+<!--<div id="iframeContainer" class="shadow-lg rounded" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999; width: 320px; height: 450px; background-color: white;">-->
+
+    <!--<div id="iframeContainer" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999;">-->
+        <!-- iframe flotante -->
+    <!--  <iframe src="/chatbot" style="width: 300px; height: 400px; border: none;"></iframe>-->
+
+<!--<iframe src="/chatbot" class="w-100 h-100 border-0 rounded"></iframe>-->
+</div>
+<!--/* CHAT FLOTANTE */-->
 
 <div class="container" style="max-width: 80%; padding: 0;">
-    <h1 style="text-align:center;">LISTA DE DEPARTAMENTOS</h1>
-    <!--    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
+<h1 style="text-align:center;">LISTA DE DEPARTAMENTOS</h1>
+<!--    <a th:href="@{/departamento}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>-->
 
     <br><br>
     <div class="table-responsive" style="margin: 0;">
@@ -51,7 +69,7 @@
     </div>
 </div>
 <br><br><br>
-/* CHAT FLOTANTE */
+<!--/* CHAT FLOTANTE */-->
 <script>
     function toggleIframe() {
         var iframeContainer = document.getElementById('iframeContainer');
@@ -62,7 +80,7 @@
         }
     }
 </script>
-/* CHAT FLOTANTE */
+<!--/* CHAT FLOTANTE */-->
 <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </body>
 

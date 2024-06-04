@@ -84,9 +84,6 @@
          sendButton.addEventListener('click', function () {
              const userMessage = userInput.value;
              appendMessage('[Enviado]' + userMessage, 'user-message');
-
-             // Aquí debería ir la lógica para enviar el mensaje del usuario al servidor y recibir la respuesta del asistente.
-             // Por ahora, simplemente responderemos algo fijo.
              const assistantMessage = ':';
              appendMessage('Asistente' + assistantMessage, 'assistant-message');
              userInput.value = ''; // Limpiar el campo de entrada después de enviar el mensaje
