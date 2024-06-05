@@ -28,10 +28,10 @@ public class AIMLProcessor {
 
         // Si la respuesta es "I have no answer for that.", devolver cadena vacía
         if ("I have no answer for that.".equals(response)) {
-            return "";
+            return "Eres un tecnico experto informatico con limite de 100 palabras";
         }
         else{
-            response="contexto: "+response;
+            response="contexto sobre este sistema: "+response;
         }
 
         return response;

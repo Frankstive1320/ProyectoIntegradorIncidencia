@@ -22,9 +22,9 @@ public class OpenAIChatService {
         headers.setBearerAuth(apiKey);
 
         // Construir el cuerpo de la solicitud con contexto adicional si está disponible
-        String systemContent = "Eres un tecnico experto informatico, no sostienes conversacion ni saludas, solo respondes preguntas tecnicas entregas informacion, tus respuestas tienen un limite de 200 palabras";
+        String systemContent = "";
         if (context != null && !context.isEmpty()) {
-            systemContent += "." + context;
+            systemContent += context;
         }
 
         String requestBody = String.format("{\"model\":\"gpt-3.5-turbo-0125\",\"messages\":[{\"role\":\"system\",\"content\":\"%s\"},{\"role\":\"user\",\"content\":\"%s\"}]}", systemContent, userMessage);

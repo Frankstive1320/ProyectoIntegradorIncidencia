@@ -1,11 +1,14 @@
 0,QUE ES UN CERTIFICADO,*,*,Es la verificación de una avería.,udc.aiml
 0,QUE ES * CERTIFICADO,*,*,Es la verificación de una avería.,udc.aiml
-0,QUIERO SABER * CERTIFICADO,*,*,Es la verificación de una avería.,udc.aiml
+0,QUIERO SABER * CERTIFICADO,*,*,,udc.aiml
 0,QUE * CERTIFICADO,*,*,Es la verificación de una avería.,udc.aiml
 0,EXPLICA * CERTIFICADO,*,*,Es la verificación de una avería.,udc.aiml
 0,DEFINICION DE CERTIFICADO,*,*,Es la verificación de una avería.,udc.aiml
-0,QUE ES UNA AVERIA,*,*,Es un incidente.,udc.aiml
+0,QUE ES UNA AVERIA,*,*,Es un incidente reportado por movistar,udc.aiml
+0,* AVERIA *,*,*,Es un incidente reportado por movistar para asignarle a un tecnico. La averia se registra en el menu superior en la seccion de averias#Comma en la opcion Lista de averias,udc.aiml
+0,* REGISTRO * AVERIA,*,*,La averia se registra en el menu superior en la seccion de averias#Comma en la opcion Lista de averias,udc.aiml
 0,QUE ES ESTE SOFTWARE,*,*,Es un sistema de gestion de averias#Comma las cuales son reportadas por Movistar.,udc.aiml
+0,QUIENES INTEGRAN ESTE GRUPO,*,*,son 4 desarrolladores(oscar#Comma jenifer#Comma walter y stive)#Comma 2 QA(mitziu y diego)#Comma jhon(product owner) y bruno(scrum master),udc.aiml
 0,QUE HACE ESTE SOFTWARE,*,*,Es un sistema de gestion de averias#Comma las cuales son reportadas por Movistar.,udc.aiml
 0,EXPLICA ESTE SOFTWARE,*,*,Es un sistema de gestion de averias#Comma las cuales son reportadas por Movistar.,udc.aiml
 0,DEFINICION DE ESTE SOFTWARE,*,*,Es un sistema de gestion de averias#Comma las cuales son reportadas por Movistar.,udc.aiml

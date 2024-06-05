@@ -12,7 +12,7 @@
     </category>
     <category>
         <pattern>QUIERO SABER * CERTIFICADO</pattern>
-        <template>Es la verificación de una avería.</template>
+        <template> </template>
     </category>
     <category>
         <pattern>QUE * CERTIFICADO</pattern>
@@ -30,7 +30,17 @@
     <!-- Preguntas sobre averías -->
     <category>
         <pattern>QUE ES UNA AVERIA</pattern>
-        <template>Es un incidente.</template>
+        <template>Es un incidente reportado por movistar</template>
+    </category>
+
+    <category>
+        <pattern> * AVERIA * </pattern>
+        <template>Es un incidente reportado por movistar para asignarle a un tecnico. La averia se registra en el menu superior en la seccion de averias, en la opcion Lista de averias</template>
+    </category>
+
+    <category>
+        <pattern> * registro * averia</pattern>
+        <template>La averia se registra en el menu superior en la seccion de averias, en la opcion Lista de averias</template>
     </category>
 
     <!-- Preguntas sobre el software/sistema -->
@@ -39,8 +49,8 @@
         <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
     </category>
     <category>
-        <pattern>QUE ES ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
+        <pattern>quienes integran este grupo</pattern>
+        <template>son 4 desarrolladores(oscar, jenifer, walter y stive), 2 QA(mitziu y diego), jhon(product owner) y bruno(scrum master)</template>
     </category>
     <category>
         <pattern>QUE HACE ESTE SOFTWARE</pattern>
