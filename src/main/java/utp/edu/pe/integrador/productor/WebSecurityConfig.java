@@ -22,8 +22,12 @@ public class WebSecurityConfig   extends  WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
     	http
         .authorizeRequests()
-        .antMatchers(resources).permitAll()  
-        .antMatchers("/","/index","/signup", "/chat/complete", "/chatbot").permitAll()
+        .antMatchers(resources).permitAll()
+                .antMatchers("/resources/**").permitAll()
+                // Permitir el acceso a los archivos AIML
+                .antMatchers("/bots/**").permitAll()
+                // Permitir el acceso a otras rutas públicas
+        .antMatchers("/","/index","/signup", "/chat/complete", "/chatbot", "/aiml/message").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()

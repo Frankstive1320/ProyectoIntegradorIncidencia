@@ -135,8 +135,18 @@
 		</dependency>
 
 		<!-- Fin Dependencias para OpenAI API -->
-		
-		
+
+
+		<!-- Dependencia local de Program AB -->
+		<dependency>
+			<groupId>com.alicebot</groupId>
+			<artifactId>Ab</artifactId>
+			<version>0.0.4.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/Ab.jar</systemPath>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
