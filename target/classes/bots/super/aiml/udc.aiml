@@ -1,101 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml version="1.0">
+<aiml version="2.0">
 
     <!-- Preguntas sobre certificados -->
     <category>
-        <pattern>QUE ES UN CERTIFICADO</pattern>
-        <template>Es la verificación de una avería.</template>
-    </category>
-    <category>
-        <pattern>QUE ES * CERTIFICADO</pattern>
-        <template>Es la verificación de una avería.</template>
-    </category>
-    <category>
-        <pattern>QUIERO SABER * CERTIFICADO</pattern>
-        <template> </template>
-    </category>
-    <category>
-        <pattern>QUE * CERTIFICADO</pattern>
-        <template>Es la verificación de una avería.</template>
-    </category>
-    <category>
-        <pattern>EXPLICA * CERTIFICADO</pattern>
-        <template>Es la verificación de una avería.</template>
-    </category>
-    <category>
-        <pattern>DEFINICION DE CERTIFICADO</pattern>
-        <template>Es la verificación de una avería.</template>
-    </category>
-
-    <!-- Preguntas sobre averías -->
-    <category>
-        <pattern>QUE ES UNA AVERIA</pattern>
-        <template>Es un incidente reportado por movistar</template>
-    </category>
-
-    <category>
-        <pattern> * AVERIA * </pattern>
-        <template>Es un incidente reportado por movistar para asignarle a un tecnico. La averia se registra en el menu superior en la seccion de averias, en la opcion Lista de averias</template>
-    </category>
-
-    <category>
-        <pattern> * registro * averia</pattern>
-        <template>La averia se registra en el menu superior en la seccion de averias, en la opcion Lista de averias</template>
-    </category>
-
-    <!-- Preguntas sobre el software/sistema -->
-    <category>
-        <pattern>QUE ES ESTE SOFTWARE</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>quienes integran este grupo</pattern>
-        <template>son 4 desarrolladores(oscar, jenifer, walter y stive), 2 QA(mitziu y diego), jhon(product owner) y bruno(scrum master)</template>
-    </category>
-    <category>
-        <pattern>QUE HACE ESTE SOFTWARE</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>QUE HACE ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>EXPLICA ESTE SOFTWARE</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>EXPLICA ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>DEFINICION DE ESTE SOFTWARE</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>DEFINICION DE ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>ME PUEDES DECIR QUE ES ESTE SOFTWARE</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>ME PUEDES DECIR QUE ES ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <!-- Variantes sin signos de interrogación -->
-    <category>
-        <pattern>QUE ES ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>QUE HACE ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
-    </category>
-    <category>
-        <pattern>EXPLICA ESTE SISTEMA</pattern>
-        <template>Es un sistema de gestion de averias, las cuales son reportadas por Movistar.</template>
+        <pattern>
+            * CERTIFICADO *
+        </pattern>
+        <template>
+            El certificado es el registro de la verificación de la atencion resuelta de una incidencia de los clientes de movistar.
+        </template>
     </category>
 
 </aiml>
