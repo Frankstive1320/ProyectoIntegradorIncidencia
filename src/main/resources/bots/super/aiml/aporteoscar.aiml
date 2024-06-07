@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- INICIO - Otras preguntas de ejemplo -->
+    <!-- INICIO - Oscar Cantoral -->
+    <category>
+        <pattern>
+            quien * profesor
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * quien * profesor
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            quien * profesor *
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * quien * profesor *
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <!-- FIN - Oscar Cantoral -->
+
+
+    <!-- FIN - Otras preguntas de ejemplo -->
+
+</aiml>
