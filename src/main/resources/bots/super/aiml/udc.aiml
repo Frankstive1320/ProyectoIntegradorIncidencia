@@ -171,8 +171,8 @@
 
     <!-- INICIO - Otras preguntas de ejemplo -->
     <category>
-        <pattern><!-- Pregunta Normal -->
-            quien es el profesor del curso
+        <pattern>
+            quien * profesor * curso
         </pattern>
         <template>
             El profesor es Gustavo Henry PACHAS QUISPE de DNI 42812616
