@@ -1,5 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+    <!-- Pregunta sobre el curso -->
+    <category>
+        <pattern>
+            curso * proyecto
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * proyecto *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * proyecto
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * proyecto *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * sistema
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * sistema *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * sistema
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * sistema *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * software
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * software *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * software
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * software *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * aplicativo
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            curso * aplicativo *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * aplicativo
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * curso * aplicativo *
+        </pattern>
+        <template>
+            <random>
+                <li>El curso de este proyecto es Curso Integrador II: Sistemas, de la seccion 36924</li>
+                <li>El curso es integrador de la UTP del ciclo 9</li>
+                <li>El curso es integrador 2 de la carrera de Ingenieria de sistemas, ciclo 2024-01</li>
+            </random>
+        </template>
+    </category>
 
 </aiml>
