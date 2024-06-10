@@ -195,4 +195,70 @@
         </template>
     </category>
 
+    <category>
+        <pattern>
+            quien * profesor
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * quien * profesor
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            quien * profesor *
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * quien * profesor *
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+
+    <category>
+        <pattern>
+            profesor * curso
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * profesor * curso
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            profesor * curso *
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * profesor * curso *
+        </pattern>
+        <template>
+            El profesor es Gustavo Henry Pachas Quispe. Trabajó como Gestor de Proyectos en la empresa Cuida Co y gestor de calidad en interbank. Tiene un grado de maestria MBA en ESAN Graduate School Of Busines
+        </template>
+    </category>
+
 </aiml>
