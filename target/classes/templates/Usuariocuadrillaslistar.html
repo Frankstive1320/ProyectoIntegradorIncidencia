@@ -35,8 +35,19 @@
 			</div>
 			<br><br><br>
 		</div>
-		<footer th:replace="layout/layout :: footer">
-		</footer>
+
+	<!--/* CHAT FLOTANTE */-->
+	<script>
+		function toggleIframe() {
+            var iframeContainer = document.getElementById('iframeContainer');
+            if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
+                iframeContainer.style.display = 'block';
+            } else {
+                iframeContainer.style.display = 'none';
+            }
+        }
+	</script>
+	<!--/* CHAT FLOTANTE */-->
 	</body>
 	<script type="text/javascript" th:src="@{/js/script.js}"></script>
 </html>
