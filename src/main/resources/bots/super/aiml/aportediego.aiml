@@ -1,5 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+ <!-- INICIO - Categorías de Incidencias Técnicas -->
+ <!-- INICIO - Diego Palomino -->
+
+    <category>
+        <pattern>
+            incidencia * técnica
+        </pattern>
+        <template>
+            Cualquier problema que afecta el funcionamiento normal de la infraestructura de red o los dispositivos conectados.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * incidencia * técnica
+        </pattern>
+        <template>
+            Cualquier problema que afecta el funcionamiento normal de la infraestructura de red o los dispositivos conectados.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            incidencia * técnica *
+        </pattern>
+        <template>
+            Cualquier problema que afecta el funcionamiento normal de la infraestructura de red o los dispositivos conectados.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * incidencia * técnica *
+        </pattern>
+        <template>
+            Cualquier problema que afecta el funcionamiento normal de la infraestructura de red o los dispositivos conectados.
+        </template>
+    </category>
+
+    <!-- FIN - Categorías de Incidencias Técnicas -->
+
+    <!-- INICIO - Cableado -->
+
+    <category>
+        <pattern>
+            problema * cableado
+        </pattern>
+        <template>
+            Problemas relacionados con los cables que forman parte de la red de la empresa. Esto puede incluir cortes, mal funcionamiento o conexiones defectuosas.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * cableado
+        </pattern>
+        <template>
+            Problemas relacionados con los cables que forman parte de la red de la empresa. Esto puede incluir cortes, mal funcionamiento o conexiones defectuosas.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            problema * cableado *
+        </pattern>
+        <template>
+            Problemas relacionados con los cables que forman parte de la red de la empresa. Esto puede incluir cortes, mal funcionamiento o conexiones defectuosas.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * cableado *
+        </pattern>
+        <template>
+            Problemas relacionados con los cables que forman parte de la red de la empresa. Esto puede incluir cortes, mal funcionamiento o conexiones defectuosas.
+        </template>
+    </category>
+
+    <!-- FIN - Cableado -->
+
+    <!-- INICIO - Dispositivos de Red -->
+
+    <category>
+        <pattern>
+            problema * dispositivos de red
+        </pattern>
+        <template>
+            Incluye averías en routers, switches, y otros equipos que gestionan la conectividad de red.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * dispositivos de red
+        </pattern>
+        <template>
+            Incluye averías en routers, switches, y otros equipos que gestionan la conectividad de red.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            problema * dispositivos de red *
+        </pattern>
+        <template>
+            Incluye averías en routers, switches, y otros equipos que gestionan la conectividad de red.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * dispositivos de red *
+        </pattern>
+        <template>
+            Incluye averías en routers, switches, y otros equipos que gestionan la conectividad de red.
+        </template>
+    </category>
+
+    <!-- FIN - Dispositivos de Red -->
+
+    <!-- INICIO - Nodos de Red -->
+
+    <category>
+        <pattern>
+            problema * nodos de red
+        </pattern>
+        <template>
+            Problemas en los puntos de concentración de cables de diferentes empresas, conocidos como nodos, que pueden afectar el rendimiento y la conectividad de la red.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * nodos de red
+        </pattern>
+        <template>
+            Problemas en los puntos de concentración de cables de diferentes empresas, conocidos como nodos, que pueden afectar el rendimiento y la conectividad de la red.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            problema * nodos de red *
+        </pattern>
+        <template>
+            Problemas en los puntos de concentración de cables de diferentes empresas, conocidos como nodos, que pueden afectar el rendimiento y la conectividad de la red.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * nodos de red *
+        </pattern>
+        <template>
+            Problemas en los puntos de concentración de cables de diferentes empresas, conocidos como nodos, que pueden afectar el rendimiento y la conectividad de la red.
+        </template>
+    </category>
+
+    <!-- FIN - Nodos de Red -->
+
+    <!-- INICIO - Infraestructura General -->
+
+    <category>
+        <pattern>
+            problema * infraestructura general
+        </pattern>
+        <template>
+            Cualquier otra incidencia que afecte la infraestructura de red utilizada por grandes empresas como BBVA, donde problemas en la red pueden implicar una revisión y reparación exhaustiva tanto del cableado como de los dispositivos.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * infraestructura general
+        </pattern>
+        <template>
+            Cualquier otra incidencia que afecte la infraestructura de red utilizada por grandes empresas como BBVA, donde problemas en la red pueden implicar una revisión y reparación exhaustiva tanto del cableado como de los dispositivos.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            problema * infraestructura general *
+        </pattern>
+        <template>
+            Cualquier otra incidencia que afecte la infraestructura de red utilizada por grandes empresas como BBVA, donde problemas en la red pueden implicar una revisión y reparación exhaustiva tanto del cableado como de los dispositivos.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * problema * infraestructura general *
+        </pattern>
+        <template>
+            Cualquier otra incidencia que afecte la infraestructura de red utilizada por grandes empresas como BBVA, donde problemas en la red pueden implicar una revisión y reparación exhaustiva tanto del cableado como de los dispositivos.
+        </template>
+    </category>
+
+    <!-- FIN - Infraestructura General -->
+
+    <!-- INICIO - Razones por la cual Movistar Manda las Incidencias -->
+
+    <category>
+        <pattern>
+            por que * movistar * manda * incidencias
+        </pattern>
+        <template>
+            Movistar, siendo una de las principales empresas de telecomunicaciones y servicios de infraestructura y redes, maneja un vasto y complejo sistema de infraestructura de red. Esta magnitud trae consigo una alta cantidad de incidencias técnicas que necesitan ser atendidas.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * volumen * incidencias
+        </pattern>
+        <template>
+            Movistar recibe un alto volumen de incidencias técnicas diarias debido a su extensa base de clientes y compleja infraestructura. La cantidad de incidencias es demasiado grande para que el equipo interno de Movistar pueda gestionarlas eficientemente.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            especialización * recursos * movistar
+        </pattern>
+        <template>
+            Aunque Movistar cuenta con un equipo técnico propio, el volumen y la variedad de las averías superan la capacidad de respuesta rápida y efectiva. Por lo tanto, necesitan el apoyo de empresas terciarias especializadas que puedan proporcionar un soporte adicional y especializado.
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * eficiencia operacional * movistar
+        </pattern>
+        <template>
+            Delegar la resolución de averías a empresas externas permite a Movistar mantener su enfoque en las operaciones centrales y estratégicas de la empresa, mejorando así su eficiencia operacional.
+        </template>
+    </category>
+
+    <!-- FIN - Razones por la cual Movistar Manda las Incidencias -->
 
 </aiml>
