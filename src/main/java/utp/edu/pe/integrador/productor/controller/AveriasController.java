@@ -1,6 +1,11 @@
 package utp.edu.pe.integrador.productor.controller;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,8 +25,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.WorkbookSettings;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import utp.edu.pe.integrador.productor.entity.User;
 import utp.edu.pe.integrador.productor.interfacesservice.IAveriasService;
@@ -51,6 +64,26 @@ public class AveriasController {
 	
 	@Autowired
 	private IDistritoService distriservicio;
+	
+	String inc;
+	String sisego; 
+	String zonal;
+	String zonificacion; 
+	String contrata;
+	String tecnico_asignado; 
+	String fecha_atencion; 
+	String tipo_averia; 
+	String diagnostico; 
+	String parada_reloj;
+	String acciones_correctivas;
+	String estado; 
+	String observaciones;
+	String cliente;
+	String departamento;
+	String distrito; 
+	String direccion; 
+	String materiales;
+	
 	
 	
 	@GetMapping("/averias/")
@@ -224,6 +257,100 @@ public class AveriasController {
 	@GetMapping(value="/listarDistritos/{provincia}")
 	public @ResponseBody List<Distrito> listarDistritos(Model model, @PathVariable("provincia") int provincia) {
 	return distriservicio.listarDistritosActivosProvincia(provincia);
+	}
+	
+	@GetMapping("/averias/importar")
+	public String cargar(Model model) {
+		List<Averias> averias = avservices.listarAveria();
+		model.addAttribute("averias", averias);
+		return "AveriasImportar";
+	}
+	@PostMapping("/averias/importargrabar")
+	public String grabar(@RequestParam("file") MultipartFile file, @Validated @ModelAttribute Averias averias,
+		BindingResult result, Model model, RedirectAttributes atributo) throws MalformedURLException, IOException {
+		if (result.hasErrors()) {
+			model.addAttribute("averias", averias);
+			return "AveriasImportar";
+		}
+		
+		MultipartFile multipartFile = new MockMultipartFile("sourceFile.tmp", file.getBytes());
+
+		File filea = new File("src/main/resources/targetFile.tmp");
+
+		try (OutputStream os = new FileOutputStream(filea)) {
+		    os.write(multipartFile.getBytes());
+		}
+		
+     	LeerArchivosExcel(filea);
+		atributo.addFlashAttribute("success","AVERIA AGREGADA");
+		return "redirect:/averias/";
+	}
+	
+	
+	private void LeerArchivosExcel (File archivoDestino) {
+		int contador = 1;
+		try {
+			WorkbookSettings opciones= new WorkbookSettings();
+			opciones.setEncoding("iso-8859-1");
+			Workbook ArchivoExcel = Workbook.getWorkbook(archivoDestino, opciones);
+			for (int hojas = 0; hojas < ArchivoExcel.getNumberOfSheets(); hojas++) {
+				Sheet hoja = ArchivoExcel.getSheet(hojas);
+				int numColumnas = hoja.getColumns();
+				int numFilas = hoja.getRows();
+				String dato;
+				for (int fila = 1; fila < numFilas; fila++) {
+					for (int columna = 0; columna < numColumnas; columna++) {
+						dato = hoja.getCell(columna, fila).getContents();
+						switch (contador) {
+						case 1:
+							inc = dato; contador++; break;
+						case 2:
+							sisego = dato; contador++; break;
+						case 3:
+							zonal = dato; contador++; break;
+						case 4:
+							zonificacion = dato; contador++; break;
+						case 5:
+							contrata = dato; contador++; break;
+						case 6:
+							tecnico_asignado = dato; contador++; break;
+						case 7:
+							fecha_atencion = dato; contador++; break;
+						case 8:
+							tipo_averia = dato; contador++; break;
+						case 9:
+							diagnostico = dato; contador++; break;
+						case 10:
+							parada_reloj = dato; contador++; break;
+						case 11:
+							acciones_correctivas = dato; contador++; break;
+						case 12:
+							estado = dato; contador++; break;
+						case 13:
+							observaciones = dato; contador++; break;
+						case 14:
+							cliente = dato; contador++; break;
+						case 15:
+							departamento = dato; contador++; break;
+						case 16:
+							distrito = dato; contador++; break;
+						case 17:
+							direccion = dato; contador++; break;
+						case 18:
+							materiales = dato; contador=1; break;						
+						}
+						
+						
+						
+					}
+					
+					avservices.AgregarAveria(inc, sisego, zonal, zonificacion, contrata, tecnico_asignado, fecha_atencion, tipo_averia, diagnostico, parada_reloj, acciones_correctivas, estado, observaciones, cliente, departamento, distrito, direccion, materiales);
+					
+				}
+			}
+		} catch (Exception ioe) {
+			ioe.printStackTrace();
+		}
 	}
 	
 }

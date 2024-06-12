@@ -28,6 +28,10 @@ public interface IAveriasService {
 	public void ActualizarAveriaFechaFinalizacionn(String fechafinalizacion, int averiaid);
 	ByteArrayInputStream exportAllDta() throws Exception;
 	
+	public void AgregarAveria (String inc, String sisego, String zonal, String zonificacion, String contrata,
+			String tecnico_asignado, String fecha_atencion, String tipo_averia, String diagnostico, String parada_reloj,
+			String acciones_correctivas, String estado, String observaciones, String cliente, String departamento,String distrito
+			,String direccion, String materiales);
 	
 	
 }

@@ -99,7 +99,7 @@ public class AveriasService implements IAveriasService {
 		
 		String[] columns = {"INC","SISEGO","ZONAL","ZONIFICACION","CONTRATA","TECNICO ASIGNADO", "FECHA ATENCION",
 				"TIPO AVERIA","DIAGNOSTICO","PARADA DE RELOJ","ACCIONES CORRECTIVAS","ESTADO","OBSERVACIONES"
-				,"CLIENTES","MATERIALES"};
+				,"CLIENTES","DEPARTAMENTO","DISTRITO","DIRECCION","MATERIALES"};
 				Workbook workbook = new HSSFWorkbook();
 				ByteArrayOutputStream stream = new ByteArrayOutputStream();
 				Sheet sheet = workbook.createSheet("AVERIAS");
@@ -179,7 +179,10 @@ public class AveriasService implements IAveriasService {
 				row.createCell(11).setCellValue(averiast.getEstado());
 				row.createCell(12).setCellValue(averiast.getCliente());
 				row.createCell(13).setCellValue(averiast.getObservaciones());
-				row.createCell(14).setCellValue(averiast.getMateriales());
+				row.createCell(14).setCellValue(averiast.getDepartamento());
+				row.createCell(15).setCellValue(averiast.getDistrito());
+				row.createCell(16).setCellValue(averiast.getDireccion());
+				row.createCell(17).setCellValue(averiast.getMateriales());
 				initRow++;
 				}
 				sheet.autoSizeColumn(0);
@@ -197,11 +200,23 @@ public class AveriasService implements IAveriasService {
 				sheet.autoSizeColumn(12);
 				sheet.autoSizeColumn(13);
 				sheet.autoSizeColumn(14);
+				sheet.autoSizeColumn(15);
+				sheet.autoSizeColumn(16);
+				sheet.autoSizeColumn(17);
 				workbook.write(stream);
 				workbook.close();
 				
 				return new ByteArrayInputStream(stream.toByteArray());
 		}
+	@Override
+	public void AgregarAveria(String inc, String sisego, String zonal, String zonificacion, String contrata,
+			String tecnico_asignado, String fecha_atencion, String tipo_averia, String diagnostico, String parada_reloj,
+			String acciones_correctivas, String estado, String observaciones, String cliente, String departamento,
+			String distrito, String direccion, String materiales) {
+		averias1.AgregarAveria(inc, sisego, zonal, zonificacion, contrata, tecnico_asignado, fecha_atencion, tipo_averia, diagnostico, parada_reloj, acciones_correctivas, estado, observaciones, cliente, departamento, distrito, direccion, materiales);
+		
+	}
+	
 	
 
 }
