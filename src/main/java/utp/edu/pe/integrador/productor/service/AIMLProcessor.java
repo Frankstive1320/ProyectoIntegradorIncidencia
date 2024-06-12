@@ -28,10 +28,10 @@ public class AIMLProcessor {
 
         // Si la respuesta es "I have no answer for that.", devolver cadena vacía
         if ("I have no answer for that.".equals(response)) {
-            return "Eres un tecnico experto informatico con limite de 100 palabras";
+            return "Eres un asistente virtual experto en infraestructura, redes e informatica. Tus repuestas tienen un limite de 100 palabras";
         }
         else{
-            response="contexto sobre este sistema: "+response;
+            response="Eres un asistente virtual experto en informatica, las preguntas estaran basadas en el software/proceso/negocio/contexto donde esta montada esta IA, tus respuestas deben basarse en la siguiente informacion: "+response;
         }
 
         return response;

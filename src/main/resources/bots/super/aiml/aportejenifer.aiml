@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <!-- INICIO - Otras preguntas de ejemplo -->
+    <!-- INICIO - Jennifer Reyes -->
+
+    <category>
+        <pattern>
+            quienes * grupo
+        </pattern>
+        <template>
+            Este grupo está formado por los desarrolladores Oscar, Jenifer, Walter y Stive, los QA Mitziu y Diego, el product owner John y el Scrum Master Bruno
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * quienes * grupo
+        </pattern>
+        <template>
+            Este grupo está formado por los desarrolladores Oscar, Jenifer, Walter y Stive, los QA Mitziu y Diego, el product owner John y el Scrum Master Bruno
+        </template>
+    </category>
+    <category>
+        <pattern>
+            quienes * grupo *
+        </pattern>
+        <template>
+            Este grupo está formado por los desarrolladores Oscar, Jenifer, Walter y Stive, los QA Mitziu y Diego, el product owner John y el Scrum Master Bruno
+        </template>
+    </category>
+    <category>
+        <pattern>
+            * quienes * grupo *
+        </pattern>
+        <template>
+            Este grupo está formado por los desarrolladores Oscar, Jenifer, Walter y Stive, los QA Mitziu y Diego, el product owner John y el Scrum Master Bruno
+        </template>
+    </category>
+    <!-- FIN 1 - Jennifer Reyes -->
+
+    <!-- INICIO 2 - Jennifer Reyes -->
+
+    <category>
+            <pattern>
+                quienes * desarrolladores
+            </pattern>
+            <template>
+                Los desarrolladores de este sistema son Oscar, Jenifer, Walter y Stive
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quienes * desarrolladores
+            </pattern>
+            <template>
+                Los desarrolladores de este sistema son Oscar, Jenifer, Walter y Stive
+            </template>
+        </category>
+        <category>
+            <pattern>
+                quienes * desarrolladores *
+            </pattern>
+            <template>
+                Los desarrolladores de este sistema son Oscar, Jenifer, Walter y Stive
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quienes * desarrolladores *
+            </pattern>
+            <template>
+                Los desarrolladores de este sistema son Oscar, Jenifer, Walter y Stive
+            </template>
+        </category>
+
+<!-- FIN 2 - Jennifer Reyes -->
+
+    <!-- INICIO 3 - Jennifer Reyes -->
+
+    <category>
+            <pattern>
+                quienes * QA
+            </pattern>
+            <template>
+                Los QA de este sistema son Mitziu y Diego
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quienes * QA
+            </pattern>
+            <template>
+                Los QA de este sistema son Mitziu y Diego
+            </template>
+        </category>
+        <category>
+            <pattern>
+                quienes * QA *
+            </pattern>
+            <template>
+                Los QA de este sistema son Mitziu y Diego
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quienes * QA *
+            </pattern>
+            <template>
+                Los QA de este sistema son Mitziu y Diego
+            </template>
+        </category>
+
+            <category>
+                    <pattern>
+                        quien * QA
+                    </pattern>
+                    <template>
+                        Los QA de este sistema son Mitziu y Diego
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        * quien * QA
+                    </pattern>
+                    <template>
+                        Los QA de este sistema son Mitziu y Diego
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        quien * QA *
+                    </pattern>
+                    <template>
+                        Los QA de este sistema son Mitziu y Diego
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        * quien * QA *
+                    </pattern>
+                    <template>
+                        Los QA de este sistema son Mitziu y Diego
+                    </template>
+                </category>
+
+<!-- FIN 3 - Jennifer Reyes -->
+
+    <!-- INICIO 4 - Jennifer Reyes -->
+
+    <category>
+            <pattern>
+                quien * product owner
+            </pattern>
+            <template>
+                El product owner de este sistema es John
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quien * product owner
+            </pattern>
+            <template>
+                El product owner de este sistema es John
+            </template>
+        </category>
+        <category>
+            <pattern>
+                quien * product owner *
+            </pattern>
+            <template>
+                El product owner de este sistema es John
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quien * product owner *
+            </pattern>
+            <template>
+                El product owner de este sistema es John
+            </template>
+        </category>
+
+        <category>
+                    <pattern>
+                        quienes * product owner
+                    </pattern>
+                    <template>
+                        El product owner de este sistema es John
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        * quienes * product owner
+                    </pattern>
+                    <template>
+                        El product owner de este sistema es John
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        quienes * product owner *
+                    </pattern>
+                    <template>
+                        El product owner de este sistema es John
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        * quienes * product owner *
+                    </pattern>
+                    <template>
+                        El product owner de este sistema es John
+                    </template>
+                </category>
+
+<!-- FIN 4 - Jennifer Reyes -->
+
+    <!-- INICIO 5 - Jennifer Reyes -->
+
+    <category>
+            <pattern>
+                quien * Scrum Master
+            </pattern>
+            <template>
+            El Scrum Master de este sistema es Bruno
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quien * Scrum Master
+            </pattern>
+            <template>
+                El Scrum Master de este sistema es Bruno
+            </template>
+        </category>
+        <category>
+            <pattern>
+                quien * Scrum Master *
+            </pattern>
+            <template>
+                El Scrum Master de este sistema es Bruno
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * quien * Scrum Master *
+            </pattern>
+            <template>
+                El Scrum Master de este sistema es Bruno
+            </template>
+        </category>
+
+        <category>
+                    <pattern>
+                        quienes * Scrum Master
+                    </pattern>
+                    <template>
+                    El Scrum Master de este sistema es Bruno
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        * quienes * Scrum Master
+                    </pattern>
+                    <template>
+                        El Scrum Master de este sistema es Bruno
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        quienes * Scrum Master *
+                    </pattern>
+                    <template>
+                        El Scrum Master de este sistema es Bruno
+                    </template>
+                </category>
+                <category>
+                    <pattern>
+                        * quienes * Scrum Master *
+                    </pattern>
+                    <template>
+                        El Scrum Master de este sistema es Bruno
+                    </template>
+                </category>
+
+<!-- FIN 5 - Jennifer Reyes -->
+
+ <!-- INICIO 6 - Jennifer Reyes -->
+
+    <category>
+            <pattern>
+                desarrollo * sistema
+            </pattern>
+            <template>
+            Este sistema inicio su desarrollo en el año 2024
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * desarrollo * sistema
+            </pattern>
+            <template>
+                Este sistema inicio su desarrollo en el año 2024
+            </template>
+        </category>
+        <category>
+            <pattern>
+                desarrollo * sistema *
+            </pattern>
+            <template>
+                Este sistema inicio su desarrollo en el año 2024
+            </template>
+        </category>
+        <category>
+            <pattern>
+                * desarrollo * sistema *
+            </pattern>
+            <template>
+                Este sistema inicio su desarrollo en el año 2024
+            </template>
+        </category>
+
+<!-- FIN 6 - Jennifer Reyes -->
+
+    <!-- FIN - Otras preguntas de ejemplo -->
+</aiml>

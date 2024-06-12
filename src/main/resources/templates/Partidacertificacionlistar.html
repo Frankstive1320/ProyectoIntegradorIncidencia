@@ -5,6 +5,25 @@
 	<body> 
 	<header th:replace="layout/layout :: header"></header>
 	<br>
+
+	<!--/* CHAT FLOTANTE */-->
+	<button class="floating-button" onclick="toggleIframe()" style="position: fixed !important; bottom: 20px !important; right: 20px !important; background-color: #fff !important; color: #007bff !important; border: none !important; border-radius: 50% !important; width: 50px !important; height: 50px !important; font-size: 24px !important; text-align: center !important; line-height: 50px !important; cursor: pointer !important; z-index: 9999 !important;">
+		<img src="/img/iconchatgpt.png" alt="Icono" style="width: 100%;">
+	</button>
+
+	<div id="iframeContainer" class="card shadow-lg rounded" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999; width: 350px; height: 500px;">
+		<div class="card-header bg-primary text-white">
+			ASISTENTE
+			<button type="button" class="close text-white" aria-label="Close" onclick="toggleIframe()">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<!-- iframe flotante -->
+		<div class="card-body p-0 border-0 rounded" style="width: 350px; height: 450px;">
+			<iframe src="/chatbot" class="w-100 h-100 border-0 rounded" style="background-color: #fff;"></iframe>
+		</div>
+	</div>
+	<!--/* CHAT FLOTANTE */-->
 		<div class="container">
 		<h1>PARTIDAS DE CERTIFICACION</h1>
 			<br><br>
@@ -35,8 +54,19 @@
 			
 			<br><br><br>
 		</div>
-		<footer th:replace="layout/layout :: footer">
-		</footer>
+
+	<!--/* CHAT FLOTANTE */-->
+	<script>
+		function toggleIframe() {
+            var iframeContainer = document.getElementById('iframeContainer');
+            if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
+                iframeContainer.style.display = 'block';
+            } else {
+                iframeContainer.style.display = 'none';
+            }
+        }
+	</script>
+	<!--/* CHAT FLOTANTE */-->
 	</body>
 	<script type="text/javascript" th:src="@{/js/script.js}"></script>
 </html>
