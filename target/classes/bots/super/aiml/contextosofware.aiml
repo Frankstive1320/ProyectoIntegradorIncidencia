@@ -1385,4 +1385,112 @@
 
 
 
+    <category>
+        <pattern>caracteristicas * tecnicas</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+    <category>
+        <pattern>* caracteristicas * tecnicas</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+    <category>
+        <pattern>caracteristicas * tecnicas *</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+    <category>
+        <pattern>* caracteristicas * tecnicas *</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+
+    <category>
+        <pattern>caracteristicas tecnicas</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+    <category>
+        <pattern>* caracteristicas tecnicas</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+    <category>
+        <pattern>caracteristicas tecnicas *</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+    <category>
+        <pattern>* caracteristicas tecnicas *</pattern>
+        <template>
+            Escalabilidad: El software está diseñado para ser escalable, permitiendo que se adapte y crezca con las necesidades de la empresa. La arquitectura modular de Spring Boot facilita la integración de nuevas funcionalidades sin afectar el rendimiento. Código Comprensible: El desarrollo se ha llevado a cabo siguiendo las mejores prácticas de codificación y principios de diseño limpio, lo que garantiza que el código sea fácil de entender y mantener. Esto facilita el trabajo de los desarrolladores al realizar mejoras o solucionar problemas.
+        </template>
+    </category>
+
+
+    <category>
+        <pattern>Principales Funcionalidades</pattern>
+        <template>
+            Registro de Avería: Permite el registro detallado de las incidencias técnicas desde su detección, asegurando que cada avería sea documentada y gestionada de manera eficiente. Registro de Certificación: Incluye un módulo de registro de validación del trabajo concluido, asegurando que cada intervención técnica sea certificada y aprobada antes de considerarse completada. Registro de Baremo: Proporciona una estructura de precios por cada servicio técnico realizado, facilitando una facturación precisa y justa. Esto permite a la empresa calcular y justificar los costos asociados a cada intervención.
+        </template>
+    </category>
+    <category>
+        <pattern>Principales Funcionalidades *</pattern>
+        <template>
+            Registro de Avería: Permite el registro detallado de las incidencias técnicas desde su detección, asegurando que cada avería sea documentada y gestionada de manera eficiente. Registro de Certificación: Incluye un módulo de registro de validación del trabajo concluido, asegurando que cada intervención técnica sea certificada y aprobada antes de considerarse completada. Registro de Baremo: Proporciona una estructura de precios por cada servicio técnico realizado, facilitando una facturación precisa y justa. Esto permite a la empresa calcular y justificar los costos asociados a cada intervención.
+        </template>
+    </category>
+    <category>
+        <pattern>* Principales Funcionalidades</pattern>
+        <template>
+            Registro de Avería: Permite el registro detallado de las incidencias técnicas desde su detección, asegurando que cada avería sea documentada y gestionada de manera eficiente. Registro de Certificación: Incluye un módulo de registro de validación del trabajo concluido, asegurando que cada intervención técnica sea certificada y aprobada antes de considerarse completada. Registro de Baremo: Proporciona una estructura de precios por cada servicio técnico realizado, facilitando una facturación precisa y justa. Esto permite a la empresa calcular y justificar los costos asociados a cada intervención.
+        </template>
+    </category>
+    <category>
+        <pattern>* Principales Funcionalidades *</pattern>
+        <template>
+            Registro de Avería: Permite el registro detallado de las incidencias técnicas desde su detección, asegurando que cada avería sea documentada y gestionada de manera eficiente. Registro de Certificación: Incluye un módulo de registro de validación del trabajo concluido, asegurando que cada intervención técnica sea certificada y aprobada antes de considerarse completada. Registro de Baremo: Proporciona una estructura de precios por cada servicio técnico realizado, facilitando una facturación precisa y justa. Esto permite a la empresa calcular y justificar los costos asociados a cada intervención.
+        </template>
+    </category>
+
+    <category>
+        <pattern>roles</pattern>
+        <template>
+            los roles son: Administrador: Tiene acceso completo al sistema, incluyendo la gestión de usuarios, configuración del sistema, y generación de reportes. Los administradores pueden registrar y validar las averías, además de configurar los baremos y otras opciones administrativas. Técnico: Enfocado en la gestión y resolución de averías. Los técnicos pueden registrar nuevas incidencias, actualizar el estado de las mismas, y validar el trabajo realizado. Pueden acceder a la aplicación tanto desde la web como desde dispositivos móviles.
+        </template>
+    </category>
+    <category>
+        <pattern>* roles</pattern>
+        <template>
+            los roles son: Administrador: Tiene acceso completo al sistema, incluyendo la gestión de usuarios, configuración del sistema, y generación de reportes. Los administradores pueden registrar y validar las averías, además de configurar los baremos y otras opciones administrativas. Técnico: Enfocado en la gestión y resolución de averías. Los técnicos pueden registrar nuevas incidencias, actualizar el estado de las mismas, y validar el trabajo realizado. Pueden acceder a la aplicación tanto desde la web como desde dispositivos móviles.
+        </template>
+    </category>
+    <category>
+        <pattern>roles *</pattern>
+        <template>
+            los roles son: Administrador: Tiene acceso completo al sistema, incluyendo la gestión de usuarios, configuración del sistema, y generación de reportes. Los administradores pueden registrar y validar las averías, además de configurar los baremos y otras opciones administrativas. Técnico: Enfocado en la gestión y resolución de averías. Los técnicos pueden registrar nuevas incidencias, actualizar el estado de las mismas, y validar el trabajo realizado. Pueden acceder a la aplicación tanto desde la web como desde dispositivos móviles.
+        </template>
+    </category>
+    <category>
+        <pattern>* roles *</pattern>
+        <template>
+            los roles son: Administrador: Tiene acceso completo al sistema, incluyendo la gestión de usuarios, configuración del sistema, y generación de reportes. Los administradores pueden registrar y validar las averías, además de configurar los baremos y otras opciones administrativas. Técnico: Enfocado en la gestión y resolución de averías. Los técnicos pueden registrar nuevas incidencias, actualizar el estado de las mismas, y validar el trabajo realizado. Pueden acceder a la aplicación tanto desde la web como desde dispositivos móviles.
+        </template>
+    </category>
+
+    <category>
+        <pattern>* roles *</pattern>
+        <template>
+            los roles son: Administrador: Tiene acceso completo al sistema, incluyendo la gestión de usuarios, configuración del sistema, y generación de reportes. Los administradores pueden registrar y validar las averías, además de configurar los baremos y otras opciones administrativas. Técnico: Enfocado en la gestión y resolución de averías. Los técnicos pueden registrar nuevas incidencias, actualizar el estado de las mismas, y validar el trabajo realizado. Pueden acceder a la aplicación tanto desde la web como desde dispositivos móviles.
+        </template>
+    </category>
+
 </aiml>
