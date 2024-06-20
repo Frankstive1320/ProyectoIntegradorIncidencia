@@ -1,52 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<link rel="shortcut icon" href="/img/IconoPestaña.jpg" />
-	<title>TELEMARKETING</title>
-
-    <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/IconoPestaña.jpg">
+    <title>TELEMARKETING</title>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" href="static/css/index.css" th:href="@{/css/index.css}">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <!-- ===== BOX ICONS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
 
 </head>
 <body>
-    <div class="modal-dialog text-center">
-        <div class="col-sm-8 main-section">
-            <div class="modal-content">
-                <div class="col-12 user-img">
-                    <img src="static/img/user.png" th:src="@{/img/user.png}"/>
-                </div>
-                <form class="col-12" th:action="@{/login}" method="post">
-                    <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Nombre de usuario" name="username"/>
-                    </div>
-                    <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
-                    </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  INGRESAR </button>
-                </form>
-                <!--  <div class="col-12 forgot">
-                    <p><a href="#">Recordar contrasena</a></p>
-                    <p><a href="#" th:href="@{/signup}">Registrarse</a>
-                </div>-->
-                <div th:if="${param.error}" class="alert alert-danger" role="alert">
-		            NOMBRE DE USUARIO O CONTRASENA INVALIDA
-		        </div>
-		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-		            HAS CERRADO TU SESION
-		        </div>
-            </div>
+<div class="login">
+    <div class="login__content">
+        <img class="wave" src="/img/wave2.png">
+        <div class="login__img">
+            <img src="/img/Mobile login-bro.png" alt="">
+            <img class="wave2" src="/img/wave4.png">
         </div>
+
+
     </div>
-</body>
-</html>
+</div>
+
+<!--===== JS =====-->
+<script>
+    /*===== LOGIN SHOW and HIDDEN =====*/
+const signUp = document.getElementById('sign-up'),
+    signIn = document.getElementById('sign-in'),
+    loginIn = document.getElementById('login-in'),
+    loginUp = document.getElementById('login-up')
+
+
+signUp.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('block')
+    loginUp.classList.remove('none')
+
+    // Add classes
+    loginIn.classList.toggle('none')
+    loginUp.classList.toggle('block')
+})
+
+signIn.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('none')
+    loginUp.classList.remove('block')
+
+    // Add classes
+    loginIn.classList.toggle('block')
+    loginUp.classList.toggle('none')
+})
+</script>
+
+</body></html>
