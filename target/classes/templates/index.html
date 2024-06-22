@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/IconoPestaña.jpg">
+    <link rel="shortcut icon" href="/img/IconoPestaña.jpg" />
     <title>TELEMARKETING</title>
 
     <!-- Nuestro css-->
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css" th:href="@{/css/index.css}">
     <!-- ===== BOX ICONS ===== -->
-    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
@@ -16,11 +17,37 @@
     <div class="login__content">
         <img class="wave" src="/img/wave2.png">
         <div class="login__img">
-            <img src="/img/Mobile login-bro.png" alt="">
+            <img src="/img/Programming.png" alt="">
             <img class="wave2" src="/img/wave4.png">
         </div>
 
+        <div class="login__forms">
+            <form th:action="@{/login}" method="post" class="login__registre" id="login-in">
+                <h1 class="login__title">Sign In</h1>
+                Welcome Back ! Sign in to continue to Telemarketing.
 
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input type="text" placeholder="Username" class="login__input" name="username">
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" placeholder="Password" class="login__input" name="password">
+                </div>
+
+                <button type="submit" class="login__button" > Sign In</button>
+
+                <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                    NOMBRE DE USUARIO O CONTRASENA INVALIDA
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                    HAS CERRADO TU SESION
+                </div>
+
+            </form>
+
+        </div>
     </div>
 </div>
 
@@ -53,5 +80,5 @@ signIn.addEventListener('click', ()=>{
     loginUp.classList.toggle('none')
 })
 </script>
-
-</body></html>
+</body>
+</html>
