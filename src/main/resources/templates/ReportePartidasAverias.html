@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml" 
     xmlns:th="http://www.thymeleaf.org" 
     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
@@ -29,41 +29,74 @@
 
 <form th:action="@{/partidacertificacionaveria/reporte}" th:object=${averias} method="get" id="formVenta">
 			
-			<main class="container">
-			<section class="card">
-				<br>
-				<div class="card-header">
+	<main class="container">
+		<section class="card">
+			<br>
+			<div class="card-header">
 				<h3>REPORTE DE CERTIFICACION DE AVERIAS</h3>
-				</div>
-				<div class="card-body">
-					<label>DESDE</label><input th:field="*{fechaparafinalizar}" id="fechaingreso" type="date" class="form-control" required="required"/><br>
-					<label>HASTA</label><input th:field="*{fechafinalizacion}" id="fechaingreso2" type="date" class="form-control" required="required">
-				</div>
+			</div>
+			<div class="card-body">
+				<label>DESDE</label>
+				<input th:field="*{fechaparafinalizar}" id="fechaparafinalizar" type="date" class="form-control" required="required"/><br>
+				<label>HASTA</label>
+				<input th:field="*{fechafinalizacion}" id="fechafinalizacion" type="date" class="form-control" required="required">
 				<br>
-				<div class="card-footer">
-					<input type="submit" value="IMPRIMIR REPORTE" class="btn btn-primary">		
-					
-					<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
-				</div>			
-				</section>
-				</main>
-		</form>
+				<input type="checkbox" id="allowAllDates" onchange="toggleDateRestrictions()"> Permitir seleccionar cualquier fecha
+			</div>
+			<br>
+			<div class="card-footer">
+				<input type="submit" value="IMPRIMIR REPORTE" class="btn btn-primary">		
+				<input type="button" value="CANCELAR" onclick="cancelar()" class="btn btn-danger">
+			</div>			
+		</section>
+	</main>
+</form>
 		
-		<footer th:replace="layout/layout :: footer">
-		</footer>
-	</body>
+<footer th:replace="layout/layout :: footer">
+</footer>
+
 <!--/* CHAT FLOTANTE */-->
 <script>
 	function toggleIframe() {
-        var iframeContainer = document.getElementById('iframeContainer');
-        if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
-            iframeContainer.style.display = 'block';
-        } else {
-            iframeContainer.style.display = 'none';
-        }
-    }
+		var iframeContainer = document.getElementById('iframeContainer');
+		if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
+			iframeContainer.style.display = 'block';
+		} else {
+			iframeContainer.style.display = 'none';
+		}
+	}
+
+	function toggleDateRestrictions() {
+		const allowAllDates = document.getElementById('allowAllDates').checked;
+		const fechaparafinalizar = document.getElementById('fechaparafinalizar');
+		const fechafinalizacion = document.getElementById('fechafinalizacion');
+		const today = new Date().toISOString().split('T')[0];
+		const threeDaysBefore = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+		
+		if (allowAllDates) {
+			fechaparafinalizar.removeAttribute('max');
+			fechaparafinalizar.removeAttribute('min');
+			fechafinalizacion.removeAttribute('max');
+			fechafinalizacion.removeAttribute('min');
+		} else {
+			fechaparafinalizar.setAttribute('max', today);
+			fechaparafinalizar.setAttribute('min', threeDaysBefore);
+			fechafinalizacion.setAttribute('max', today);
+			fechafinalizacion.setAttribute('min', today);
+		}
+
+		// Set default values if not already set
+		if (!fechaparafinalizar.value) fechaparafinalizar.value = threeDaysBefore;
+		if (!fechafinalizacion.value) fechafinalizacion.value = today;
+	}
+
+	// Initialize date inputs on page load
+	document.addEventListener('DOMContentLoaded', function() {
+		toggleDateRestrictions();
+	});
 </script>
 <!--/* CHAT FLOTANTE */-->
-	<script type="text/javascript" th:src="@{/js/combos.js}"></script>
-	<script type="text/javascript" th:src="@{/js/script.js}"></script>
+<script type="text/javascript" th:src="@{/js/combos.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</body>
 </html>
