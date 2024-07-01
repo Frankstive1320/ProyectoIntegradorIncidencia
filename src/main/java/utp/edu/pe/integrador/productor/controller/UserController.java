@@ -13,11 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import utp.edu.pe.integrador.productor.entity.ChangePasswordForm;
 import utp.edu.pe.integrador.productor.entity.Role;
@@ -26,6 +22,7 @@ import utp.edu.pe.integrador.productor.repository.RoleRepository;
 import utp.edu.pe.integrador.productor.securityservice.CustomeFieldValidationException;
 import utp.edu.pe.integrador.productor.securityservice.UserService;
 import utp.edu.pe.integrador.productor.securityservice.UsernameOrIdNotFound;
+import utp.edu.pe.integrador.productor.service.CaptchaService;
 
 @Controller
 public class UserController {
@@ -35,11 +32,26 @@ public class UserController {
 	
 	@Autowired
 	RoleRepository roleRepository;
+
+	@Autowired
+	private CaptchaService captchaService;
 	
 	@GetMapping({"/","/login"})
 	public String index() {
 		
 		return "index";
+	}
+
+	@PostMapping("/login")
+	public String login(@RequestParam("g-recaptcha-response") String recaptchaResponse, Model model) {
+		boolean isCaptchaValid = captchaService.verify(recaptchaResponse);
+		if (!isCaptchaValid) {
+			model.addAttribute("captchaError", "Captcha verification failed. Please try again.");
+			return "index"; // Nombre del archivo HTML donde está el formulario de login
+		}
+
+		// Lógica de autenticación
+		return "home"; // Nombre de la vista después de autenticar correctamente
 	}
 	
 	@GetMapping("/signup")
