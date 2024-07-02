@@ -19,7 +19,7 @@ background-position: center;
  }
  
  .card-header{
- color: black;
+ color: white;
  }
  
   .card-body{
@@ -304,3 +304,16 @@ input[type=number] {
   background: #0A1851;
   color: #fff;
 }
+/*---------------------------------------
+    ## Card
+---------------------------------------*/
+
+ .card{
+background: #01c3c8c7;
+ border-radius: 1rem;
+  box-shadow: 0 8px 20px rgb(40 58 65 / 53%);
+ }
+
+  .card-body{
+background: #b0e3f5a8;
+ }
