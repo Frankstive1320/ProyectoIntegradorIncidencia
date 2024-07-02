@@ -1,13 +1,12 @@
-body{
-background: url(https://static.vecteezy.com/system/resources/previews/009/932/776/large_2x/dots-wave-mint-green-turquoise-abstract-technology-background-vector.jpg);
-color : white;
-width: 100%;
-height: 100vh;
-background-size: cover;
-background-position: center;
-
-
- }
+body {
+  background: url(https://static.vecteezy.com/system/resources/previews/009/932/776/large_2x/dots-wave-mint-green-turquoise-abstract-technology-background-vector.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
  
  #titulocss2{
  color:#3f87a6;
