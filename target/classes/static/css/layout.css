@@ -308,11 +308,49 @@ input[type=number] {
 ---------------------------------------*/
 
  .card{
-background: #01c3c8c7;
- border-radius: 1rem;
-  box-shadow: 0 8px 20px rgb(40 58 65 / 53%);
+background: #01c3c8c7 !important;
+ border-radius: 1rem !important;
+  box-shadow: 0 8px 20px rgb(40 58 65 / 53%) !important;
  }
 
   .card-body{
-background: #b0e3f5a8;
+background: #77d6e8a8;
  }
+
+
+label{
+color: #ffffff !important;
+}
+.dataTables_info{
+color: #ffffff !important;
+}
+
+h1{
+text-align: center !important;
+}
+
+.btn-info{
+color: #ffffff !important;
+background: #0a7d95 !important;
+}
+
+.btn-info:hover{
+color: #ffffff !important;
+background: #006d84 !important;
+}
+
+.form-control-file{
+color: #ffffff !important;
+}
+
+path{
+color: #085b7d !important;
+}
+path:hover{
+color: #ffffff !important;
+}
+
+.enviogpt{
+  height: auto !important;
+  line-height: 38px !important;
+}

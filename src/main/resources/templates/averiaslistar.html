@@ -12,7 +12,7 @@
 	</button>
 
 	<div id="iframeContainer" class="card shadow-lg rounded" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999; width: 350px; height: 500px;">
-		<div class="card-header bg-info text-white">
+		<div class="card-header text-white" style="#17A2B8;">
 			ASISTENTE
 			<button type="button" class="close text-white" aria-label="Close" onclick="toggleIframe()">
 				<span aria-hidden="true">&times;</span>
@@ -71,10 +71,10 @@
 						<td th:text="${averias.observaciones}"></td>
 						<td th:text="${averias.materiales}"></td>
 						<td>
-						<a th:href="@{/averias/editar/}+${averias.averiaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+						<a th:href="@{/averias/editar/}+${averias.averiaid}" class="btn btn-warning"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
 						</td>
 						<td>
-							<a href="#" th:onclick="eliminaAver([[${averias.averiaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>												
+							<a href="#" th:onclick="eliminaAver([[${averias.averiaid}]])" class="btn btn-danger"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
 						</td>
 											
 					</tr>

@@ -79,7 +79,7 @@ body {
   font-family: var(--body-font);
   line-height: var(--line-height30);
   font-size: var(--body-font-size);
-  background: #fff;
+
 }
 
 h1 {
@@ -597,7 +597,7 @@ ul {
 
 .btn:after {
   content: "";
-  background: #232237;
+  background: #3ca0c6;
   position: absolute;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
