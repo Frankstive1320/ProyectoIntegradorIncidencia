@@ -354,3 +354,7 @@ color: #ffffff !important;
   height: auto !important;
   line-height: 38px !important;
 }
+
+.logonav{
+  width:200px;
+}
