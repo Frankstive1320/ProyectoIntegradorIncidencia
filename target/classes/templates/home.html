@@ -1,141 +1,866 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout/layout :: head"></head>
-    <body>
-    <header th:replace="layout/layout :: header"></header>
-    <!--/* CHAT FLOTANTE */-->
-    <button class="floating-button" onclick="toggleIframe()" style="position: fixed !important; bottom: 20px !important; right: 20px !important; background-color: #fff !important; color: #007bff !important; border: none !important; border-radius: 50% !important; width: 50px !important; height: 50px !important; font-size: 24px !important; text-align: center !important; line-height: 50px !important; cursor: pointer !important; z-index: 9999 !important;">
-        <img src="/img/iconchatgpt.png" alt="Icono" style="width: 100%;">
-    </button>
+<html lang="zxx" class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iitechie - IT Solutions and Services Html Template</title>
+    <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><link rel="icon" href="assets/img/favicon.webp" sizes="20x20" type="image/png">
 
-    <div id="iframeContainer" class="card shadow-lg rounded" style="display: none; position: fixed; bottom: 100px; right: 20px; z-index: 9999; width: 350px; height: 500px;">
-        <div class="card-header bg-primary text-white">
-            ASISTENTE
-            <button type="button" class="close text-white" aria-label="Close" onclick="toggleIframe()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <!-- iframe flotante -->
-        <div class="card-body p-0 border-0 rounded" style="width: 350px; height: 450px;">
-            <iframe src="/chatbot" class="w-100 h-100 border-0 rounded" style="background-color: #fff;"></iframe>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/css/custom-icon.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.min.css">
+    <link rel="stylesheet" href="/assets/css/slick.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+
+    <style>
+
+        .bg-overlay-base2 {
+        position: relative;
+        background-size: cover !important;
+      }
+
+      .bg-overlay-base2:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background: #16799cd1;
+      }
+
+      .bg-overlay-base2 .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .bg-overlay-base2 .bg-z-index {
+        position: relative;
+        z-index: 2;
+      }
+
+
+ .bg-overlay-base3 {
+        position: relative;
+        background-size: cover !important;
+      }
+
+      .bg-overlay-base3:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background:#16799c61;
+      }
+
+      .bg-overlay-base3 .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .bg-overlay-base3 .bg-z-index {
+        position: relative;
+        z-index: 2;
+      }
+      /* BACK TO TOP */
+
+              html {
+                  scroll-behavior: smooth;
+              }
+
+              .back-to-top {
+                  position: fixed;
+                  bottom: 2rem;
+                  right: 2rem;
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  background-color: var(--main-color);
+                  border-radius: 0rem;
+                  padding: 0.5rem;
+                  text-decoration: none;
+                  transition: 0.2s ease-out;
+              }
+
+              .back-to-top span {
+                  color: #fff;
+                  font-size: 1.6rem;
+                  transition: 0.2s ease-out;
+              }
+
+              .back-to-top:hover {
+                  background-color: var(--main-color);
+              }
+              .back-to-top:hover span {
+                  transform: translateY(-1px);
+              }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="sc5">
+<!-- preloader area start -->
+<div class="preloader" id="preloader" style="display: none;">
+    <div class="preloader-inner">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
         </div>
     </div>
-    <!--/* CHAT FLOTANTE */-->
-        <main class="container">
-            
-            <br>
-            
-            <div class="container">
+</div>
+<!-- preloader area end -->
 
- 
+<!-- search popup start-->
+<div class="td-search-popup" id="td-search-popup">
+    <form action="index.html" class="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search.....">
+        </div>
+        <button type="submit" class="submit-btn">
+            <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fa fa-search"></i> Font Awesome fontawesome.com -->
+        </button>
+    </form>
+</div>
+<!-- search popup end-->
+<div class="body-overlay" id="body-overlay"></div>
 
-            <div class="row">
-              <div class="col-md-8 mb-5">
-              <h1>BIENVENIDO A TELEMARKETING</h1>
-              <br></br>
-                <h3>Quienes Somos</h3>
-                <hr>
-                <p style="font-family:arial">Nos definimos como una empresa ágil e innovadora, con un equipo que cuenta con años de experiencia en el sector de telecomunicaciones, </p>
-                <p style="font-family:arial"> lo que nos lleva a conocer mejor las necesidades de nuestros clientes, ofreciendo las mejores soluciones.</p>
-                <p style="font-family:arial">Esta cualidad es nuestro motor en la búsqueda de nuevos productos y servicios tecnológicos.</p>
-                <p style="font-family:arial">Somos responsables y cumplimos nuestro compromiso con todos los grupos de interés: socios, clientes, empleados, sociedad en general.</p>
-                <p style="font-family:arial"></p>
-              </div>
-              <div class="col-md-4 mb-5">
-                <h2>Contactanos</h2>
-                <hr>
-                <address>
-                  <strong>  </strong>
-                  <br>Calle Cerro Colorado 165 Urb. San Ignacio de Monterrico
-                  <br>Santiago de Surco - Lima - Perú
-                </address>
-                <address>
-                  <!--<abbr title="Phone">Tel.</abbr>
-                  (01)  <br> -->
-                  <abbr title="Phone">Cel.</abbr>
-                  (+51) 993010489
-                  <br>
-                  <abbr title="Email">Email</abbr>
-                  <a href="mailto:#">operaciones@telemarketing.pe</a>
-                  <br>
-                  <abbr title="Web">Web</abbr>
-                  <a>https://telemarketing.pe</a>
-                  <br>
-                  <hr> 
-                </address>
-              </div>
+<!-- navbar start -->
+
+
+<!-- navbar end -->
+
+<!-- banner area start -->
+<div class="banner-area banner-area-1 bg-black bg-relative">
+
+    <div class="banner-bg-img bg-overlay-base3" style="background-image: url(https://static.vecteezy.com/system/resources/previews/009/932/776/large_2x/dots-wave-mint-green-turquoise-abstract-technology-background-vector.jpg"></div><div class="banner-bg-img" style="background-image: url('/assets/img/banner/2.webp')"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-7 text-center text-lg-end order-lg-last">
+                <div class="banner-mask-bg-wrap mb-5 mb-lg-0">
+                    <img class="shape-image" src="/assets/img/banner/6.webp" alt="img">
+                    <div class="thumb">
+                        <img src="/assets/img/banner/7.webp" alt="img">
+                    </div>
+                </div>
             </div>
-            <!-- /.row -->
-        
+            <div class="col-lg-6 col-md-9 order-lg-first align-self-center">
+                <div class="banner-inner style-white text-center text-lg-start">
+                    <h4 class="sub-title">Potenciando su negocio</h4>
+                    <h2 class="title">Conectándolo con mejores soluciones de telecomunicaciones
+
+                    </h2>
+                    <p class="content">Mejore sus operaciones con nuestros innovadores servicios de telecomunicaciones. Contáctanos hoy para comenzar.</p>
+                    <div class="btn-wrap">
+                        <a class="btn btn-base me-2" href="blog.html">Empezar</a>
+                        <a class="btn btn-border-white" href="contact.html">Contáctenos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- banner area end -->
+
+<!-- about area start -->
+<div class="about-area pd-top-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-1 mb-4 mb-lg-0">
+                    <img class="shape-image-sm top_image_bounce" src="/assets/img/about/1sm.webp" alt="img">
+                    <img class="shape-image" src="/assets/img/about/1s.webp" alt="img">
+                    <div class="thumb">
+                        <img src="/assets/img/about/1.webp" alt="img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="section-title px-lg-5 mb-0">
+                    <h5 class="sub-title right-line">Sobre nosotros</h5>
+                    <h2 class="title">Lideramos llevando soluciones de telecomunicaciones innovadoras</h2>
+                    <p class="content">
+                        En Telemarketing nos dedicamos a  la implementación garantizada y entrega perfecta de soluciones de vanguardia que satisfacen las necesidades de nuestros clientes. Estamos orgullosos de nuestro compromiso con la excelencia y la satisfacción del cliente. </p>
+                    <p class="content-strong mt-3">Nuestro equipo aporta experiencia y conocimientos incomparables a cada proyecto</p>
+                    <div class="exp-wrap mt-3">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="single-exp-inner">
+                                    <h2><span class="counter">20</span> <sub>Años</sub></h2>
+                                    <h5>Experiencia</h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="single-exp-inner">
+                                    <h2><span class="counter">41</span> <sub>Millones</sub></h2>
+                                    <h5>Clientes felices</h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="single-exp-inner mb-0">
+                                    <h2><span class="counter">20</span> <sub>Años</sub></h2>
+                                    <h5>Servicio</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- about area end -->
+
+<!-- why choose area start -->
+<div class="why-choose pd-top-100 pd-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 order-lg-last">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-2 mb-4 mb-lg-0">
+                    <img class="shape-image-sm top_image_bounce" src="/assets/img/about/2sm.webp" alt="img">
+                    <img class="shape-image" src="/assets/img/about/2s.webp" alt="img">
+                    <div class="thumb">
+                        <img src="/assets/img/about/2.webp" alt="img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-first align-self-center">
+                <div class="section-title px-lg-5 mb-0">
+                    <h5 class="sub-title right-line">Por qué elegirnos</h5>
+                    <h2 class="title">Soluciones innovadoras de principio a fin</h2>
+                    <p class="content">Nos especializamos en ejecutar soluciones de telecomunicaciones innovadoras, asegurando que su empresa se mantenga a la vanguardia desde la concepción hasta la implementación final.</p>
+                    <div class="choose-wrap mt-4">
+                        <div class="media single-choose-inner">
+                            <div class="media-left">
+                                <div class="icon">
+                                    <i class="icomoon-gear"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Soluciones flexibles y personalizadas</h4>
+                                <p>Adaptamos soluciones de telecomunicaciones a medida para cada negocio, asegurando escalabilidad y integración perfecta.</p>
+                            </div>
+                        </div>
+                        <div class="media single-choose-inner mb-3">
+                            <div class="media-left">
+                                <div class="icon">
+                                    <i class="icomoon-time"></i>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <h4>Soporte ilimitado 24 horas al día, 7 días a la semana</h4>
+                                <p>Garantizamos soporte técnico ininterrumpido las 24 horas del día, los 7 días de la semana, para mantener su negocio operando sin problemas.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- why choose area end -->
+
+<!-- service area start -->
+<div class="service-area bg-overlay-base2 pd-top-120 pd-bottom-90" style="background-image: url('/assets/img/bg/3.webp')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-title border-radius-5 p-35 bg-base style-white mb-lg-0">
+                    <h2 class="title mt-4">Brindamos las mejores soluciones</h2>
+                    <p class="content">En Telemarketing, nos especializamos en ofrecer las mejores soluciones para resolver problemas de telecomunicaciones y optimizar su infraestructura tecnológica. </p>
+                    <p class="content">Nuestro compromiso con la excelencia y la innovación impulsa cada aspecto de nuestro trabajo, asegurando resultados que superen las expectativas de nuestros clientes.</p>
+                    <div class="btn-wrap mt-4 pt-1 mb-4">
+                        <a class="btn btn-small btn-border-white mt-2" href="contact.html">Contáctenos</a>
+                        <a class="btn btn-small btn-black mt-2" href="service.html">Empezar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="single-service-inner style-white text-center">
+                            <div class="icon-box">
+                                <i class="icomoon-layer"></i>
+                            </div>
+                            <div class="details">
+                                <h3><a href="service-details.html">Instalaciones de Redes</a></h3>
+                                <p>Diseñamos e implementamos redes eficientes y seguras que mejoran la conectividad y la comunicación dentro de su empresa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="single-service-inner style-white text-center">
+                            <div class="icon-box">
+                                <i class="icomoon-application"></i>
+                            </div>
+                            <div class="details">
+                                <h3><a href="service-details.html"> Fibra Óptica</a></h3>
+                                <p>
+                                    Implementamos redes de fibra óptica de alta velocidad para soportar grandes volúmenes de datos y asegurar una conexión estable y de baja latencia.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="single-service-inner style-white text-center">
+                            <div class="icon-box">
+                                <i class="icomoon-cloud-data"></i>
+                            </div>
+                            <div class="details">
+                                <h3><a href="service-details.html">Servicios de Backhaul</a></h3>
+                                <p>Ofrecemos soluciones avanzadas de backhaul para asegurar una transmisión de datos rápida y confiable entre las redes de telecomunicaciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="single-service-inner style-white text-center">
+                            <div class="icon-box">
+                                <i class="icomoon-megaphone"></i>
+                            </div>
+                            <div class="details">
+                                <h3><a href="service-details.html">Gestión de Redes</a></h3>
+                                <p>
+                                    Administramos de manera integral la infraestructura de redes, asegurando que todos los sistemas funcionen de manera eficiente y segura.                   </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testimonial-area pd-top-90 pd-bottom-90 bg-cover bg-cover-70" style="background-image: url('/assets/img/other/map.webp')">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9">
+                <div class="testimonial-slider-3 owl-carousel owl-loaded owl-drag" data-slider-id="1">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="owl-item">
+                                <div class="single-testimonial-inner style-two text-center">
+                                    <div class="about-mask-bg-wrap about-mask-bg-wrap-1">
+                                        <img class="shape-image-sm top_image_bounce" src="/assets/img/about/1sm.webp" alt="img">
+                                        <img class="shape-image" src="/assets/img/about/1s.webp" alt="img">
+                                        <div class="thumb">
+                                            <img src="/assets/img/team/4.webp" alt="img">
+                                        </div>
+                                    </div>
+                                    <div class="details">
+                                        <h2>David Gamarra</h2>
+                                        <span>Cliente, Perú
+
+</span>
+                                        <p>
+                                            Telemarketing ha transformado nuestra infraestructura de telecomunicaciones con soluciones avanzadas y un servicio excepcional. Su enfoque en la calidad y la eficiencia ha mejorado significativamente nuestra operativa diaria.                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Aquí puedes repetir más elementos owl-item según sea necesario -->
+
+                        </div>
+                    </div>
+                    <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
+                    <div class="owl-dots disabled"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="owl-thumbs testimonial-slider-3-thumb" data-slider-id="1">
+            <button class="owl-thumb-item owl-thumb-item-1">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-3">
+                    <div class="thumb">
+                        <img src="/assets/img/team/1.webp" alt="img">
+                    </div>
+                </div>
+            </button>
+            <button class="owl-thumb-item owl-thumb-item-2 active">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-3">
+                    <div class="thumb">
+                        <img src="/assets/img/team/2.webp" alt="img">
+                    </div>
+                </div>
+            </button>
+            <button class="owl-thumb-item owl-thumb-item-3">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-3">
+                    <div class="thumb">
+                        <img src="/assets/img/team/3.webp" alt="img">
+                    </div>
+                </div>
+            </button>
+            <button class="owl-thumb-item owl-thumb-item-4">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-3">
+                    <div class="thumb">
+                        <img src="/assets/img/project/2.webp" alt="img">
+                    </div>
+                </div>
+            </button>
+            <button class="owl-thumb-item owl-thumb-item-5">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-3">
+                    <div class="thumb">
+                        <img src="/assets/img/testimonial/1.webp" alt="img">
+                    </div>
+                </div>
+            </button>
+            <button class="owl-thumb-item owl-thumb-item-6">
+                <div class="about-mask-bg-wrap about-mask-bg-wrap-3">
+                    <div class="thumb">
+                        <img src="/assets/img/testimonial/2.webp" alt="img">
+                    </div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- service area end -->
+
+<!-- team area start -->
+
+<!-- team area end -->
+
+<!-- how it work area start -->
+<div class="how-it-work-area bg-blue pd-top-110 pd-top-110">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title style-white text-center">
+                    <h5 class="sub-title double-line">Proceso de trabajo</h5>
+                    <h2 class="title">Cómo trabajamos</h2>
+                    <p class="content">
+                        At Telemarketing, our approach to every project is defined by precision and dedication. We begin by thoroughly understanding your telecom needs and objectives.          </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="single-work-inner style-two text-center">
+                    <div class="count-wrap">
+                        <div class="count-inner">
+                            <h2>01</h2>
+                        </div>
+                    </div>
+                    <div class="details-wrap">
+                        <div class="details-inner">
+                            <h4>Análisis Integral de Proyectos</h4>
+                            <p>Nuestro equipo lleva a cabo un análisis exhaustivo para desarrollar una estrategia de telecomunicaciones personalizada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-work-inner style-two text-center">
+                    <div class="count-wrap">
+                        <div class="count-inner">
+                            <h2>02</h2>
+                        </div>
+                    </div>
+                    <div class="details-wrap">
+                        <div class="details-inner">
+                            <h4>Seleccionar su solución de telecomunicaciones</h4>
+                            <p>Comenzamos entendiendo sus necesidades y objetivos específicos de telecomunicaciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-work-inner style-two text-center">
+                    <div class="count-wrap">
+                        <div class="count-inner">
+                            <h2>03</h2>
+                        </div>
+                    </div>
+                    <div class="details-wrap">
+                        <div class="details-inner">
+                            <h4>Ejecución de Soluciones</h4>
+                            <p>Implementamos soluciones avanzadas de telecomunicaciones con la precisión y experiencia adecuada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="single-work-inner style-two text-center">
+                    <div class="count-wrap">
+                        <div class="count-inner">
+                            <h2>04</h2>
+                        </div>
+                    </div>
+                    <div class="details-wrap">
+                        <div class="details-inner">
+                            <h4>Entrega de resultados óptimos</h4>
+                            <p>Garantizamos una integración perfecta y excelencia operativa para su entorno de telecomunicaciones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><br><br><br>
+
+</div>
+<!-- how it work area end -->
+
+<!-- testimonial-slider start -->
+<div class="testimonial-slider bg-sky bg-relative">
+    <div class="bg-relative">
+        <div class="slider testimonial-thumb testimonial-thumb-2 slick-initialized slick-slider">
+            <div aria-live="polite" class="slick-list draggable"></div>
+
+
+
+        </div>
+
+    </div>
+</div>
+<!-- testimonial-slider end -->
+
+<!-- faq area start -->
+<div class="faq-area pd-top-100 pd-bottom-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 order-lg-last mb-4 mb-lg-0">
+                <div class="faq-image-wrap">
+                    <div class="thumb">
+                        <img src="/assets/img/about/f1.webp" alt="img">
+                        <img class="img-position-1" src="/assets/img/about/f2.webp" alt="img">
+                        <img class="img-position-2 top_image_bounce" src="/assets/img/about/f3.webp" alt="img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 pe-xl-5 order-lg-first align-self-center">
+                <div class="section-title mb-0">
+                    <h5 class="sub-title right-line">Preguntas más frecuentes</h5>
+                    <h2 class="title">Conozca más sobre nuestras soluciones de Telecomunicaciones</h2>
+                    <p class="content">Nuestra experiencia garantiza una integración perfecta de tecnologías avanzadas, mejorando la conectividad y la eficiencia en todas sus operaciones.</p>
+                </div>
+                <div class="accordion mt-4" id="accordionExample">
+                    <div class="accordion-item single-accordion-inner">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">¿Por qué elegir el telemarketing?</button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                            <div class="accordion-body">En Telemarketing, nos destacamos por nuestra capacidad para ofrecer soluciones de telecomunicaciones innovadoras y adaptadas a las necesidades específicas de cada cliente. Nuestro enfoque en la calidad y la excelencia nos distingue en el mercado.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item single-accordion-inner">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">¿Qué servicios ofrecemos?
+
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                            <div class="accordion-body">Telemarketing proporciona una amplia gama de servicios que incluyen instalaciones avanzadas de redes, configuración de equipos de telecomunicaciones y consultoría experta en infraestructuras de TI y telecomunicaciones. Estamos comprometidos en proporcionar soluciones efectivas que impulsen el crecimiento de su negocio.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item single-accordion-inner mb-0">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Seguridad de datos</button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+                            <div class="accordion-body">En Telemarketing, la seguridad de los datos es una prioridad absoluta. Implementamos medidas rigurosas para proteger la información confidencial de nuestros clientes y asegurar operaciones seguras en todo momento.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- faq area end -->
+
+<!-- project area start -->
+<section class="project-area bg-cover pd-top-115 pd-bottom-90" style="background-image: url('/assets/img/bg/10.webp')">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-9">
+                <div class="section-title style-white text-center">
+                    <h5 class="sub-title double-line">Servicios</h5>
+                    <h2 class="title">Introducción a Nuestros Servicios
+                    </h2>
+                    <p class="content">En Telemarketing, nos especializamos en ofrecer soluciones avanzadas para abordar los desafíos críticos de las telecomunicaciones. </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+            </div>
+        </div>
+        <div class="all-item-section">
+            <div class="project-isotope row">
+                <!-- Primer proyecto -->
+                <div class="all-isotope-item col-lg-3 col-sm-6 cat-1 cat-3">
+                    <div class="single-project-inner style-two">
+                        <div class="thumb">
+                            <img src="/assets/img/project/1.webp" alt="img">
+                        </div>
+                        <div class="details-wrap">
+                            <h3><a href="project-details.html">Instalaciones de Router</a></h3>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Segundo proyecto -->
+                <div class="all-isotope-item col-lg-3 col-sm-6 cat-2">
+                    <div class="single-project-inner style-two">
+                        <div class="thumb">
+                            <img src="/assets/img/project/3.webp" alt="img">
+                        </div>
+                        <div class="details-wrap">
+                            <h3><a href="project-details.html">Instalación de Tellabs</a></h3>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Tercer proyecto -->
+                <div class="all-isotope-item col-lg-3 col-sm-6 cat-3">
+                    <div class="single-project-inner style-two">
+                        <div class="thumb">
+                            <img src="/assets/img/project/2.webp" alt="img">
+                        </div>
+                        <div class="details-wrap">
+                            <h3><a href="project-details.html">Instalación de Cableado Estructurado</a></h3>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Cuarto proyecto -->
+                <div class="all-isotope-item col-lg-3 col-sm-6 cat-3">
+                    <div class="single-project-inner style-two">
+                        <div class="thumb">
+                            <img src="/assets/img/project/3.webp" alt="img">
+                        </div>
+                        <div class="details-wrap">
+                            <h3><a href="project-details.html">Instalación de Cableado de Fibra Óptica</a></h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</section>
+<!-- project area end -->
+
+<!-- pricing area start -->
+
+<!-- pricing area end -->
+
+<!-- skill area start -->
+<div class="skill-area bg-relative bg-sky pd-top-120 pd-bottom-120">
+    <img class="half-bg-right" src="/assets/img/bg/4.webp" alt="img">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pe-5 mb-5 mb-lg-0">
+                <div class="section-title mb-0">
+                    <h5 class="sub-title right-line">Habilidades profesionales</h5>
+                    <h2 class="title">Tenemos experiencia profesional</h2>
+                    <p class="content">En Telemarketing, nuestro equipo cuenta con una amplia experiencia profesional en la entrega de soluciones de telecomunicaciones de primer nivel. </p>
+                </div>
+                <div class="skill-progress-area mt-4">
+                    <div class="single-progressbar">
+                        <h6>Solución de problemas de red</h6>
+                        <div class="progress-item" id="progress-running">
+                            <div class="progress-bg">
+                                <div id="progress" class="progress-rate" data-value="75" style="width: 75%;"></div>
+                                <div class="progress-count-wrap">
+                                    <span class="progress-count counting" data-count="75">75</span>
+                                    <span class="counting-icons">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-progressbar">
+                        <h6>Integración del sistema de telecomunicaciones</h6>
+                        <div class="progress-item" id="progress-running-1">
+                            <div class="progress-bg">
+                                <div id="progress-1" class="progress-rate" data-value="95" style="width: 95%;"></div>
+                                <div class="progress-count-wrap">
+                                    <span class="progress-count counting" data-count="95">95</span>
+                                    <span class="counting-icons">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-progressbar">
+                        <h6>Optimización de la red inalámbrica</h6>
+                        <div class="progress-item" id="progress-running-2">
+                            <div class="progress-bg">
+                                <div id="progress-2" class="progress-rate" data-value="75" style="width: 75%;"></div>
+                                <div class="progress-count-wrap">
+                                    <span class="progress-count counting" data-count="75">75</span>
+                                    <span class="counting-icons">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-progressbar">
+                        <h6>Soluciones de Datos</h6>
+                        <div class="progress-item mb-0" id="progress-running-3">
+                            <div class="progress-bg">
+                                <div id="progress-3" class="progress-rate" data-value="60" style="width: 60%;"></div>
+                                <div class="progress-count-wrap">
+                                    <span class="progress-count counting" data-count="60">60</span>
+                                    <span class="counting-icons">%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 px-lg-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="thumb border-radius-5 mb-4 mb-md-0 image-hover-animate">
+                            <img src="/assets/img/other/1.webp" alt="img">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="thumb border-radius-5 mb-4 image-hover-animate">
+                            <img src="/assets/img/other/2.webp" alt="img">
+                        </div>
+                        <div class="thumb border-radius-5 image-hover-animate">
+                            <img src="/assets/img/other/3.webp" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- skill area end -->
+
+<!-- blog area start -->
+
+<!-- blog area end -->
+
+<!-- call to action start -->
+<div class="call-to-action-area pd-top-120 pd-bottom-120 text-center bg-overlay-base" style="background-image: url('/assets/img/bg/5.webp')">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="single-call-to-action-inner style-white">
+                    <h5>Estamos aquí para responder tus preguntas 24/7</h5>
+                    <h2>Ofrecemos servicios de solución de telecomunicaciones</h2>
+                    <a class="btn btn-black mt-3" href="contact.html">Contáctate con nosotros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- call to action start -->
+
+<!-- footer area start -->
+<footer class="footer-area bg-black bg-cover" style="background-image: url('/assets/img/bg/2.webp')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget_about">
+                    <h4 class="widget-title">Sobre nuestra compañia</h4>
+                    <div class="details">
+                        <p>Web https://telemarketing.pe</p>
+                        <p>Calle Cerro Colorado 165 Urb. San Ignacio de Monterrico
+                            Santiago de Surco - Lima - Perú</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget_nav_menu">
+                    <h4 class="widget-title">Servicios</h4>
+                    <ul>
+                        <li><a href="#">Instalaciones de Router</a></li>
+                        <li><a href="#">Instalación de Tellabs</a></li>
+                        <li><a href="#">Instalación de Cableado Estructurado</a></li>
+                        <li><a href="#">Instalación de Cableado de Fibra Óptica</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget_nav_menu">
+                    <h4 class="widget-title">Enlaces</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Team </a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget_about">
+                    <h4 class="widget-title">Contáctanos</h4>
+                    <div class="details">
+                        <p>Cel. (+51) 993010489</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom text-center">
+        <div class="container">
             <div class="row">
-              <div class="col-md-4 mb-5">
-                  <div class="card h-100">
-                  <img class="card-img-top" src="/img/descarga5.jpg" alt="">
+                <div class="col-md-12 align-self-center">
+                    <p>© 2024. Todos los derechos reservados</p>
                 </div>
-                </div>
-              </div>
-              <!--  <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                  <img class="card-img-top" src="/img/descarga6.jpg" alt="">
-                </div>
-              </div>
-              <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                   <img class="card-img-top" src="/img/images.jpg" alt="">
-                </div>
-              </div>
-            </div>-->
-            <!-- /.row -->
-        
-        	<!--<div class="row">
-              <div class="col-md-6 mb-6">
-              <br></br>
-                <h3>MisiÃ³n</h3>
-                <hr>
-                <p style="font-family:arial">KP, es una empresa comercial que nace con el fin de crear oportunidades de trabajo y contribuir en la economÃ­a del paÃ­s. Nuestro negocio se basa en la comercializaciÃ³n de los productos de la marca Movistar. </p>
-                <p style="font-family:arial">Sabemos que Tdp,  es una empresa lÃ­der en las telecomunicaciones y todos los productos que  su marca provee. Esta es nuestra principal ventaja en el mercado respecto a nuestros competidores.</p>
-                <!-- <p style="font-family:arial">Para nosotros no hay nada mÃ¡s importante que tÃº. Nos gusta estar cerca de ti, entender tus necesidades y acompaÃ±arte en tu vida digital, creando, protegiendo e impulsando las conexiones de la vida para que puedas elegir lo que verdaderamente es importante para ti en cada momento.</p> 
-              </div>
-              <div class="col-md-6 mb-6">
-              <br></br>
-                <h3>VisiÃ³n</h3>
-                <hr>
-                <p style="font-family:arial">Nuestro objetivo es crecer como empresa, pero no hacerlo desorganizada y empÃ­ricamente; sino con el compromiso de  todos los participantes  y  con la consigna de que el posicionamiento de KP es nuestro crecimiento y en conjunto contribuir al crecimiento de la economÃ­a del paÃ­s,  y a eso debemos apostar. â€œSomos un solo Enteâ€�.</p>
-                <!--<p style="font-family:arial">Sabemos que Tdp,  es una empresa lÃ­der en las telecomunicaciones y todos los productos que  su marca provee. Esta es nuestra principal ventaja en el mercado respecto a nuestros competidores.</p>
-                <!-- <p style="font-family:arial">Para nosotros no hay nada mÃ¡s importante que tÃº. Nos gusta estar cerca de ti, entender tus necesidades y acompaÃ±arte en tu vida digital, creando, protegiendo e impulsando las conexiones de la vida para que puedas elegir lo que verdaderamente es importante para ti en cada momento.</p>
-              </div>-->
-              
-        
-        </main>
-<!--        <footer th:replace="layout/layout :: footer">-->
-<!--        </footer>-->
-    </body>
-<!--/* CHAT FLOTANTE */-->
-<script>
-    function toggleIframe() {
-        var iframeContainer = document.getElementById('iframeContainer');
-        if (iframeContainer.style.display === 'none' || iframeContainer.style.display === '') {
-            iframeContainer.style.display = 'block';
-        } else {
-            iframeContainer.style.display = 'none';
-        }
-    }
-</script>
-<!--/* CHAT FLOTANTE */-->
-    <script type="text/javascript" th:src="@{/js/combos.js}"></script>
-    <script type="text/javascript" th:src="@{/js/script.js}"></script>
-	<script>
-	window.onload = function(){
-		var fecha = new Date(); //Fecha actual
-		  var mes = fecha.getMonth()+1; //obteniendo mes
-		  var dia = fecha.getDate(); //obteniendo dia
-		  var ano = fecha.getFullYear(); //obteniendo aÃ±o
-		  if(dia<10)
-	 	   dia='0'+dia; //agrega cero si el menor de 10
-		  if(mes<10)
-		    mes='0'+mes //agrega cero si el menor de 10
-		  document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;
-		  
-	}
-	</script>
-</html>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer area end -->
+
+<!-- back to top area start -->
+
+<a href="#" class="back-to-top" style="display: none;">
+    <span class="back-top"><svg class="svg-inline--fa fa-angle-up fa-w-10" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="angle-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"></path></svg><!-- <i class="fa fa-angle-up"></i> Font Awesome fontawesome.com --></span>
+</a>
+
+
+<!-- back to top area end -->
+
+<!-- all plugins here -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/fontawesome.min.js"></script>
+<script src="/assets/js/nice-select.min.js"></script>
+<script src="/assets/js/magnific.min.js"></script>
+<script src="/assets/js/isotope.min.js"></script>
+<script src="/assets/js/imageload.min.js"></script>
+<script src="/assets/js/owl.min.js"></script>
+<script src="/assets/js/slick.min.js"></script>
+<script src="/assets/js/tweenmax.min.js"></script>
+<script src="/assets/js/waypoint.js"></script>
+<script src="/assets/js/counterup.js"></script>
+
+<!-- main js  -->
+<script src="/assets/js/main.js"></script>
+
+
+<chatgpt-sidebar data-gpts-theme="light"></chatgpt-sidebar><chatgpt-sidebar-popups data-gpts-theme="light"></chatgpt-sidebar-popups>
+
+
+
+
+
+
+
+</body></html>
