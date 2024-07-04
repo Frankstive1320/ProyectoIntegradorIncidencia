@@ -5,6 +5,21 @@
 	<header th:replace="layout/layout :: header"></header>
 	<br>
 	<div class="container">
+	<!-- Mostrar mensaje de éxito -->
+    <div th:if="${success}" class="alert alert-success">
+        <p th:text="${success}"></p>
+    </div>
+    
+    <!-- Mostrar mensajes de error -->
+    <div th:if="${error}" class="alert alert-danger" th:utext="${error}">
+        <p><strong>Errores encontrados:</strong></p>
+        <ul>
+            <!-- Iterar sobre cada mensaje de error -->
+            <li th:each="errorMsg : ${error}">
+                <p th:text="${errorMsg}"></p>
+            </li>
+        </ul>
+    </div>
 	<form th:action="@{/averias/importargrabar}" method="post" id="formProducto" enctype="multipart/form-data">
 	<h1>CARGA DE ARCHIVOS</h1>
 	<br>

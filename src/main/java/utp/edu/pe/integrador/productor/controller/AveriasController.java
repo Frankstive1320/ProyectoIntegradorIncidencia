@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -65,24 +66,24 @@ public class AveriasController {
 	@Autowired
 	private IDistritoService distriservicio;
 	
-	String inc;
-	String sisego; 
-	String zonal;
-	String zonificacion; 
-	String contrata;
-	String tecnico_asignado; 
-	String fecha_atencion; 
-	String tipo_averia; 
-	String diagnostico; 
-	String parada_reloj;
-	String acciones_correctivas;
-	String estado; 
-	String observaciones;
-	String cliente;
-	String departamento;
-	String distrito; 
-	String direccion; 
-	String materiales;
+	String inc=null;
+	String sisego=null; 
+	String zonal=null;
+	String zonificacion=null; 
+	String contrata=null;
+	String tecnico_asignado=null; 
+	String fecha_atencion=null; 
+	String tipo_averia=null; 
+	String diagnostico=null; 
+	String parada_reloj=null;
+	String acciones_correctivas=null;
+	String estado=null; 
+	String observaciones=null;
+	String cliente=null;
+	String departamento=null;
+	String distrito=null; 
+	String direccion=null; 
+	String materiales=null;
 	
 	
 	
@@ -265,6 +266,7 @@ public class AveriasController {
 		model.addAttribute("averias", averias);
 		return "AveriasImportar";
 	}
+	private List<String> mensajesError = new ArrayList<>();
 	@PostMapping("/averias/importargrabar")
 	public String grabar(@RequestParam("file") MultipartFile file, @Validated @ModelAttribute Averias averias,
 		BindingResult result, Model model, RedirectAttributes atributo) throws MalformedURLException, IOException {
@@ -281,13 +283,20 @@ public class AveriasController {
 		    os.write(multipartFile.getBytes());
 		}
 		
-     	LeerArchivosExcel(filea);
-		atributo.addFlashAttribute("success","AVERIA AGREGADA");
+		// Reinicia la lista de mensajes de error antes de leer el archivo
+		 List<String> errores = LeerArchivosExcel(filea);
+     	if (!errores.isEmpty()) {
+            // Si hay errores, agregalos como atributo flash para mostrar en el frontend
+            atributo.addFlashAttribute("errores", errores);
+        } else {
+            atributo.addFlashAttribute("success","AVERIA AGREGADA");
+        }
 		return "redirect:/averias/";
 	}
 	
 	
-	private void LeerArchivosExcel (File archivoDestino) {
+	private  List<String> LeerArchivosExcel (File archivoDestino) {
+		List<String> errores =new ArrayList<>();
 		int contador = 1;
 		try {
 			WorkbookSettings opciones= new WorkbookSettings();
@@ -299,6 +308,7 @@ public class AveriasController {
 				int numFilas = hoja.getRows();
 				String dato;
 				for (int fila = 1; fila < numFilas; fila++) {
+					 StringBuilder filaError = new StringBuilder();
 					for (int columna = 0; columna < numColumnas; columna++) {
 						dato = hoja.getCell(columna, fila).getContents();
 						switch (contador) {
@@ -343,14 +353,18 @@ public class AveriasController {
 						
 						
 					}
-					
-					avservices.AgregarAveria(inc, sisego, zonal, zonificacion, contrata, tecnico_asignado, fecha_atencion, tipo_averia, diagnostico, parada_reloj, acciones_correctivas, estado, observaciones, cliente, departamento, distrito, direccion, materiales);
+					if (inc != "") {
+						avservices.AgregarAveria(inc, sisego, zonal, zonificacion, contrata, tecnico_asignado, fecha_atencion, tipo_averia, diagnostico, parada_reloj, acciones_correctivas, estado, observaciones, cliente, departamento, distrito, direccion, materiales);
+						
+					}else {	
+						 errores.add("Fila " + (fila + 1) + ": No se registro la averia porque no contiene Numero de Incidencia.");					
+					}
 					
 				}
 			}
 		} catch (Exception ioe) {
 			ioe.printStackTrace();
 		}
+		return errores;
 	}
-	
 }

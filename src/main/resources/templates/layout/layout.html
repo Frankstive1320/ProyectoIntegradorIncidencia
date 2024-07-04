@@ -150,6 +150,12 @@
 		<label th:text="${success}" class="alertado"></label>
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
 	</div>
+	<div class="alert alert-danger alert-dismissable cont-alerta" th:if="${not #lists.isEmpty(errores)}">
+    <ul>
+        <li th:each="error : ${errores}" th:text="${error}"></li>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
 	<div class="alert alert-danger alert-dismissable cont-alerta" th:if="${error != null}">
 		<label th:text="${error}" class="alertadonegativo"></label>
 		<button type="button" class="close" data-dismiss="alert">&times;</button>
