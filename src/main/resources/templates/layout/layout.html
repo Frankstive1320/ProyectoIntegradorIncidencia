@@ -74,52 +74,71 @@
 			</div>
 			<div class="collapse navbar-collapse" id="Iitechie_main_menu">
 				<ul class="navbar-nav menu-open text-lg-end">
-					<li class="menu-item-has-children">
-						<a href="#">
-							CERTIFICACION
-						</a>
-						<ul class="sub-menu" style="display: block;">
-							<li><a href="/tipobaremo/">TIPOS DE BAREMO</a></li>
-							<li><a href="/partidacategoria/">CATEGORIAS DE PARTIDAS</a></li>
-							<li><a href="/partida/">PARTIDAS</a></li>
-							<li><a href="/partidacertificacionaveria/reporte/web">CERTIFICACION DE AVERIAS - REPORTE</a></li>
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+                    <a href="#">
+                        CERTIFICACION
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="/tipobaremo/">TIPOS DE BAREMO</a></li>
+                        <li><a href="/partidacategoria/">CATEGORIAS DE PARTIDAS</a></li>
+                        <li><a href="/partida/">PARTIDAS</a></li>
+                        <li><a href="/partidacertificacionaveria/reporte/web">CERTIFICACION DE AVERIAS - REPORTE</a></li>
 
-						</ul>
-					</li>
-					<li class="menu-item-has-children">
-						<a href="#">
-							AVERIAS
-						</a>
-						<ul class="sub-menu" style="display: block;">
-							<li><a href="/averias/">LISTA DE AVERIAS</a></li>
+                    </ul>
+                </li>
+                                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+                    <a href="#">
+                        CERTIFICACION
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a  th:href="@{/certificacionaveria/}+${#authentication.getPrincipal().getUsername()}">CERTIFICACIONES AVERIAS</a></li>
+                        <li><a th:href="@{/certificacionaveria/nuevoCertificacionaveria/}+${#authentication.getPrincipal().getUsername()}">REGISTRAR CERTIFICACION AVERIAS</a></li>
 
-							<li><a href="/averias1/">LISTAR HISTORIAL</a></li><li><a href="/averias/importar">IMPORTAR AVERIAS</a></li><li><a href="/averias/reporte">REPORTE DE AVERIAS</a></li>
-						</ul>
-					</li>
-					<li class="menu-item-has-children">
-						<a href="#">
-							GESTION
-						</a>
-						<ul class="sub-menu" style="display: block;">
-							<li><a href="/userForm">USUARIOS</a></li>
-							<li><a href="/departamento">DEPARTAMENTOS</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+                    <a href="#">
+                        AVERIAS
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="/averias/">LISTA DE AVERIAS</a></li>
+
+                        <li><a href="/averias1/">LISTAR HISTORIAL</a></li><li><a href="/averias/importar">IMPORTAR AVERIAS</a></li><li><a href="/averias/reporte">REPORTE DE AVERIAS</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+                    <a href="#">
+                        AVERIAS
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a th:href="@{/averiasportecnico/}+${#authentication.getPrincipal().getUsername()}">LISTA DE AVERIAS</a></li>                    
+                    </ul>
+                </li>
+
+                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+                    <a href="#">
+                        GESTION
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="/userForm">USUARIOS</a></li>
+                        <li><a href="/departamento">DEPARTAMENTOS</a></li>
 
 
 
-						</ul>
-					</li>
-					<li class="menu-item-has-children">
-						<a href="#">
-							SOPORTE
-						</a>
-						<ul class="sub-menu" style="display: block;">
-							<li><a href="/asistente/">ASISTENTE VIRTUAL</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="#">
+                        SOPORTE
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="/asistente/">ASISTENTE VIRTUAL</a></li>
 
-						</ul>
-					</li>
-					<li class="nav-item">
-						<a id="username2">Admin</a>
-					</li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a th:text="${#authentication.getPrincipal().getUsername()}" class="nav-link disabled" id="username2"></a>
+                </li>
 					<li><a href="/logout" style=" padding-right: 10px;">
 						CERRAR SESION
 
