@@ -421,3 +421,14 @@ background: #006d84 !important;
 h1{
 color: #ffffff !important;
 }
+
+.btn-danger{
+color: #ffffff !important;
+background: #de0505 !important;
+}
+
+.btn-danger:hover{
+color: #ffffff !important;
+background: #bf0000 !important;
+}
+
