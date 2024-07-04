@@ -1,6 +1,6 @@
 <div class="table-responsive">
 	<table id="userList" class="table table-bordered table-hover table-striped">
-		<thead class="thead-light">
+		<thead class="colortabla">
 		<tr>
 			<!-- <th scope="col">#</th> -->
 			<th scope="col">NOMBRES</th>
@@ -10,7 +10,7 @@
 			<th></th>
 		</tr>
 		</thead>
-		<tbody>
+		<tbody class="table-light">
 		<tr th:each="user: ${userList}">
 			<!--<td th:text="${user.id}"></td> -->
 			<td th:text="${user.firstName}"></td>
@@ -19,10 +19,10 @@
 			<td th:text="${user.email}"></td>
 			<td>
 					<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')} or (${#authorization.expression('hasRole(''ROLE_USER'')')} and ${#httpServletRequest.remoteUser==user.username})">
-						<a href="#" th:href="@{'/editUser/'+ ${user.id}}"><i class="fas fa-edit"></i></a>
+						<a href="#" th:href="@{'/editUser/'+ ${user.id}}" class="pathicon"><i class="fas fa-edit"></i></a>
 					</span>
 					<span th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" >
-					| <a href="#" th:onclick="'javascript:confirmDelete(\''+ ${user.id} +'\');'"><i class="fas fa-user-times"></i></a>
+					| <a href="#" th:onclick="'javascript:confirmDelete(\''+ ${user.id} +'\');'" class="pathicon"><i class="fas fa-user-times"></i></a>
 					</span>
 			</td>
 		</tr>

@@ -350,6 +350,9 @@ path:hover{
 color: #ffffff !important;
 }
 
+.pathicon
+
+
 .enviogpt{
   height: auto !important;
   line-height: 38px !important;
@@ -369,4 +372,43 @@ color: #a80101 !important;
 
 .cont-alerta{
 border-radius: 1rem !important;
+}
+
+.colortabla{
+color: #ffffff !important;
+background: #00808b !important;
+}
+
+.btn-dark{
+background: #009ca8 !important;
+}
+
+.page-link{
+color: #ffffff !important;
+background-color: #009ca8 !important;
+border-block-color: #ffffff !important;
+box-shadow: 0 8px 20px rgb(11 92 88 / 27%) !important;
+}
+
+.nav-link.active{
+color: #ffffff !important;
+background-color: #009ca8 !important;
+}
+.nav-link{
+color: #ffffff !important;
+background: #00808b !important;
+}
+
+.btn-primary{
+color: #ffffff !important;
+background: #0a7d95 !important;
+}
+
+.btn-primary:hover{
+color: #ffffff !important;
+background: #006d84 !important;
+}
+
+h1{
+color: #ffffff !important;
 }

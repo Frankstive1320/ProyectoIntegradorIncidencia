@@ -28,8 +28,8 @@
 		<h1>PARTIDAS DE CERTIFICACION</h1>
 			<br><br>
 			<div class="table-responsive">
-			<table id="userList" class="table table-light table-bordered table-hover table-striped">
-				<thead>
+			<table id="userList" class="table table-bordered table-hover table-striped">
+				<thead class="colortabla">
 					<tr>
 						<th>PARTIDA</th>
 						<th>CLIENTE</th>
@@ -37,7 +37,7 @@
 						<th>BAREMO</th>
 					</tr>
 				</thead> 
-				<tbody>
+				<tbody class="table-light">
 					<tr th:each="partidacertificacion:${partidacertificaciones}">
 						<td th:text="${partidacertificacion.partida.partidadescripcion}"></td>
 						<td th:text="${partidacertificacion.certificacion.trabajo.cliente}"></td>

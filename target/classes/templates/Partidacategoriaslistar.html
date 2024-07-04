@@ -29,21 +29,21 @@
 			<a th:href="@{/partidacategoria/nuevoCategoria}" class="btn btn-dark"><i class="fa fa-plus fa-1x" aria-hidden="true"></i>&nbsp NUEVO</a>
 			<br><br>
 			<div class="table-responsive">
-			<table id="userList" class="table table-light table-bordered table-hover table-striped">
-				<thead>
+			<table id="userList" class="table table-bordered table-hover table-striped">
+				<thead class="colortabla">
 					<tr>
 						<th>NOMBRE</th>
 						<th>DESCRIPCION</th>
 						<th></th>
 					</tr>
 				</thead> 
-				<tbody>
+				<tbody class="table-light">
 					<tr th:each="partidacategoria:${partidacategorias}">
 						<td th:text="${partidacategoria.partidacategorianombre}"></td>
 						<td th:text="${partidacategoria.partidacategoriadescripcion}"></td>
 						<td>
-							<a th:href="@{/partidacategoria/editar/}+${partidacategoria.partidacategoriaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
-							<a href="#" th:onclick="eliminarCatPar([[${partidacategoria.partidacategoriaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+							<a th:href="@{/partidacategoria/editar/}+${partidacategoria.partidacategoriaid}" class="btn btn-warning"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminarCatPar([[${partidacategoria.partidacategoriaid}]])" class="btn btn-danger"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 				</tbody>
