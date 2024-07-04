@@ -358,3 +358,15 @@ color: #ffffff !important;
 .logonav{
   width:200px;
 }
+
+.alertado{
+color: #0f815c !important;
+}
+
+.alertadonegativo{
+color: #a80101 !important;
+}
+
+.cont-alerta{
+border-radius: 1rem !important;
+}
