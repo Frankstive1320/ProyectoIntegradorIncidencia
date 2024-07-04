@@ -74,72 +74,144 @@
 			</div>
 			<div class="collapse navbar-collapse" id="Iitechie_main_menu">
 				<ul class="navbar-nav menu-open text-lg-end">
+					<!-- GESTIÓN DE PARTIDAS -->
+
+					<!--<li class="menu-item-has-children">
+						<a href="#">
+							CERTIFICACION
+						</a>
+						<ul class="sub-menu" style="display: block;">
+							<li><a href="/tipobaremo/">TIPOS DE BAREMO</a></li>
+							<li><a href="/partidacategoria/">CATEGORIAS DE PARTIDAS</a></li>
+							<li><a href="/partida/">PARTIDAS</a></li>
+							<li><a href="/partidacertificacionaveria/reporte/web">CERTIFICACION DE AVERIAS - REPORTE</a></li>
+
+						</ul>
+					</li>-->
+
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							CERTIFICACION
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>        <a th:href="@{/certificacionaveria/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">CERTIFICACIONES AVERIAS</a></li>
+							<li>        <a th:href="@{/certificacionaveria/nuevoCertificacionaveria/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">REGISTRAR CERTIFICACION AVERIAS</a></li>
+						</ul>
+					</li>
 					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-                    <a href="#">
-                        CERTIFICACION
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a href="/tipobaremo/">TIPOS DE BAREMO</a></li>
-                        <li><a href="/partidacategoria/">CATEGORIAS DE PARTIDAS</a></li>
-                        <li><a href="/partida/">PARTIDAS</a></li>
-                        <li><a href="/partidacertificacionaveria/reporte/web">CERTIFICACION DE AVERIAS - REPORTE</a></li>
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							CERTIFICACION
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>          <a th:href="@{/tipobaremo/}" th:disabled="${disableFields}">TIPOS DE BAREMO</a></li>
+							<li>          <a th:href="@{/partidacategoria/}" th:disabled="${disableFields}">CATEGORIAS DE PARTIDAS</a></li>
+							<li>    <a th:href="@{/partida/}" th:disabled="${disableFields}">PARTIDAS</a></li>
 
-                    </ul>
-                </li>
-                                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
-                    <a href="#">
-                        CERTIFICACION
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a  th:href="@{/certificacionaveria/}+${#authentication.getPrincipal().getUsername()}">CERTIFICACIONES AVERIAS</a></li>
-                        <li><a th:href="@{/certificacionaveria/nuevoCertificacionaveria/}+${#authentication.getPrincipal().getUsername()}">REGISTRAR CERTIFICACION AVERIAS</a></li>
-
-                    </ul>
-                </li>
-                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-                    <a href="#">
-                        AVERIAS
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a href="/averias/">LISTA DE AVERIAS</a></li>
-
-                        <li><a href="/averias1/">LISTAR HISTORIAL</a></li><li><a href="/averias/importar">IMPORTAR AVERIAS</a></li><li><a href="/averias/reporte">REPORTE DE AVERIAS</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
-                    <a href="#">
-                        AVERIAS
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a th:href="@{/averiasportecnico/}+${#authentication.getPrincipal().getUsername()}">LISTA DE AVERIAS</a></li>                    
-                    </ul>
-                </li>
-
-                <li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
-                    <a href="#">
-                        GESTION
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a href="/userForm">USUARIOS</a></li>
-                        <li><a href="/departamento">DEPARTAMENTOS</a></li>
+							<li>    <a th:href="@{/partidacertificacionaveria/reporte/web}" th:disabled="${disableFields}">CERTIFICACION DE AVERIAS - REPORTE</a> </li>
 
 
+						</ul>
+					</li>
 
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">
-                        SOPORTE
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a href="/asistente/">ASISTENTE VIRTUAL</a></li>
+					<!-- AVERIAS -->
 
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a th:text="${#authentication.getPrincipal().getUsername()}" class="nav-link disabled" id="username2"></a>
-                </li>
-					<li><a href="/logout" style=" padding-right: 10px;">
+					<!--<li class="menu-item-has-children">
+						<a href="#">
+							AVERIAS
+						</a>
+						<ul class="sub-menu" style="display: block;">
+							<li><a href="/averias/">LISTA DE AVERIAS</a></li>
+
+							<li><a href="/averias1/">LISTAR HISTORIAL</a></li><li><a href="/averias/importar">IMPORTAR AVERIAS</a></li><li><a href="/averias/reporte">REPORTE DE AVERIAS</a></li>
+						</ul>
+					</li>-->
+
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							AVERIAS
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>         <a th:href="@{/averiasportecnico/}+${#authentication.getPrincipal().getUsername()}" th:disabled="${disableFields}">LISTA DE AVERIAS</a>	</li>
+						</ul>
+					</li>
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							AVERIAS
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>      <a th:href="@{/averias/}" th:disabled="${disableFields}">LISTA DE AVERIAS</a></li>
+							<li> <a th:href="@{/averias1/}">LISTAR HISTORIAL</a>   </li>
+							<li>    <a th:href="@{/averias/importar}">IMPORTAR AVERIAS</a>        </li>
+							<li>    <a th:href="@{/averias/reporte}">REPORTE DE AVERIAS</a>        </li>
+						</ul>
+					</li>
+
+					<!-- GESTIÓN DE USUARIOS -->
+
+					<!--<li class="menu-item-has-children">
+						<a href="#">
+							GESTION
+						</a>
+						<ul class="sub-menu" style="display: block;">
+							<li><a href="/userForm">USUARIOS</a></li>
+							<li><a href="/departamento">DEPARTAMENTOS</a></li>
+						</ul>
+					</li>-->
+
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_SOPORTE'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							GESTION DE USUARIOS
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>      <a th:href="@{/userForm}">USUARIOS</a> </li>
+						</ul>
+					</li>
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							GESTION
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>		          <a th:href="@{/userForm}">USUARIOS</a></li>
+							<li>	  <a th:href="@{/departamento}">DEPARTAMENTOS</a></li>
+						</ul>
+					</li>
+
+					<!-- SOPORTE -->
+
+					<!--<li class="menu-item-has-children">
+						<a href="#">
+							SOPORTE
+						</a>
+						<ul class="sub-menu" style="display: block;">
+							<li><a href="/asistente/">ASISTENTE VIRTUAL</a></li>
+
+						</ul>
+					</li>-->
+
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							SOPORTE
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>   <a th:href="@{/asistente/}" th:disabled="${disableFields}">ASISTENTE VIRTUAL</a>      </li>
+						</ul>
+					</li>
+					<li class="menu-item-has-children" th:if="${#authorization.expression('hasRole(''ROLE_TECNICO'')')}">
+						<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							SOPORTE
+						</a>
+						<ul class="sub-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li>      <a th:href="@{/asistente/}" th:disabled="${disableFields}">ASISTENTE VIRTUAL</a>      </li>
+						</ul>
+					</li>
+
+					<!-- NOMBRE DE USUARIO CONECTADO -->
+					<li class="nav-item">
+						<a th:text="${#authentication.getPrincipal().getUsername()}" id="username2"></a>
+					</li>
+
+					<!-- CERRAR SESIÓN -->
+					<li><a href="#" th:href="@{/logout}" style=" padding-right: 10px;">
 						CERRAR SESION
 
 					</a><a> <span class="float-right"><svg class="svg-inline--fa fa-sign-out-alt fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="sign-out-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"></path></svg><!-- <i class="fas fa-sign-out-alt"> </i> --></span> </a>
