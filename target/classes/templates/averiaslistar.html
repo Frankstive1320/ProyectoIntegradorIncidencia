@@ -71,10 +71,10 @@
 						<td th:text="${averias.observaciones}"></td>
 						<td th:text="${averias.materiales}"></td>
 						<td>
-						<a th:href="@{/averias/editar/}+${averias.averiaid}" class="btn btn-warning"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+						<a th:href="@{/averias/editar/}+${averias.averiaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
 						</td>
 						<td>
-							<a href="#" th:onclick="eliminaAver([[${averias.averiaid}]])" class="btn btn-danger"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminaAver([[${averias.averiaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
 						</td>
 											
 					</tr>

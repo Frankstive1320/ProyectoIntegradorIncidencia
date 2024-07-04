@@ -44,8 +44,8 @@
 						<td th:text="${subcategoria.subcategoriadescripcion}"></td>
 						<td th:text="${subcategoria.categoria.categorianombre}"></td>
 						<td>
-							<a th:href="@{/subcategoria/editar/}+${subcategoria.subcategoriaid}" class="btn btn-warning"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
-							<a href="#" th:onclick="eliminarSub([[${subcategoria.subcategoriaid}]])" class="btn btn-danger"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+							<a th:href="@{/subcategoria/editar/}+${subcategoria.subcategoriaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminarSub([[${subcategoria.subcategoriaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 				</tbody>

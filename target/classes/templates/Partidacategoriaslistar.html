@@ -42,8 +42,8 @@
 						<td th:text="${partidacategoria.partidacategorianombre}"></td>
 						<td th:text="${partidacategoria.partidacategoriadescripcion}"></td>
 						<td>
-							<a th:href="@{/partidacategoria/editar/}+${partidacategoria.partidacategoriaid}" class="btn btn-warning"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
-							<a href="#" th:onclick="eliminarCatPar([[${partidacategoria.partidacategoriaid}]])" class="btn btn-danger"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+							<a th:href="@{/partidacategoria/editar/}+${partidacategoria.partidacategoriaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminarCatPar([[${partidacategoria.partidacategoriaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 				</tbody>
