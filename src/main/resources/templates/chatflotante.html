@@ -99,44 +99,59 @@
 
         // Función para enviar el mensaje del usuario
         function sendMessage() {
-            const userMessage = userInput.value.trim();
-            if (userMessage !== '') {
-                addMessage('user', userMessage);
-                // Aquí puedes enviar el mensaje del usuario al servidor
-                fetch('/chat/complete', {
+        const userMessage = userInput.value.trim();
+        if (userMessage !== '') {
+            addMessage('user', userMessage);
+            fetch('/chat/complete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'userMessage': userMessage
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const assistantMessage = data.choices[0].message.content;
+                addMessage('assistant', assistantMessage);
+
+                // Llamar al endpoint para generar el audio basado en userMessage
+                fetch('/api/tts/generate', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/json'
                     },
-                    body: new URLSearchParams({
-                        'userMessage': userMessage
-                    })
+                    body: JSON.stringify({ text: assistantMessage })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    const assistantMessage = data.choices[0].message.content;
-                    addMessage('assistant', assistantMessage);
+                .then(response => response.text())
+                .then(audioFile => {
+                    // Crear un elemento de audio para reproducir el archivo generado
+                    const audioElement = new Audio(audioFile);
+                    audioElement.play();
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    console.error('Error al generar el audio:', error);
                     addMessage('assistant', 'Lo siento, hubo un error al procesar tu solicitud.');
                 });
+            })
+            .catch(error => {
+                console.error('Error en la respuesta del chat:', error);
+                addMessage('assistant', 'Lo siento, hubo un error al procesar tu solicitud.');
+            });
 
-                // Limpiar el campo de entrada
-                userInput.value = '';
-            }
+            userInput.value = '';
         }
+    }
 
-        // Manejar el clic en el botón de enviar
-        sendButton.addEventListener('click', sendMessage);
+    sendButton.addEventListener('click', sendMessage);
 
-        // Manejar la pulsación de Enter en el campo de entrada
-        userInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        });
+    userInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
     });
+});
 </script>
 </body>
 </html>
