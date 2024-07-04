@@ -52,8 +52,8 @@
 						<td th:text="${partida.partidaum}"></td>
 						<td th:text="${partida.partidabaremo}"></td>
 						<td>
-							<a th:href="@{/partida/editar/}+${partida.partidaid}" class="btn btn-warning"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
-							<a href="#" th:onclick="eliminarPar([[${partida.partidaid}]])" class="btn btn-danger"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+							<a th:href="@{/partida/editar/}+${partida.partidaid}" class="btn btn-link"><i class="fas fa-edit fa-2x" aria-hidden="true"></i></a>
+							<a href="#" th:onclick="eliminarPar([[${partida.partidaid}]])" class="btn btn-link"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 				</tbody>
