@@ -377,6 +377,15 @@ border-radius: 1rem !important;
 .colortabla{
 color: #ffffff !important;
 background: #00808b !important;
+ box-shadow: 0 8px 20px rgb(40 58 65 / 53%) !important;
+}
+
+table{
+   box-shadow: 0 8px 20px rgb(40 58 65 / 53%) !important;
+}
+
+.dataTables_scroll{
+ box-shadow: 0 8px 20px rgb(40 58 65 / 53%) !important;
 }
 
 .btn-dark{
