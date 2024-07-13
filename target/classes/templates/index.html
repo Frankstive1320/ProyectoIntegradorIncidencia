@@ -24,7 +24,7 @@
         </div>
 
         <div class="login__forms">
-            <form th:action="@{/login}" method="post" class="login__registre" id="login-in">
+            <form th:action="@{/login}" method="post" class="login__registre" id="login-in" onsubmit="return onSubmit(event)">
                 <h1 class="login__title">Sign In</h1>
                 Welcome Back ! Sign in to continue to Telemarketing.
 
@@ -37,18 +37,19 @@
                     <i class='bx bx-lock-alt login__icon'></i>
                     <input type="password" placeholder="Password" class="login__input" name="password">
                 </div>
+               <br>
+                <div class="g-recaptcha" data-sitekey="6LcXGgUqAAAAADWbAvnCtfecsS8rqoeB7UmmvpKG"></div>
 
-                <!--<br>
-                <div class="g-recaptcha" data-sitekey="6LcXGgUqAAAAADWbAvnCtfecsS8rqoeB7UmmvpKG"></div>-->
-                <!-- Reemplaza TU_SITE_KEY por tu Site Key -->
-
-                <button type="submit" class="login__button" > Sign In</button>
+                <button type="submit" class="login__button">Sign In</button>
 
                 <div th:if="${param.error}" class="alert alert-danger" role="alert">
-                    NOMBRE DE USUARIO O CONTRASENA INVALIDA
+                    NOMBRE DE USUARIO O CONTRASEÑA INCORRECTA
                 </div>
                 <div th:if="${param.logout}" class="alert alert-success" role="alert">
-                    HAS CERRADO TU SESION
+                    HAS CERRADO TU SESIÓN
+                </div>
+                <div id="recaptcha-error" class="alert alert-danger" style="display:none;" role="alert">
+                    Por favor resuelve el reCAPTCHA.
                 </div>
 
             </form>
@@ -59,32 +60,22 @@
 
 <!--===== JS =====-->
 <script>
-    /*===== LOGIN SHOW and HIDDEN =====*/
-const signUp = document.getElementById('sign-up'),
-    signIn = document.getElementById('sign-in'),
-    loginIn = document.getElementById('login-in'),
-    loginUp = document.getElementById('login-up')
-
-
-signUp.addEventListener('click', ()=>{
-    // Remove classes first if they exist
-    loginIn.classList.remove('block')
-    loginUp.classList.remove('none')
-
-    // Add classes
-    loginIn.classList.toggle('none')
-    loginUp.classList.toggle('block')
-})
-
-signIn.addEventListener('click', ()=>{
-    // Remove classes first if they exist
-    loginIn.classList.remove('none')
-    loginUp.classList.remove('block')
-
-    // Add classes
-    loginIn.classList.toggle('block')
-    loginUp.classList.toggle('none')
-})
+    function onSubmit(event) {
+        var response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            document.getElementById('recaptcha-error').style.display = 'block';
+            event.preventDefault();
+            return false;
+        } else {
+            document.getElementById('recaptcha-error').style.display = 'none';
+        }
+        // Aquí puedes agregar código adicional para validar las credenciales si lo deseas
+        // Por ejemplo, validar en JavaScript antes de enviar el formulario
+        // Si las credenciales son incorrectas, puedes mostrar el mensaje de error correspondiente
+        // En un ejemplo real, validarías las credenciales con una llamada AJAX o similar.
+        return true;
+    }
 </script>
 </body>
 </html>
+
