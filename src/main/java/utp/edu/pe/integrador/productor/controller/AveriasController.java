@@ -40,6 +40,7 @@ import utp.edu.pe.integrador.productor.entity.User;
 import utp.edu.pe.integrador.productor.interfacesservice.IAveriasService;
 import utp.edu.pe.integrador.productor.interfacesservice.IDepartamentoService;
 import utp.edu.pe.integrador.productor.interfacesservice.IDistritoService;
+import utp.edu.pe.integrador.productor.interfacesservice.IEmailService;
 import utp.edu.pe.integrador.productor.interfacesservice.IProvinciaService;
 import utp.edu.pe.integrador.productor.interfacesservice.IUserService;
 import utp.edu.pe.integrador.productor.model.Averias;
@@ -65,6 +66,9 @@ public class AveriasController {
 	
 	@Autowired
 	private IDistritoService distriservicio;
+	
+	@Autowired
+	private IEmailService emailservicio;
 	
 	String inc=null;
 	String sisego=null; 
@@ -131,7 +135,9 @@ public class AveriasController {
 		}
 		pAveria.setDepartamento(departservicio.BuscarDepartamentobyId(Integer.parseInt(pAveria.getDepartamento())).getNombreDepartamento());  
 		avservices.grabarAverias(pAveria);
-		
+		if(pAveria.getEstado().equals("EJECUTADO") ) {
+			emailservicio.sedEmail("dj4shba@gmail.com", "SE EJECUTO LA AVERIA DE INCIDENCIA "+pAveria.getInc(), "SE EJECUTO LA AVERIA");	
+		}
 		atributo.addFlashAttribute("success","AVERIA REGISTRADA CORRECTAMENTE");
 		return "redirect:/averias/";
 	}
@@ -146,7 +152,10 @@ public class AveriasController {
 			return "AveriaformNuevo";
 		}
 		avservices.grabarAverias(pAveria);
-		String nombretecnico = pAveria.getContrata(); 
+		String nombretecnico = pAveria.getContrata();
+		if(pAveria.getEstado().equals("EJECUTADO") ) {
+			emailservicio.sedEmail("dj4shba@gmail.com", "SE EJECUTO LA AVERIA DE INCIDENCIA "+pAveria.getInc(), "SE EJECUTO LA AVERIA");	
+		}
 		
 		atributo.addFlashAttribute("success","AVERIA REGISTRADA CORRECTAMENTE");
 		return "redirect:/averiasportecnico/"+ nombretecnico;
