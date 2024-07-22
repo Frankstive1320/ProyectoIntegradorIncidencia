@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -136,7 +138,12 @@ public class AveriasController {
 		pAveria.setDepartamento(departservicio.BuscarDepartamentobyId(Integer.parseInt(pAveria.getDepartamento())).getNombreDepartamento());  
 		avservices.grabarAverias(pAveria);
 		if(pAveria.getEstado().equals("EJECUTADO") ) {
-			emailservicio.sedEmail("dj4shba@gmail.com", "SE EJECUTO LA AVERIA DE INCIDENCIA "+pAveria.getInc(), "SE EJECUTO LA AVERIA");	
+			 try {
+		            emailservicio.sedEmail("dj4shba@gmail.com",  "SE EJECUTO LA AVERIA DE INCIDENCIA " + pAveria.getInc(), pAveria);
+		        } catch (MessagingException e) {
+		            e.printStackTrace();
+		            // Manejar la excepción de manera apropiada
+		        }			
 		}
 		atributo.addFlashAttribute("success","AVERIA REGISTRADA CORRECTAMENTE");
 		return "redirect:/averias/";
@@ -154,7 +161,12 @@ public class AveriasController {
 		avservices.grabarAverias(pAveria);
 		String nombretecnico = pAveria.getContrata();
 		if(pAveria.getEstado().equals("EJECUTADO") ) {
-			emailservicio.sedEmail("dj4shba@gmail.com", "SE EJECUTO LA AVERIA DE INCIDENCIA "+pAveria.getInc(), "SE EJECUTO LA AVERIA");	
+			 try {
+		            emailservicio.sedEmail("dj4shba@gmail.com",  "SE EJECUTO LA AVERIA DE INCIDENCIA " + pAveria.getInc(), pAveria);
+		        } catch (MessagingException e) {
+		            e.printStackTrace();
+		            // Manejar la excepción de manera apropiada
+		        }	
 		}
 		
 		atributo.addFlashAttribute("success","AVERIA REGISTRADA CORRECTAMENTE");
